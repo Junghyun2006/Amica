@@ -1,0 +1,33 @@
+.info-container-2 {
+    border: 1px solid black;
+    background-color: #db3cce;
+    width: 100%;
+    height: 680px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-container-row {
+    border: 1px solid black;
+    background-color: #3cdb51;
+    width: 1260px;
+    height: 100%;
+    flex-direction: row;
+}
+
+.content-image-1 {
+    border: 1px solid black;
+    background-color: #2411ce;
+    width: 590px;
+    height: 100%;
+}
+
+.content-blurb-1 {
+    border: 1px solid black;
+    background-color: #c71853;
+    width: 590px;
+    height: 100%;
+}
+
+
+

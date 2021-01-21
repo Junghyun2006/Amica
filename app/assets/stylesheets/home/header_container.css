@@ -1,0 +1,33 @@
+/* body {
+    margin-top: -16px;
+} */
+
+.header-container {
+    border: 1px solid black;
+    background-color: #2765E8;
+    height: 630px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.content-container-col {
+    border: 1px solid black;
+    background-color: #d0d314;
+    width: 1260px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container-1 {
+    border: 1px solid black;
+    background-color: #31868C;
+    width: 100%;
+    height: 550px;
+}
+
+/* 1. always add borders to everything 
+   2. Set all your components to have different background color to see what youre looking at
+   3.write it in the order in which the css appears 1260 680*/
