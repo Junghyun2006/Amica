@@ -14,7 +14,7 @@ import {
 //AuthRoutes can't be accessed by people who are ALREADY logged in, 
 //ProtectedRoutes can't be accessed by peopple who are NOT logged in
 const App = () => (
-    <div>
+    <div className="app">
         <Switch>
             <Route exact path='/' component={Splash}/>
             <AuthRoute exact path='/signup' component={SignupContainer} />

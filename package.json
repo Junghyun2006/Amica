@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/Junghyun2006/Discord-Clone/issues"
   },
-  "homepage": "https://github.com/Junghyun2006/Discord-Clone#readme"
+  "homepage": "https://github.com/Junghyun2006/Discord-Clone#readme",
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
 }

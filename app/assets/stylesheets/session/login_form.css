@@ -1,0 +1,122 @@
+.login-box {
+    
+    height: 344px;
+    width: 720px;
+    background:#363A3E;
+    color: #fff;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 2px 11px 0 rgba(0,0,0,.3) ;
+
+}
+
+.login-form {
+    width: 414px;
+    height: 342px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+.greeting h2 {
+    font-size: 23px;
+    margin: 3px 0 11px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+.greeting h3 {
+    color: #B8BBBE;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 5px;
+}
+
+.username-label, .password-label, .email-label {
+    font-size: 12px;
+    font-weight: bolder;
+    color: #8E9297;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+
+.password-label {
+    margin-top: -7px;
+}
+
+.username-input, .email-input {
+    width: 392px;
+    height: 19px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 9px;
+    border: 1px solid #202225;
+    border-radius: 3px;
+    background-color: #303438;
+    color: white;
+}
+
+.password-input {
+    width: 392px;
+    height: 19px;
+    padding: 10px;
+    margin-top: 9px;
+    border: 1px solid #202225;
+    border-radius: 3px;
+    background-color: #303438;
+    color: white;
+}
+
+.email-input:hover, .password-input:hover, .username-input:hover {
+    border-color: black;
+    outline: none;
+}
+
+.email-input:focus, .password-input:focus, .username-input:focus {
+    border-color: #7289DA;
+    outline: none !important;; 
+}
+
+
+
+.submit-btn {
+    width: 416px;
+    height: 44px;
+    margin: 22px 0 8px;
+    padding: 2px 16px;
+    background-color:#7289DA;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #677BC4;
+}
+
+.forgot-password {
+    text-decoration: none;
+    color: #7289DA;
+    font-size: 14px;
+    
+}
+
+.registration {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4px;
+}
+.regist-link {
+    text-decoration: none;
+    color: #7289DA;
+    font-size: 14px;
+}
+
+.need-acc {
+    color: #72767D;
+    font-size: 14px;
+}

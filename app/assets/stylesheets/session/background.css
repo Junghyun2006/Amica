@@ -1,0 +1,19 @@
+html, body, main {
+    height: 100%;
+}
+.app {
+    height: 100%;
+}
+
+.session-form-container {
+    background: url(https://discord.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
