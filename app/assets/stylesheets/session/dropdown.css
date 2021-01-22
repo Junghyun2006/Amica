@@ -1,0 +1,39 @@
+
+.dob {
+    position: relative;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+select {
+    max-height: 200px;
+}
+.month-input {
+    display: inline-flex;
+    list-style: none;
+    background-color: 
+}
+
+.day-input {
+    display: inline-flex;
+    list-style: none;
+    color: black;
+}
+
+.year-input {
+    display: inline-flex;
+    list-style: none;
+    color: black;
+}
+
+/* .year-input:focus {
+    max-height: 100px;
+    background-color: yellow;
+} */
+
+.dropdown-day:focus {
+    background: yellow;
+}
+
+

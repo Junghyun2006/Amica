@@ -10,6 +10,10 @@ const msp = (state) => {
             email: '',
             password: ''
         },
+        demo: {
+            email: 'demo@gmail.com',
+            password: 'password'
+        },
         errors: state.errors.session
     }
 }

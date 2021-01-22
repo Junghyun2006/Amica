@@ -7,6 +7,8 @@
     border-radius: 8px;
     padding: 32px;
     box-shadow: 0 2px 11px 0 rgba(0,0,0,.3) ;
+    display: flex;
+    flex-direction: row;
 
 }
 
@@ -79,12 +81,10 @@
     outline: none !important;; 
 }
 
-
-
 .submit-btn {
     width: 416px;
     height: 44px;
-    margin: 22px 0 8px;
+    /* margin: 22px 0 8px; */
     padding: 2px 16px;
     background-color:#7289DA;
     color: white;
@@ -92,23 +92,35 @@
     border-radius: 3px;
     border: none;
     cursor: pointer;
+    position: relative;
+    top: 22px;
 }
 
 .submit-btn:hover {
     background-color: #677BC4;
 }
 
-.forgot-password {
+.demo-user-btn {
     text-decoration: none;
     color: #7289DA;
     font-size: 14px;
+    border: none;
+    padding: 0;
+    background: none;
     
+}
+
+.demo-user-btn:hover, .regist-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .registration {
     display: flex;
     flex-direction: row;
     margin-top: 4px;
+    position: relative;
+    top: 30px;
 }
 .regist-link {
     text-decoration: none;
@@ -119,4 +131,59 @@
 .need-acc {
     color: #72767D;
     font-size: 14px;
+}
+
+.demo-user {
+    width: 240px;
+    height: 344px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 66px;
+   
+}
+.qr-code {
+    width: 160px;
+    height: 160px;
+    align-self: center;
+    top: 28px;
+    position: relative;
+    padding: 8px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.demo-user h2 {
+    font-size: 23px;
+    margin: 3px 0 11px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    top: 63px;
+    position: relative;
+
+}
+
+
+.demo-user h3 {
+    width: 240px;
+    height: 40px;
+    color: #B8BBBE;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    top: 55px;
+    position: relative;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    line-height: 22px;
+    font-family: "Roboto", sans-serif;
+    
+}
+
+.demo-user strong {
+    font-weight: bolder;
+    font-family: "Roboto", sans-serif;
 }
