@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DOBDropDown from '../../components/dropdown/dropdown';
+import DropDownIndex from '../dropdown/dropdown_index';
 // import QrImage from '../../../app/assets/images/qr_img.png';
 
 class SessionForm extends React.Component {
@@ -7,6 +9,8 @@ class SessionForm extends React.Component {
         super(props);
         this.state = props.userInfo;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.onOptionClicked = this.onOptionClicked.bind(this);
+        // this.normalizeDate = this.normalizeDate.bind(this);
     }
 
     handleInput(type) {
@@ -15,10 +19,22 @@ class SessionForm extends React.Component {
         }
     }
 
+    normalizeDate(e) {
+        const date = new Date(`${this.state.dob.month} ${this.state.dob.day}, ${this.state.dob.year}`)
+            return () => {
+                this.setState({ dob: date });
+            }  
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.action(this.state)
-            .then(() => this.props.history.push('/')); // modify the string inside push
+            .then(() => this.props.history.push('/')); // modify the string inside push - MOST LIKELY THE ERROR
+    }
+
+    onOptionClicked(value) {
+        const newState = {...this.state.dob, ...value};
+        this.setState({dob: newState});
     }
 
     renderErrors() {
@@ -54,52 +70,6 @@ class SessionForm extends React.Component {
                 </label>
         ) : (null);
 
-        const days = () => {
-            const arr = [];
-            for (let i = 1; i <= 31; i++) {
-                arr.push(<option value={i.toString()} key={`days-${i}`} className="dropdown-day" >{i}</option>)
-            }
-            return arr;
-        }
-
-        const years = () => {
-            const arr = [];
-            for (let i = 2018; i > 1869; i--) {
-                arr.push(<option value={i.toString()} key={`years-${i}`} className="dropdown-year">{i}</option >)
-            }
-            return arr;
-        }
-
-        const dateInput = (this.props.formType === 'signup') ? (
-            <div className="dob">
-                <label className="dob-label">DATE OF BIRTH
-                    <select className="month-input">
-                        <option value="month" className="dropdown-month">Month</option>
-                        <option value="january" className="dropdown-month">January</option>
-                        <option value="february" className="dropdown-month">February</option>
-                        <option value="march" className="dropdown-month">March</option>
-                        <option value="april" className="dropdown-month">April</option>
-                        <option value="may" className="dropdown-month">May</option>
-                        <option value="june" className="dropdown-month">June</option>
-                        <option value="july" className="dropdown-month">July</option>
-                        <option value="august" className="dropdown-month">August</option>
-                        <option value="september" className="dropdown-month">September</option>
-                        <option value="october" className="dropdown-month">October</option>
-                        <option value="november" className="dropdown-month">November</option>
-                        <option value="december" className="dropdown-month">December</option>
-                    </select>
-                    <select className="day-input">
-                        <option value="day" className="dropdown-day">Day</option>
-                        {days()}
-                    </select>
-                    <select className="year-input">
-                        <option value="year" className="dropdown-year">Year</option>
-                        {years()}
-                    </select>
-                </label>
-            </div>
-        ) : (null);
-
         const regisButton = (this.props.formType === 'signup') ? (null) : (
             <div className="registration">
                 <h2 className="need-acc">Need an account?&nbsp;</h2>
@@ -108,7 +78,8 @@ class SessionForm extends React.Component {
         );
 
         const submitButton = (this.props.formType === 'signup') ? 
-            ('Continue') : ("Login");
+            (<button onClick={this.normalizeDate()} className="submit-btn">Continue</button>) :
+            (<button className="submit-btn">Login</button>)
         
         const sessionFormType = (this.props.formType === 'signup') ? 
             ('signup-form') : ('login-form');
@@ -129,7 +100,15 @@ class SessionForm extends React.Component {
                 <h2>Log in with QR Code</h2>
                 <h3>Scan this with the <strong>Discord mobile app</strong> to log in instantly </h3>
             </div>   
-            );    
+            );  
+
+        const dropDown = (this.props.formType === 'signup') ? (
+            <div className="drop-down-container">
+                <DOBDropDown onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="DAYS" />
+                <DOBDropDown onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="MONTH" />
+                <DOBDropDown onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="YEARS" />
+            </div>
+        ) : (null);       
         
         return (
             
@@ -153,11 +132,11 @@ class SessionForm extends React.Component {
                                 className="password-input" />
                         </label>
                         {forgotPassword}
-                        <button className="submit-btn">{submitButton}</button>
+                        {submitButton}
                         {regisButton}
-                        {dateInput}
+                        {dropDown}
                     </form>
-                    {qrCode}                         
+                    {qrCode} 
                 </div> 
             </div>
         );
@@ -165,7 +144,5 @@ class SessionForm extends React.Component {
 };
 
 export default SessionForm;
-
-
 
 

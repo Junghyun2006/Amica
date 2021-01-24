@@ -1,5 +1,5 @@
 
-.dob {
+.drop-down-container {
     position: relative;
     top: 100px;
     display: flex;
@@ -35,4 +35,7 @@ select {
     background: yellow;
 }
 
+.dd-btn-day:hover, .dd-btn-year:hover, .dd-btn-month:hover {
+    background-color: yellow;
+}
 

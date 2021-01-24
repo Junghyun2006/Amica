@@ -12,4 +12,7 @@ demo = User.create!(
     password: 'password',
     email: 'demo@gmail.com',
     tag: '0000',
+    dob: '2009-09-16'
 )
+
+# DateTime.new(2009,9,14)
