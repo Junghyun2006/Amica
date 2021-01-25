@@ -132,14 +132,14 @@ class SessionForm extends React.Component {
                 <div className={formBoxType}>
                     <form onSubmit={this.handleSubmit} className={sessionFormType}>
                         {greeting}
-                            <label className="email-label">EMAIL {renderEmailErr}
+                            <label className="email-label">EMAIL
                                 <input type="text"
                                     value={this.state.email}
                                     onChange={this.handleInput('email')}
                                     className="email-input" />
                             </label>
                         {usernameInput}
-                        <label className="password-label">PASSWORD {renderEmailErr}
+                        <label className="password-label">PASSWORD 
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.handleInput('password')}
