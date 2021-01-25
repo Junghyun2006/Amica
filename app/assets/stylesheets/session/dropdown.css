@@ -31,7 +31,7 @@
     outline: none;
 }
 
-.drop-btn-MONTH {
+.drop-btn-Month {
     width: 152px;
     height: 38px;
     position: relative;
@@ -39,7 +39,7 @@
    
 }
 
-.drop-btn-DAY {
+.drop-btn-Day {
     width: 98px;
     height: 38px;
     position: relative;
@@ -48,7 +48,7 @@
 
 }
 
-.drop-btn-YEAR {
+.drop-btn-Year {
     width: 118px;
     height: 38px;
     position: relative;
@@ -57,25 +57,25 @@
     
 }
 
-.drop-btn-DAY, .drop-btn-MONTH, .drop-btn-YEAR {
-    font-size: 16px;
+.drop-btn-Day, .drop-btn-Month, .drop-btn-Year {
+    font-size: 18px;
     text-align: left;
     color: white;
     border: 1px solid #202225b2;
     border-radius: 3px;
     background-color: #303438;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Catamaran', sans-serif;
     font-weight: lighter;
     vertical-align: center;
     line-height: 40px;
 }
 
-.drop-btn-DAY:hover, .drop-btn-MONTH:hover, .drop-btn-YEAR:hover {
+.drop-btn-Day:hover, .drop-btn-Month:hover, .drop-btn-Year:hover {
     border-color: black;
     outline: none;
 }
 
-.dropdown-idx-container-MONTH {
+.dropdown-idx-container-Month {
     height: 215px;
     width: 153px;
     overflow-y: scroll;
@@ -87,7 +87,7 @@
 
 }
 
-.dropdown-idx-container-DAY {
+.dropdown-idx-container-Day {
     height: 215px;
     width: 98px;
     overflow-y: scroll;
@@ -98,7 +98,7 @@
 
 }
 
-.dropdown-idx-container-YEAR {
+.dropdown-idx-container-Year {
     height: 215px;
     width: 118px;
     overflow-y: scroll;
@@ -120,4 +120,8 @@
   background:rgb(34, 34, 34);
   height: 5px;
   border-radius: 4px;
+}
+
+.default {
+    color:#72767d ;
 }

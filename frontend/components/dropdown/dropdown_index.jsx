@@ -30,19 +30,19 @@ class DropDownIndex extends React.Component {
         
 
         switch (this.props.type) {
-            case "MONTH":
+            case "Month":
                return month().map((item,i) => (
                     <div onClick={() => { this.props.onOptionClicked({ month: item }); this.props.setSelected(item) }} className='dd-btn-month' tabIndex={i.toString()} key={`month-${i}`}>
                         {item}
                     </div> 
                 ))
-            case "DAY":
+            case "Day":
                return days().map((item,i) => (
                     <div onClick={() => { this.props.onOptionClicked({ day: item }); this.props.setSelected(item) }} className='dd-btn-day' tabIndex={i.toString()} key={`days-${i}`}>
                         {item}
                     </div> 
                 ))
-            case "YEAR":
+            case "Year":
                return years().map((item, i) => (
                     <div onClick={() => { this.props.onOptionClicked({ year: item }); this.props.setSelected(item) }} className='dd-btn-year' tabIndex={i.toString()} key={`years-${i}`}>
                         {item}
@@ -56,4 +56,3 @@ class DropDownIndex extends React.Component {
 
 export default DropDownIndex;
 
-// { dob: { month: item } }

@@ -93,6 +93,7 @@
     cursor: pointer;
     position: relative;
     top: 22px;
+    outline: none;
 }
 
 .submit-btn:hover {

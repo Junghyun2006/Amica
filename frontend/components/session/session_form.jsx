@@ -112,19 +112,22 @@ class SessionForm extends React.Component {
             <div className="drop-down-container">
                 <h1 className="dob-label">DATE OF BIRTH</h1>
                 <div className="drop-down-container-2">
-                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="MONTH" />
-                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="DAY" />
-                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="YEAR" />
+                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Month" />
+                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Day" />
+                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Year" />
                 </div>
             </div>
         ) : (null);       
 
         const tos = (this.props.formType === 'signup') ?
             (<p className="tos">
-                By registering, you agree to Discord's <span>Terms of Service</span> and <span>Privacy Policy</span>
+                By registering, you agree to Amica's <span>Terms of Service</span> and <span>Privacy Policy</span>
             </p>) : (null);
 
-        const renderEmailErr = (this.state.email === '') ? (<span className="errors"> - This field is required</span>) : (null)
+        
+
+        // const renderEmailErr = (this.state.email === '') ? (<span className={`errors ${toggleHidden}`}> - This field is required</span>) : (null)
+        // const renderPasswordErr = (this.state.password === '') ? (<span className={`errors ${toggleHidden}`}> - This field is required</span>) : (null)
         
         return (
             
@@ -132,14 +135,14 @@ class SessionForm extends React.Component {
                 <div className={formBoxType}>
                     <form onSubmit={this.handleSubmit} className={sessionFormType}>
                         {greeting}
-                            <label className="email-label">EMAIL
+                            <label className="email-label">EMAIL {/*renderEmailErr*/}
                                 <input type="text"
                                     value={this.state.email}
                                     onChange={this.handleInput('email')}
                                     className="email-input" />
                             </label>
                         {usernameInput}
-                        <label className="password-label">PASSWORD 
+                        <label className="password-label">PASSWORD {/*renderPasswordErr*/}
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.handleInput('password')}
