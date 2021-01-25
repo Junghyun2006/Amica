@@ -11,6 +11,11 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onOptionClicked = this.onOptionClicked.bind(this);
         // this.normalizeDate = this.normalizeDate.bind(this);
+        this.renderErrrors = this.renderErrors.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.props.resetError();
     }
 
     handleInput(type) {
@@ -41,7 +46,7 @@ class SessionForm extends React.Component {
         const { errors } = this.props;
 
         return (
-            <ul>
+            <ul className="errors">
                 {errors.map((error, i) => (
                     <li key={`error-${i}`}>{error}</li>
                 ))}
@@ -118,6 +123,8 @@ class SessionForm extends React.Component {
             (<p className="tos">
                 By registering, you agree to Discord's <span>Terms of Service</span> and <span>Privacy Policy</span>
             </p>) : (null);
+
+        const renderEmailErr = (this.state.email === '') ? (<span className="errors"> - This field is required</span>) : (null)
         
         return (
             
@@ -125,16 +132,14 @@ class SessionForm extends React.Component {
                 <div className={formBoxType}>
                     <form onSubmit={this.handleSubmit} className={sessionFormType}>
                         {greeting}
-                        <label className="email-label">EMAIL 
-                            {this.renderErrors()}
-                            <input type="text"
-                                value={this.state.email}
-                                onChange={this.handleInput('email')}
-                                className="email-input" />
-                        </label>
+                            <label className="email-label">EMAIL {renderEmailErr}
+                                <input type="text"
+                                    value={this.state.email}
+                                    onChange={this.handleInput('email')}
+                                    className="email-input" />
+                            </label>
                         {usernameInput}
-                        <label className="password-label">PASSWORD
-                            {this.renderErrors()}
+                        <label className="password-label">PASSWORD {renderEmailErr}
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.handleInput('password')}

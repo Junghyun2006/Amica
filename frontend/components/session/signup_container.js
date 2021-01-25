@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createNewUser } from '../../actions/session_actions';
+import { createNewUser, reset } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const msp = (state) => {
@@ -17,6 +17,8 @@ const msp = (state) => {
 
 const mdp = dispatch => ({
     action: formUser => dispatch(createNewUser(formUser)),
+    resetError: () => dispatch(reset())
+    
 });
 
 export default connect(msp, mdp)(SessionForm);

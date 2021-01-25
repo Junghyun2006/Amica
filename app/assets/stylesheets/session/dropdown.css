@@ -15,7 +15,7 @@
 
 
 .dd-btn-day:hover, .dd-btn-year:hover, .dd-btn-month:hover {
-    background-color: yellow;
+    background-color: #26282c;
    
     
 }
@@ -26,7 +26,9 @@
     border-left: 1px solid #202225;
     border-right: 1px solid #202225;
     background-color: #303438;
-    
+    padding-left: 10px;
+    height: 40px;
+    outline: none;
 }
 
 .drop-btn-MONTH {
@@ -73,15 +75,49 @@
     outline: none;
 }
 
-.dropdown-idx-container {
-    max-height: 20px;
-    background-color: white;
-   
+.dropdown-idx-container-MONTH {
+    height: 215px;
+    width: 153px;
+    overflow-y: scroll;
+    position: relative;
+    bottom: 257px;
+    right: 1px;
+    border: 1px solid #222224b2;
+    border-radius: 6px;
 
 }
 
-/* .ddd {
-    max-height: 20px;
-    position: absolute;
-    bottom: 523px;
-} */
+.dropdown-idx-container-DAY {
+    height: 215px;
+    width: 98px;
+    overflow-y: scroll;
+    position: relative;
+    bottom: 257px;
+    border: 1px solid #222224b2;
+    border-radius: 6px;
+
+}
+
+.dropdown-idx-container-YEAR {
+    height: 215px;
+    width: 118px;
+    overflow-y: scroll;
+    position: relative;
+    bottom: 257px;
+    border: 1px solid #222224b2;
+    border-radius: 6px;
+
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #303438;
+    border: none;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background:rgb(34, 34, 34);
+  height: 5px;
+  border-radius: 4px;
+}

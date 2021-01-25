@@ -33,7 +33,7 @@ class DOBDropDown extends React.Component {
                     &nbsp;&nbsp;
                     {this.state.selected}
                     {this.state.clicked ? 
-                        <div className="dropdown-idx-container">
+                        <div className={`dropdown-idx-container-${this.props.type}`}>
                             <DropDownIndex 
                                 className={`drop-idx-${this.props.type}`} 
                                 type={this.props.type}

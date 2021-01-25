@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
             sign_in!(@user)
             render "api/users/show"
         else
-            render json: ["-Password is too weak or common to use"], status: 422
+            render json: ["- Password is too weak or common to use"], status: 422
             #@user.errors.full_messages
         end
     end
