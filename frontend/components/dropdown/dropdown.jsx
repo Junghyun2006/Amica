@@ -26,23 +26,22 @@ class DOBDropDown extends React.Component {
     
     render() {
         return (
-            <div>
-                <button 
-                    type="button"
+                <div 
                     // onFocus={this.dropDownSelected}
                     onClick={this.dropDownSelected}
                     className={`drop-btn-${this.props.type}`}>
+                    &nbsp;&nbsp;
                     {this.state.selected}
                     {this.state.clicked ? 
-                        <DropDownIndex 
-                            className={`drop-idx-${this.props.type}`} 
-                            type={this.props.type}
-                            onOptionClicked={this.props.onOptionClicked}
-                            setSelected={this.setSelected}
-                           />  
-                        : null}
-                </button>  
-            </div>
+                        <div className="dropdown-idx-container">
+                            <DropDownIndex 
+                                className={`drop-idx-${this.props.type}`} 
+                                type={this.props.type}
+                                onOptionClicked={this.props.onOptionClicked}
+                                setSelected={this.setSelected}
+                                dropDownSelected={this.dropDownSelected}/>  
+                        </div> : null}
+                </div>  
         )
     }
 }

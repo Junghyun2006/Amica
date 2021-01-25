@@ -31,22 +31,22 @@ class DropDownIndex extends React.Component {
 
         switch (this.props.type) {
             case "MONTH":
-                return month().map((item,i) => (
+               return month().map((item,i) => (
                     <div onClick={() => { this.props.onOptionClicked({ month: item }); this.props.setSelected(item) }} className='dd-btn-month' tabIndex={i.toString()} key={`month-${i}`}>
                         {item}
                     </div> 
                 ))
-            case "YEARS":
-                return years().map((item,i) => (
-                    <div onClick={() => { this.props.onOptionClicked({ year: item }); this.props.setSelected(item) }} className='dd-btn-year' tabIndex={i.toString()} key={`years-${i}`}>
-                        {item}
-                    </div> 
-                ))
-            case "DAYS":
-                return days().map((item,i) => (
+            case "DAY":
+               return days().map((item,i) => (
                     <div onClick={() => { this.props.onOptionClicked({ day: item }); this.props.setSelected(item) }} className='dd-btn-day' tabIndex={i.toString()} key={`days-${i}`}>
                         {item}
                     </div> 
+                ))
+            case "YEAR":
+               return years().map((item, i) => (
+                    <div onClick={() => { this.props.onOptionClicked({ year: item }); this.props.setSelected(item) }} className='dd-btn-year' tabIndex={i.toString()} key={`years-${i}`}>
+                        {item}
+                    </div>
                 ))
             default: 
                 return (null);

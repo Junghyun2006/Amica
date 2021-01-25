@@ -1,41 +1,87 @@
 
 .drop-down-container {
     position: relative;
-    top: 100px;
+    width: 416px;
+    height: 68px;
     display: flex;
+    margin: 10px 0 0;
     flex-direction: column;
 }
 
-select {
-    max-height: 200px;
-}
-.month-input {
-    display: inline-flex;
-    list-style: none;
+.drop-down-container-2 {
+    display: flex;
+    flex-direction: row;
 }
 
-.day-input {
-    display: inline-flex;
-    list-style: none;
-    color: black;
-}
-
-.year-input {
-    display: inline-flex;
-    list-style: none;
-    color: black;
-}
-
-/* .year-input:focus {
-    max-height: 100px;
-    background-color: yellow;
-} */
-
-.dropdown-day:focus {
-    background: yellow;
-}
 
 .dd-btn-day:hover, .dd-btn-year:hover, .dd-btn-month:hover {
     background-color: yellow;
+   
+    
 }
 
+ .dd-btn-month, .dd-btn-day, .dd-btn-year {
+    background-color: white;
+    color:white;
+    border-left: 1px solid #202225;
+    border-right: 1px solid #202225;
+    background-color: #303438;
+    
+}
+
+.drop-btn-MONTH {
+    width: 152px;
+    height: 38px;
+    position: relative;
+    top: 4px;
+   
+}
+
+.drop-btn-DAY {
+    width: 98px;
+    height: 38px;
+    position: relative;
+    left: 20px;
+    top: 4px;
+
+}
+
+.drop-btn-YEAR {
+    width: 118px;
+    height: 38px;
+    position: relative;
+    left: 40px;
+    top: 4px;
+    
+}
+
+.drop-btn-DAY, .drop-btn-MONTH, .drop-btn-YEAR {
+    font-size: 16px;
+    text-align: left;
+    color: white;
+    border: 1px solid #202225b2;
+    border-radius: 3px;
+    background-color: #303438;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    vertical-align: center;
+    line-height: 40px;
+}
+
+.drop-btn-DAY:hover, .drop-btn-MONTH:hover, .drop-btn-YEAR:hover {
+    border-color: black;
+    outline: none;
+}
+
+.dropdown-idx-container {
+    max-height: 20px;
+    background-color: white;
+   
+
+}
+
+/* .ddd {
+    max-height: 20px;
+    position: absolute;
+    bottom: 523px;
+} */

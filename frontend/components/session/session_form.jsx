@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import DOBDropDown from '../../components/dropdown/dropdown';
 import DropDownIndex from '../dropdown/dropdown_index';
-// import QrImage from '../../../app/assets/images/qr_img.png';
+
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -52,11 +52,11 @@ class SessionForm extends React.Component {
     render() {
         const greeting = (this.props.formType === 'signup') ? (
             <div className="greeting">
-                <h2>Create an account</h2>
+                <h2 className="create-acc">Create an account</h2>
             </div>
         ) : (
             <div className="greeting">
-                <h2> Welcome back!</h2>
+                <h2>Welcome back!</h2>
                 <h3>We're so excited to see you again!</h3>
             </div>   
         );
@@ -70,7 +70,8 @@ class SessionForm extends React.Component {
                 </label>
         ) : (null);
 
-        const regisButton = (this.props.formType === 'signup') ? (null) : (
+        const regisButton = (this.props.formType === 'signup') ? 
+            (<Link className="login-link" to={'/login'}>Already have an account?</Link>) : (
             <div className="registration">
                 <h2 className="need-acc">Need an account?&nbsp;</h2>
                 <Link className="regist-link" to={'/signup'}>Register</Link>
@@ -78,7 +79,7 @@ class SessionForm extends React.Component {
         );
 
         const submitButton = (this.props.formType === 'signup') ? 
-            (<button onClick={this.normalizeDate()} className="submit-btn">Continue</button>) :
+            (<button onClick={this.normalizeDate()} className="submit-btn-signup">Continue</button>) :
             (<button className="submit-btn">Login</button>)
         
         const sessionFormType = (this.props.formType === 'signup') ? 
@@ -102,13 +103,21 @@ class SessionForm extends React.Component {
             </div>   
             );  
 
-        const dropDown = (this.props.formType === 'signup') ? (
+        const dropDown = (this.props.formType === 'signup') ? ( 
             <div className="drop-down-container">
-                <DOBDropDown onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="DAYS" />
-                <DOBDropDown onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="MONTH" />
-                <DOBDropDown onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="YEARS" />
+                <h1 className="dob-label">DATE OF BIRTH</h1>
+                <div className="drop-down-container-2">
+                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="MONTH" />
+                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="DAY" />
+                    <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="YEAR" />
+                </div>
             </div>
         ) : (null);       
+
+        const tos = (this.props.formType === 'signup') ?
+            (<p className="tos">
+                By registering, you agree to Discord's <span>Terms of Service</span> and <span>Privacy Policy</span>
+            </p>) : (null);
         
         return (
             
@@ -132,11 +141,12 @@ class SessionForm extends React.Component {
                                 className="password-input" />
                         </label>
                         {forgotPassword}
-                        {submitButton}
-                        {regisButton}
                         {dropDown}
+                        {submitButton}
+                        {regisButton}                      
                     </form>
                     {qrCode} 
+                    {tos}
                 </div> 
             </div>
         );

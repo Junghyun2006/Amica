@@ -1,0 +1,55 @@
+.info-container-3 {
+    height: 1076px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.content-container-col-2 {
+    width: 1180px;
+    height: 876px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 80px;
+   
+
+}
+
+.content-blurb-2 {
+   
+    width: 980px;
+    height: 145px;
+    position: relative;
+    left: 100px;
+    text-align: center;
+}
+
+
+.content-image-2 {
+    background: url(https://discord.com/assets/f61264d792fd2556a618c95d97b5de07.svg);
+    background-size: cover;
+    width: 1180px;
+    height: 715.55px;
+    margin-top: 16px;
+   
+}
+
+.content-blurb-2 > h1 {
+    font-size: 48px;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: bolder;
+    color: #242629;
+}
+
+.content-blurb-2 > p {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 19px;  
+    margin-top: 28px;
+    line-height: 28px;
+    
+
+}

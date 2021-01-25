@@ -9,8 +9,8 @@ class navBar extends React.Component {
     
     render(){
         const logout = this.props.currentUser ? (
-             <Link className="btn" to={'/@me'}>Open Discord</Link>) : 
-             (<Link className="btn" to={"/login"}>Login</Link>)
+             <Link className="nav-log-in" to={'/@me'}>Open Discord</Link>) : 
+            (<Link className="nav-log-in" to={"/login"}>Login</Link>)
 
         return(
             <div>

@@ -4,7 +4,7 @@
     width: 720px;
     background:#363A3E;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 32px;
     box-shadow: 0 2px 11px 0 rgba(0,0,0,.3) ;
     display: flex;
@@ -36,7 +36,7 @@
     padding-top: 5px;
 }
 
-.username-label, .password-label, .email-label {
+.password-label, .email-label, .dob-label {
     font-size: 12px;
     font-weight: bolder;
     color: #8E9297;
@@ -48,7 +48,7 @@
     margin-top: -7px;
 }
 
-.username-input, .email-input {
+.email-input {
     width: 392px;
     height: 19px;
     padding: 10px;
@@ -84,7 +84,6 @@
 .submit-btn {
     width: 416px;
     height: 44px;
-    /* margin: 22px 0 8px; */
     padding: 2px 16px;
     background-color:#7289DA;
     color: white;
@@ -154,10 +153,10 @@
 }
 
 .demo-user h2 {
-    font-size: 23px;
+    font-size: 24px;
     margin: 3px 0 11px;
     text-align: center;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Catamaran', sans-serif;
     font-weight: bold;
     top: 63px;
     position: relative;
@@ -169,7 +168,7 @@
     width: 240px;
     height: 40px;
     color: #B8BBBE;
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
     margin-bottom: 20px;
     padding-top: 5px;
@@ -179,11 +178,11 @@
     flex-direction: column;
     justify-content: space-between; */
     line-height: 22px;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Catamaran', sans-serif;
     
 }
 
 .demo-user strong {
     font-weight: bolder;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Catamaran', sans-serif;
 }
