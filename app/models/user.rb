@@ -5,6 +5,15 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :subscriptions, 
+    foreign_key: :user_id, 
+    class_name: :Subscription
+
+  has_many :servers,
+    through: :subscriptions, 
+    source: :subscribeable, 
+    source_type: :Server
+
 
   def password=(password)
     # Set temporary instance variable so that we can validate length
@@ -37,10 +46,4 @@ class User < ApplicationRecord
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
-#   def generate_tag(username) #tag bonus
-#         #check if other tags exist for a specific username,
-#         #pull all users with the same username, in an array
-#         #check includes?(tag)
-#         #consider creating a separate table for tags
-#   end    
 end

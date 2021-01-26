@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  subscribeable: one
+  subscribeable_type: Subscribeable
+  created_at: 2021-01-25 22:17:12
+  updated_at: 2021-01-25 22:17:12
+
+two:
+  user_id: 1
+  subscribeable: two
+  subscribeable_type: Subscribeable
+  created_at: 2021-01-25 22:17:12
+  updated_at: 2021-01-25 22:17:12

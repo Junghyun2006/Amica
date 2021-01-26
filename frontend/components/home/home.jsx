@@ -19,7 +19,14 @@ class HomePage extends React.Component {
 
     render(){
         return (
-            <button onClick={this.handleSubmit}>Logout</button>
+            <div>
+                <div className="server-list">
+
+                </div>
+
+                <button onClick={this.handleSubmit}>Logout</button>
+            </div>
+            
         )
        
     }

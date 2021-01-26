@@ -13,7 +13,7 @@ class Splash extends React.Component {
                             <a className="logo" href="#">Amica</a>
                             <ul className="nav-links">
                                 <li><a href="#">Download</a></li>
-                                <li><a href="#">Why Discord?</a></li>
+                                <li><a href="#">Why Amica?</a></li>
                                 <li><a href="#">Nitro</a></li>
                                 <li><a href="#">Safety</a></li>
                                 <li><a href="#">Support</a></li>
@@ -26,12 +26,12 @@ class Splash extends React.Component {
                                 <p className="splash-head-p">Whether you’re part of
                                 a school club, gaming group, worldwide art community,
                                 or just a handful of friends that want to spend time
-                                together, Discord makes it easy to talk every day
+                                together, Amica makes it easy to talk every day
                                 and hang out more often.</p>
                             </div>
                             <div className="splash-head-btn">
                                 <Link to={"/"} className="splash-head-btn-1">Download for Mac</Link>
-                                <Link to={"/login"} className="splash-head-btn-2">Open Discord in your browser</Link>
+                                <Link to={"/login"} className="splash-head-btn-2">Open Amica in your browser</Link>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ class Splash extends React.Component {
                         </div>
                         <div className="content-blurb-1">
                             <h1>An invite-only place with plenty of room to talk</h1>
-                            <p>Discord servers are organized into topic-based channels 
+                            <p>Amica servers are organized into topic-based channels 
                                 where you can collaborate, share, and just talk about 
                                 your day without clogging up a group chat.</p>
                         </div>

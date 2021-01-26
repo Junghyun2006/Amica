@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.action(this.state)
-            .then(() => this.props.history.push('/')); // modify the string inside push - MOST LIKELY THE ERROR
+            .then(() => this.props.history.push('/@me')); // modify the string inside push - MOST LIKELY THE ERROR
     }
 
     onOptionClicked(value) {
