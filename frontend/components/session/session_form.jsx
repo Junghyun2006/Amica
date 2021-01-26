@@ -113,8 +113,11 @@ class SessionForm extends React.Component {
                 <h1 className="dob-label">DATE OF BIRTH</h1>
                 <div className="drop-down-container-2">
                     <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Month" />
+                    <i class={"arrow-Month down"}></i>
                     <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Day" />
+                    <i class={"arrow-Day down"}></i>
                     <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Year" />
+                    <i class={"arrow-Year down"}></i>
                 </div>
             </div>
         ) : (null);       

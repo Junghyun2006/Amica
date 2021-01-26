@@ -68,6 +68,7 @@
     font-weight: lighter;
     vertical-align: center;
     line-height: 40px;
+    outline: none;
 }
 
 .drop-btn-Day:hover, .drop-btn-Month:hover, .drop-btn-Year:hover {
@@ -124,4 +125,49 @@
 
 .default {
     color:#72767d ;
+}
+
+.arrow-Month {
+  border: solid rgb(185, 187, 190);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+ 
+  cursor: pointer;
+  position: absolute;
+  top: 39px;
+  left: 131px;
+  
+}
+
+.arrow-Day {
+  border: solid rgb(185, 187, 190);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  
+  cursor: pointer;
+  position: absolute;
+  top: 39px;
+  left: 250px;
+}
+
+.arrow-Year {
+  border: solid rgb(185, 187, 190);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  cursor: pointer;
+  position: absolute;
+  top: 39px;
+  left: 390px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrow-Year:hover, .arrow-Month:hover, .arrow-Day:hover {
+    border-color:rgb(230, 232, 235)
 }

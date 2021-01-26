@@ -28,22 +28,25 @@ class DOBDropDown extends React.Component {
         const defaultSelected = () => (["Month", "Day", "Year"].includes(this.state.selected)) ? ('default') : (null)
 
         return (
-                <div 
-                    // onFocus={this.dropDownSelected}
-                    onClick={this.dropDownSelected}
-                    className={`drop-btn-${this.props.type} ${defaultSelected()}`}>
-                    &nbsp;&nbsp;
-                    {this.state.selected} 
-                    {this.state.clicked ? 
-                        <div className={`dropdown-idx-container-${this.props.type} `}>
-                            <DropDownIndex 
-                                className={`drop-idx-${this.props.type}`} 
-                                type={this.props.type}
-                                onOptionClicked={this.props.onOptionClicked}
-                                setSelected={this.setSelected}
-                                dropDownSelected={this.dropDownSelected}/>  
-                        </div> : null}
-                </div>  
+
+            <div
+                tabIndex="0"
+                onFocus={this.dropDownSelected}
+                onBlur={this.dropDownSelected}
+                className={`drop-btn-${this.props.type} ${defaultSelected()}`}>
+                &nbsp;&nbsp;
+                {this.state.selected} 
+                {this.state.clicked ? 
+                    <div className={`dropdown-idx-container-${this.props.type} `}>
+                        <DropDownIndex 
+                            className={`drop-idx-${this.props.type}`} 
+                            type={this.props.type}
+                            onOptionClicked={this.props.onOptionClicked}
+                            setSelected={this.setSelected}
+                            dropDownSelected={this.dropDownSelected}/>  
+                    </div> : null}
+            </div>           
+
         )
     }
 }
