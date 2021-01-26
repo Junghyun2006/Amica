@@ -8,8 +8,8 @@ class Api::SessionsController < ApplicationController
         if @user
             sign_in!(@user)
             render 'api/users/show';
-        else
-            render json: [" - This field is required", " - Login or password is invalid"], status: 401
+        else 
+            render json: [" - Login or password is invalid."], status: 401
         end
     end
 

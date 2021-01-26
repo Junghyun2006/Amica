@@ -14,10 +14,7 @@ const msp = (state) => {
             email: 'demo@gmail.com',
             password: 'password'
         },
-        errors: state.errors.session > 0 ? [
-            { "email": `${errors.session[0]}` },
-            { "password": `${errors.session[0]}` },
-        ] : []
+        errors: state.errors.session 
     }
 }
 

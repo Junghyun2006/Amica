@@ -6,7 +6,7 @@ import {
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
-export const RECIEVE_SESSION_ERRORS = "RECIEVE_SESSION_ERRORS";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RESET_ERRORS = "RESET_ERRORS"
 
 const receiveCurrentUser = user => ({
@@ -19,7 +19,7 @@ const logoutCurrentUser = () => ({
 })
 
 const receiveErrors = errors => ({
-    type: RECIEVE_SESSION_ERRORS,
+    type: RECEIVE_SESSION_ERRORS,
     errors
 })
 

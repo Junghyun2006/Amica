@@ -7,11 +7,15 @@ import DropDownIndex from '../dropdown/dropdown_index';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = props.userInfo;
+        this.state = props.userInfo
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onOptionClicked = this.onOptionClicked.bind(this);
-        // this.normalizeDate = this.normalizeDate.bind(this);
-        this.renderErrrors = this.renderErrors.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+        this.emptyfield = {
+            email: false,
+            pass: false
+        }
+        this.errors = false;
     }
 
     componentWillUnmount() {
@@ -31,6 +35,14 @@ class SessionForm extends React.Component {
             }  
     }
 
+    toggleEmpty(e) {
+        return () => {
+            (this.state.email === "") ? this.emptyfield.email = true : this.emptyfield.email = false;
+            (this.state.password === "") ? this.emptyfield.password = true : this.emptyfield.password = false; 
+            (this.emptyfield.email === false && this.emptyfield.password === false) ? this.errors = true : this.errors = false;
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.action(this.state)
@@ -42,17 +54,14 @@ class SessionForm extends React.Component {
         this.setState({dob: newState});
     }
 
-    renderErrors() {
+    renderErrors(type) {
         const { errors } = this.props;
 
-        return (
-            <ul className="errors">
-                {errors.map((error, i) => (
-                    <li key={`error-${i}`}>{error}</li>
-                ))}
-            </ul>
-        );
+        if (this.emptyfield.email === false && this.emptyfield.password === false) {
+            return (<span className={`errors-${type}`}>{errors}</span>)
+        }
     }
+
 
     render() {
         const greeting = (this.props.formType === 'signup') ? (
@@ -85,7 +94,7 @@ class SessionForm extends React.Component {
 
         const submitButton = (this.props.formType === 'signup') ? 
             (<button onClick={this.normalizeDate()} className="submit-btn-signup">Continue</button>) :
-            (<button className="submit-btn">Login</button>)
+            (<button onClick={this.toggleEmpty()} className="submit-btn">Login</button>)
         
         const sessionFormType = (this.props.formType === 'signup') ? 
             ('signup-form') : ('login-form');
@@ -113,11 +122,11 @@ class SessionForm extends React.Component {
                 <h1 className="dob-label">DATE OF BIRTH</h1>
                 <div className="drop-down-container-2">
                     <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Month" />
-                    <i class={"arrow-Month down"}></i>
+                    <i className={"arrow-Month down"}></i>
                     <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Day" />
-                    <i class={"arrow-Day down"}></i>
+                    <i className={"arrow-Day down"}></i>
                     <DOBDropDown className="ddd" onOptionClicked={this.onOptionClicked} handleInput={this.handleInput} type="Year" />
-                    <i class={"arrow-Year down"}></i>
+                    <i className={"arrow-Year down"}></i>
                 </div>
             </div>
         ) : (null);       
@@ -129,32 +138,36 @@ class SessionForm extends React.Component {
 
         
 
-        // const renderEmailErr = (this.state.email === '') ? (<span className={`errors ${toggleHidden}`}> - This field is required</span>) : (null)
-        // const renderPasswordErr = (this.state.password === '') ? (<span className={`errors ${toggleHidden}`}> - This field is required</span>) : (null)
+        const renderEmailErr = ((this.emptyfield.email === true) && (this.props.formType === 'login') && (this.emptyfield.password === false)) ? (<span className="errors"> - This field is required</span>) : (null)
+        const toggleRedEmail = (((this.emptyfield.email === true) && (this.props.formType === 'login') && (this.emptyfield.password === false)) || (this.errors === true)) ? ('empty') : (null)
+        const renderPasswordErr = ((this.emptyfield.password === true) && (this.props.formType === 'login')) ? (<span className="errors"> - This field is required</span>) : (null)
+        const toggleRedPass = (((this.emptyfield.password === true) && (this.props.formType === 'login')) || (this.errors === true)) ? ('empty') : (null)
+       
         
         return (
             
             <div className="session-form-container">
                 <div className={formBoxType}>
                     <form onSubmit={this.handleSubmit} className={sessionFormType}>
-                        {greeting}
-                            <label className="email-label">EMAIL {/*renderEmailErr*/}
-                                <input type="text"
-                                    value={this.state.email}
-                                    onChange={this.handleInput('email')}
-                                    className="email-input" />
+                        {greeting}  
+                        <label className={`email-label ${toggleRedEmail}`}>EMAIL {renderEmailErr} {this.renderErrors('email')}
+                            <input type="text"
+                                value={this.state.email}
+                                onChange={this.handleInput('email')}
+                                className={`email-input ${toggleRedEmail}-input ${toggleRedEmail}-disabled`} />
                             </label>
                         {usernameInput}
-                        <label className="password-label">PASSWORD {/*renderPasswordErr*/}
+                        <label className={`password-label ${toggleRedPass}`}>PASSWORD {renderPasswordErr} {this.renderErrors('password')}
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.handleInput('password')}
-                                className="password-input" />
+                                className={`password-input ${toggleRedPass}-input ${toggleRedPass}-disabled`} />
                         </label>
                         {forgotPassword}
                         {dropDown}
                         {submitButton}
-                        {regisButton}                      
+                        {regisButton}       
+                                    
                     </form>
                     {qrCode} 
                     {tos}
