@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dispatch = store.dispatch;
     window.logout = deleteSession;
     let preloadedState = undefined;
+    
+
 
     if (window.currentUser) {
         preloadedState = {

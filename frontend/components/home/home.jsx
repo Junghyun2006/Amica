@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ServerBarContainer from '../server/server_bar_container'
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -20,11 +21,12 @@ class HomePage extends React.Component {
     render(){
         return (
             <div>
-                <div className="server-list">
-
+                <div className="server-bar-holder">
+                    <ServerBarContainer />
                 </div>
 
                 <button onClick={this.handleSubmit}>Logout</button>
+
             </div>
             
         )
