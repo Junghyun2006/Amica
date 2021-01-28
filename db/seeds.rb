@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 User.delete_all
 Server.delete_all
@@ -21,6 +15,9 @@ demo = User.create!(
     tag: '0000',
     dob: '2009-09-16'
 )
+
+file = open('https://app-amica-seeds.s3.amazonaws.com/demouser_avatar.jpg')
+demo.avatar.attach(io: file, filename: 'demouser_avatar.jpg')
 
 user_2 = User.create!(
     username: 'testuser1',
@@ -43,21 +40,32 @@ server_1 = Server.create!(
     host_id: 1
 )
 
+file1 = open('https://app-amica-seeds.s3.amazonaws.com/red_car.jpg')
+server_1.photo.attach(io: file1, filename: 'red_car.jpg')
 
 server_2 = Server.create!(
     name: 'testserver2',
     host_id: 2
 )
 
+file2 = open('https://app-amica-seeds.s3.amazonaws.com/white_car.jpeg')
+server_2.photo.attach(io: file2, filename: 'white_car.jpeg')
+
 server_3 = Server.create!(
     name: 'testserver3',
     host_id: 3
 )
 
+file3 = open('https://app-amica-seeds.s3.amazonaws.com/yellow_car.jpg')
+server_3.photo.attach(io: file3, filename: 'yellow_car.jpg')
+
 server_4 = Server.create!(
     name: 'testserver4',
     host_id: 4
 )
+
+file4 = open('https://app-amica-seeds.s3.amazonaws.com/blue_car.jpeg')
+server_4.photo.attach(io: file4, filename: 'blue_car.jpeg')
 
 subscription_1 = Subscription.create!(
     subscribeable_type: 'Server',

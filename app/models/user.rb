@@ -5,6 +5,8 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_one_attached :avatar
+
   has_many :subscriptions, 
     foreign_key: :user_id, 
     class_name: :Subscription

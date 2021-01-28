@@ -1,0 +1,35 @@
+.home-btn {
+    display: block;
+    width: 36px;
+    height: 36px;
+    padding: 8px 6px 6px 6px;
+}
+
+.home-btn-container {
+    width: 48px;
+    height: 48px;
+    background-color: #7289DA;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.add-server-btn-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
+    margin-bottom: 8px;
+    background-color: #36393f;
+    text-align: center;
+    
+   
+}
+
+.add-server-btn {
+    color: #43b581;
+    font-size: 30px;
+    font-weight: 100;
+    font-family:'Catamaran', sans-serif;
+    position: relative;
+    top: 9px;
+
+}

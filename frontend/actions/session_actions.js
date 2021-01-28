@@ -13,6 +13,11 @@ const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER,
 })
 
+const receiveCurrentUser = user => ({
+    type: RECEIVE_CURRENT_USER,
+    user
+});
+
 const receiveErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
     errors

@@ -1,27 +1,35 @@
 import React from "react";
-import ServerIndexItem from "./server_index_item"
+import ServerIndexItem from "./server_index_item";
 
 class ServerBar extends React.Component {
     constructor(props) {
         super(props);
     }
-    /* change ServerImg after AWS */
+
     componentDidMount(){
-        // this.props.receiveCurrentUser(window.currentUser.id)
+        this.props.receiveCurrentUser(this.props.currentUser.id)
     }
 
-    render(){
-        const {servers} = this.props;
-        const serverIndex = servers.map((server, i) => <ServerIndexItem serverName={server.name} serverImage={null} key={`server-${i}`} />) 
+    render() {
 
-        
+        const {currentUser} = this.props;
+
+        if (!currentUser.servers) return null;
+
+        const servers = Object.values(currentUser.servers);
+        const serverIndex = servers.map((server, i) => { 
+            return (
+                    <ServerIndexItem server={server} key={i}/>
+                );
+        })
+
         return (
-            <div>
+            <div className="server-bar-wrapper">
                 <ul className="server-index">
                     {serverIndex}
                 </ul>
             </div>
-        ) 
+        )
 
     }
 
@@ -29,3 +37,4 @@ class ServerBar extends React.Component {
 } 
 
 export default ServerBar;
+

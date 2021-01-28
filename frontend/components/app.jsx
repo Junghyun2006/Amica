@@ -3,8 +3,8 @@ import SignupContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
 import NavBarContainer from './splash/nav_bar_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_utils';
-import SplashContainer from './splash/splash_container'
-import HomeContainer from './home/home_container'
+import SplashContainer from './splash/splash_container';
+import HomeContainer from './home/home_container';
 
 import {
     Route,
@@ -13,8 +13,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
-//AuthRoutes can't be accessed by people who are ALREADY logged in, 
-//ProtectedRoutes can't be accessed by peopple who are NOT logged in
+
 const App = () => (
     <div className="app">
         <Switch>

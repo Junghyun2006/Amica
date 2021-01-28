@@ -10,7 +10,7 @@ class Splash extends React.Component {
                  style={{backgroundImage: `url(${window.discordHeader})`}}>
                     <div className="content-container-col">
                         <div className="navbar-container">
-                            <a className="logo" href="#">Amica</a>
+                            <img src={window.logo2} className="logo"/>
                             <ul className="nav-links">
                                 <li><a href="#">Download</a></li>
                                 <li><a href="#">Why Amica?</a></li>

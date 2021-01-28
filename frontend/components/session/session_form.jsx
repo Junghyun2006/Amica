@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
     }
 
     normalizeDate(e) {
-        const date = new Date(`${this.state.dob.month} ${this.state.dob.day}, ${this.state.dob.year}`)
+        const date = new Date(`${this.state.dob.month} ${this.state.dob.day}, ${this.state.dob.year}`);
             return () => {
                 this.setState({ dob: date });
             }  
@@ -37,10 +37,10 @@ class SessionForm extends React.Component {
 
     toggleEmpty(e) {
         return () => {
-            (this.state.email === "") ? this.emptyfield.email = true : this.emptyfield.email = false;
-            (this.state.password === "") ? this.emptyfield.password = true : this.emptyfield.password = false; 
-            (this.emptyfield.email === false && this.emptyfield.password === false) ? this.errors = true : this.errors = false;
-        }
+            this.emptyfield.email = (this.state.email === "") ? true :  false;
+            this.emptyfield.password = (this.state.password === "") ? true : false;
+            this.errors = (this.emptyfield.email === false && this.emptyfield.password === false) ? true : false;
+        };
     }
 
     handleSubmit(e) {

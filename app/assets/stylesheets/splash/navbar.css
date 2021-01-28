@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.nav-links, .logo {
+.nav-links {
     display: flex;
     flex-direction: row;
     margin-top: 29px;
@@ -27,11 +27,14 @@
 .logo {
     text-decoration: none;
     color: white;
-    font-size: 16px;
-    font-family: 'Catamaran', sans-serif;
+    height: 120px;
+    width: 120px;
     font-weight: bold;
     position: relative;
-    right: 300px;
+    right: 230px;
+    bottom: 22px;
+    
+    
 }
 
 .nav-log-in {
@@ -47,5 +50,5 @@
     color: black;
     position: relative;
     top: 29px;
-    left: 290px;
+    left: 260px;
 }

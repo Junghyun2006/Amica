@@ -1,18 +1,18 @@
 import { connect } from "react-redux";
 import ServerBar from "./server_bar";
-import {receiveCUser} from "../../actions/user_action"
+import {receiveCUser} from "../../actions/user_action";
 
-const msp = (state) => {
+const msp = (state,ownProps) => {
     return {
-        servers: state.session.currentUser.servers
+        currentUser: state.session.currentUser
     }    
 }
 
 const mdp = dispatch => {
     return {
-    //     receiveCurrentUser: (userId) => dispatch(receiveCUser(userId)),
+        receiveCurrentUser: (userId) => dispatch(receiveCUser(userId)),
     }
 }
 
 
-export default connect(msp, null)(ServerBar);
+export default connect(msp, mdp)(ServerBar);
