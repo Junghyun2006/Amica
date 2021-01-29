@@ -22,7 +22,6 @@ class Server extends React.Component {
                         <div className="server-member-list"></div>
                     </div>
                 </div>
-                <button className='logout-btn' onClick={this.handleSubmit}>Logout</button>  
             </div>
         )
     }
