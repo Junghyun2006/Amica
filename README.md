@@ -8,7 +8,6 @@ Users can then send messages to other all other users within the servers or priv
 
 ## Technologies Used:
 ---------------------
-
 * Frontend: React/Redux
 * Backend: Rails
 * Database: Postgres
