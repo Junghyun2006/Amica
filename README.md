@@ -17,3 +17,18 @@ Technologies Used:
 Features 
 -----------
 
+### User Authentication
+
+![alt text](https://github.com/Junghyun2006/Amica/blob/main/0.resources/amika_images/field%20required.png)
+
+Users can create new accounts which they can use to log in and out of Amica. Errors are displayed when required fields 
+are empty or when the credentials are incorret. A Demo user is provided so that users can browse the website and its 
+functionalities without creating a new account. 
+
+### Servers
+
+
+### Channels within servers
+
+
+
