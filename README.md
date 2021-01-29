@@ -7,29 +7,14 @@ Users can then send messages to other all other users within the servers or priv
 ![alt text](https://github.com/Junghyun2006/Amica/blob/main/0.resources/amika_images/Homepage.png)
 
 ## Technologies Used:
-* Backend: Rails
+---------------------
+
 * Frontend: React/Redux
+* Backend: Rails
 * Database: Postgres
 * Storage: ActiveStorage/AWS
 * LiveChat: WebSockets - To be implemented 
 
-Things you may want to cover:
+## Features 
+-----------
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Discord-Clone
