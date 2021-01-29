@@ -20,7 +20,15 @@ class HomePage extends React.Component {
         return (
             <div className="home-wrapper">
                 <ServerBarContainer />
-                {/* <button onClick={this.handleSubmit}>Logout</button>   */}
+                <div className="conversation-index-container"></div>
+                <div className="friend-list-container">
+                    <div className="friend-header"></div>
+                    <div className="friend-container">
+                        <div className="friend-box"></div>
+                        <div className="friend-status"></div>
+                    </div>
+                </div>
+                <button className='logout-btn' onClick={this.handleSubmit}>Logout</button>  
             </div>
             
 

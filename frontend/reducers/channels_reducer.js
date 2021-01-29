@@ -4,7 +4,7 @@ const channelsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_CHANNELS:  
-            return Object.assign({}, state, action.channels);
+            return action.channels
         case RECEIVE_CHANNEL:
             return Object.assign({}, state, action.channel);
         case REMOVE_CHANNEL:

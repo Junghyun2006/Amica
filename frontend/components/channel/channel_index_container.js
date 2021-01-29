@@ -12,7 +12,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
     return {
-        requestServerChannels: (serverId) => dispatch(requestServerChannels(serverId))
+        requestServerChannels: (serverId) => dispatch(requestServerChannels(serverId)),
     }
 }
 
