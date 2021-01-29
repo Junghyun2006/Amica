@@ -4,5 +4,13 @@
     display: block;
     border: none;
     border-radius: 48px;
-    margin-bottom: 8px;
+    margin-bottom: 11px;
+    position: relative;
+    top: 12px;
+}
+
+.server-icon:hover {
+    cursor: pointer;
+    border-radius: 15px;
+    transition: border-radius 0.1s ease-in-out;
 }

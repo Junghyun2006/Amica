@@ -1,0 +1,39 @@
+.channel-index-holder {
+    width: 232px;
+    height: 100%;
+    background-color: #2E3236;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-right: 8px;
+}
+
+.server-setting {
+    width: 100%;
+    height: 12px;
+    padding: 18px 0px;
+    padding-left: 8px;
+    border: 1px;
+    color: #fff;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    box-shadow: var(--bot-shadow);
+    --bot-shadow: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+}
+
+.server-setting:hover {
+    background-color: #34373C;
+}
+
+.text-channel {
+    height: 8px;
+    width: 200px;
+    padding: 16px 0px;
+    font-size: 12px;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: bold;
+    color: #8e9297;
+    padding-left: 8px;
+}
+   

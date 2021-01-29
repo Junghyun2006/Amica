@@ -1,0 +1,38 @@
+
+.channel-index-item {
+   width: 232px;
+   height: 34px;
+   padding: 1px 0px;
+   list-style-type: none;
+   padding-left: 6px;
+   display: flex;
+   flex-direction: horizontal;
+}
+
+
+.channel-text {
+    list-style-type: none;
+    width: 212px;
+    height: 28px;
+    border-radius: 4px;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 15px;
+    padding-top: 6px;
+    color: #8e9297;
+    padding-left: 12px;
+    font-weight: 500;
+}
+
+.channel-text:hover {
+    background-color: #363A3E;
+    cursor: pointer;
+    color: rgb(214, 214, 214);
+}
+
+.hashtag-img {
+    height: 16px;
+    width: 15px;
+    padding-right: 8px;
+    position: relative;
+    top: 2px;
+}

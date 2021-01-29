@@ -4,7 +4,8 @@ import {receiveCUser} from "../../actions/user_action";
 
 const msp = (state,ownProps) => {
     return {
-        currentUser: state.session.currentUser
+        currentUser: state.session.currentUser,
+        servers: Object.values(state.entities.servers)
     }    
 }
 

@@ -1,0 +1,19 @@
+.channel-message-container {
+    height: 100%;
+    width: 100%;
+    
+    background-color: #363A3E;
+}
+
+.channel-message-header {
+    width: 100%;
+    height: 12px;
+    padding: 18px 0px;
+    padding-left: 8px;
+    color: #fff;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    box-shadow: var(--bot-shadow);
+    --bot-shadow: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+}

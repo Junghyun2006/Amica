@@ -1,16 +1,18 @@
 .home-btn {
     display: block;
-    width: 36px;
-    height: 36px;
-    padding: 8px 6px 6px 6px;
+    width: 34px;
+    height: 34px;
+    padding: 10px 6px 6px 7px;
 }
 
 .home-btn-container {
     width: 48px;
     height: 48px;
-    background-color: #7289DA;
-    border-radius: 12px;
+    background-color: #363A3E;
+    border-radius: 30px;
     margin-bottom: 8px;
+    position: relative;
+    top: 12px;
 }
 
 .add-server-btn-container {
@@ -20,6 +22,8 @@
     margin-bottom: 8px;
     background-color: #36393f;
     text-align: center;
+    position: relative;
+    top: 12px;
     
    
 }
@@ -27,9 +31,31 @@
 .add-server-btn {
     color: #43b581;
     font-size: 30px;
-    font-weight: 100;
-    font-family:'Catamaran', sans-serif;
+    font-weight: 300;
+    font-family:'Roboto', sans-serif;
     position: relative;
     top: 9px;
+    
 
+}
+
+.add-server-btn-container:hover {
+    cursor: pointer;
+    border-radius: 15px;
+    transition: border-radius 0.1s ease-in-out;
+    background-color: #43b581;
+    
+}
+
+.add-server-btn:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.home-btn-container:hover {
+    cursor: pointer;
+    border-radius: 15px;
+    transition: border-radius 0.1s ease-in-out;
+    background-color: #7289DA;
+    
 }

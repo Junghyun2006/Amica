@@ -5,6 +5,7 @@ import NavBarContainer from './splash/nav_bar_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_utils';
 import SplashContainer from './splash/splash_container';
 import HomeContainer from './home/home_container';
+import Server from '../components/server/server'
 
 import {
     Route,
@@ -21,6 +22,7 @@ const App = () => (
             <AuthRoute exact path='/signup' component={SignupContainer} />
             <AuthRoute exact path='/login' component={LoginContainer} />
             <ProtectedRoute exact path='/@me' component={HomeContainer} />
+            <ProtectedRoute exact path='/servers/:serverId/channels' component={Server} />
         </Switch>
     </div>
 );

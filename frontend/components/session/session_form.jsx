@@ -113,7 +113,7 @@ class SessionForm extends React.Component {
             <div className="demo-user">
                 <img src={window.qrcodeURL} className="qr-code" />
                 <h2>Log in with QR Code</h2>
-                <h3>Scan this with the <strong>Discord mobile app</strong> to log in instantly </h3>
+                <h3>Scan this with the <strong>Amica mobile app</strong> to log in instantly </h3>
             </div>   
             );  
 

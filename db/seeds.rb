@@ -3,10 +3,12 @@ require 'open-uri'
 User.delete_all
 Server.delete_all
 Subscription.delete_all
+Channel.delete_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('servers')
 ActiveRecord::Base.connection.reset_pk_sequence!('subscriptions')
+ActiveRecord::Base.connection.reset_pk_sequence!('channels')
 
 demo = User.create!(
     username: 'Demouser',
@@ -103,5 +105,53 @@ subscription_6 = Subscription.create!(
     user_id: 3
 )
 
+channel_1 = Channel.create!(
+    name: 'general-chat',
+    server_id: 1
+)
+
+channel_2 = Channel.create!(
+    name: 'vacation-planning',
+    server_id: 1
+)
+channel_3 = Channel.create!(
+    name: 'study-help',
+    server_id: 1
+)
+channel_4 = Channel.create!(
+    name: 'game-chat',
+    server_id: 1
+)
+channel_5 = Channel.create!(
+    name: '-random',
+    server_id: 1
+)
+
+channel_6 = Channel.create!(
+    name: 'vacation-planning',
+    server_id: 2
+)
+channel_7 = Channel.create!(
+    name: 'study-help',
+    server_id: 2
+)
+channel_8 = Channel.create!(
+    name: 'game-chat',
+    server_id: 2
+)
+channel_9 = Channel.create!(
+    name: '-random',
+    server_id: 3
+)
+
+channel_10 = Channel.create!(
+    name: 'general-chat',
+    server_id: 2
+)
+
+channel_11 = Channel.create!(
+    name: 'general-chat',
+    server_id: 3
+)
 
 

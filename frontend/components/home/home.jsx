@@ -19,16 +19,11 @@ class HomePage extends React.Component {
 
         return (
             <div className="home-wrapper">
-                <div className="server-bar-holder">
-                    <Link to='/@me' className="home-btn-container"><img className="home-btn"src={window.logo}/></Link>
-                    <div className='bar-divider'/>
-                    <ServerBarContainer/>
-                    <div className='bar-divider' />
-                    <div className="add-server-btn-container"><p className="add-server-btn">+</p></div>
-                </div>
-               
-                <button onClick={this.handleSubmit}>Logout</button>
+                <ServerBarContainer />
+                {/* <button onClick={this.handleSubmit}>Logout</button>   */}
             </div>
+            
+
         )
     }
 }

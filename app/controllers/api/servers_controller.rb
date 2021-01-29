@@ -1,6 +1,7 @@
 class Api::ServersController < ApplicationController
     def index 
         @servers = Server.all
+        render :index
     end
 
     def create
@@ -20,7 +21,7 @@ class Api::ServersController < ApplicationController
 
     def update
         @server = Server.find_by(id: params[:id])
-        if @server.update(event_params)
+        if @server.update(server_params)
             render "api/servers/show"
         else
             render json: @server.errors.full_messages, status: 422
