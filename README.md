@@ -1,7 +1,8 @@
-# README
+# Amica
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Amica](https://amica-aa.herokuapp.com/#/) is a clone of the instant messaging and digital distribution platform 
+[Discord](https://discord.com/). On Amica,users are able to create and join servers. Inside the servers, users 
+are able to create and join channels where they can send messages to other users within the channel. 
 
 Things you may want to cover:
 
