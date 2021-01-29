@@ -6,7 +6,7 @@ Users can then send messages to other all other users within the servers or priv
 
 ![alt text](https://github.com/Junghyun2006/Amica/blob/main/0.resources/amika_images/Homepage.png)
 
-## Technologies Used:
+Technologies Used:
 ---------------------
 * Frontend: React/Redux
 * Backend: Rails
@@ -14,6 +14,6 @@ Users can then send messages to other all other users within the servers or priv
 * Storage: ActiveStorage/AWS
 * LiveChat: WebSockets - To be implemented 
 
-## Features 
+Features 
 -----------
 
