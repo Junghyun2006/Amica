@@ -7,6 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+     <meta property="og:title" content="Amica" />
+     <meta property='og:image' content="<%= image_url('Homepage.png') %>"/>
+     <meta property="og:description"
+       content="A brief description of your project."
+     />
+     <meta property="og:url"
+       content="https://amica-aa.herokuapp.com"
+     />
 
     <script type="text/javascript">
         window.qrcodeURL = "<%= image_url('qr_img.png') %>";
@@ -14,6 +22,7 @@
         window.logo = "<%= image_url('logo.png')%>";
         window.logo2 = "<%= image_url('logo2.png')%>";
         window.hashtag = "<%= image_url('hashtag.png')%>";
+        window.plus = "<%= image_url('plus.png')%>";
     </script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
