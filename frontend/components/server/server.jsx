@@ -10,7 +10,6 @@ class Server extends React.Component {
 
 
     render(){
-
         return (
             <div className="main-server-container">
                 <ServerBarContainer />

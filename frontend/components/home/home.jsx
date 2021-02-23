@@ -6,6 +6,9 @@ class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            active_server: 'lol'
+        }
     }
 
 
@@ -14,6 +17,11 @@ class HomePage extends React.Component {
         this.props.logout()
             .then(() => this.props.history.push('/')); // modify the string inside push - MOST LIKELY THE ERROR
     }
+
+    handleActiveServer(serverId) {
+        this.setState({active_server: serverId})
+        console.log(this.state.active_server)
+    } 
 
     render() {
 

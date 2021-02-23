@@ -6,13 +6,13 @@ class ServerBar extends React.Component {
     constructor(props) {
         super(props);
     }
-
+    
     componentDidMount(){
         this.props.receiveCurrentUser(this.props.currentUser.id)
     }
 
     render() {
-
+        // debugger
         const {currentUser, servers} = this.props;
 
         if (!servers) return null;

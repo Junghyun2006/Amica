@@ -6,6 +6,7 @@ import {withRouter} from "react-router";
 const msp = (state, ownProps) => {
     return {
         channels: Object.values(state.entities.channels),
+        servers: state.entities.servers,
         ownProps
     }
 }

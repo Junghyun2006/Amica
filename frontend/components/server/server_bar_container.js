@@ -3,6 +3,7 @@ import ServerBar from "./server_bar";
 import {receiveCUser} from "../../actions/user_action";
 
 const msp = (state,ownProps) => {
+    // debugger
     return {
         currentUser: state.session.currentUser,
         servers: Object.values(state.entities.servers)

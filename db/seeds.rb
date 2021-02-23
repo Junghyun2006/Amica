@@ -154,4 +154,9 @@ channel_11 = Channel.create!(
     server_id: 3
 )
 
+channel_12 = Channel.create!(
+    name: 'general-chat',
+    server_id: 4
+)
+
 

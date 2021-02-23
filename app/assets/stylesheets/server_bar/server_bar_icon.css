@@ -12,5 +12,5 @@
 .server-icon:hover {
     cursor: pointer;
     border-radius: 15px;
-    transition: border-radius 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
