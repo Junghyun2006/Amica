@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import ServerBar from "./server_bar";
 import {receiveCUser} from "../../actions/user_action";
+import {openModal} from '../../actions/modal_actions';
 
 const msp = (state,ownProps) => {
     // debugger
@@ -13,6 +14,7 @@ const msp = (state,ownProps) => {
 const mdp = dispatch => {
     return {
         receiveCurrentUser: (userId) => dispatch(receiveCUser(userId)),
+        openModal: (modal) => dispatch(openModal(modal))
     }
 }
 

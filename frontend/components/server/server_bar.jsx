@@ -30,7 +30,7 @@ class ServerBar extends React.Component {
                     <ul className="server-bar-index">
                         {serverIndex}
                     </ul>
-                    <div className="add-server-btn-container"><p className="add-server-btn">+</p></div>
+                    <div onClick={() => this.props.openModal('serverPlus')} className="add-server-btn-container"><p className="add-server-btn">+</p></div>
                     <div className='bar-divider' />
                 </div>
         )
