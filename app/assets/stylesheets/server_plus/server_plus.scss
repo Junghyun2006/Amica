@@ -1,0 +1,118 @@
+
+.server-plus-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.server-plus-title {
+    padding: 24px 16px 0;
+    /* margin-top: 24px; */
+    font: {
+        family: "Whitney Bold";
+        size: 24px;
+        weight: 700;
+    }
+    color: #060607
+}
+
+.server-plus-description {
+    margin-top: 8px;
+    font: {
+        size: 16px;
+        family: "Whitney";
+        color: #4F5660;
+        weight: 700;
+    }
+    color:#4F5660;
+    line-height: 20px;
+    width: 408px;
+    height: 40px;
+    text-align: center;
+}
+
+.server-plus-option-container {
+    width: 408px;
+    margin-top: 24px;
+    height: 330px;
+}
+
+
+.server-plus-option {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(6,6,7,0.08);
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 0px;
+    border-radius: 8px;
+    background-color: white;
+    height: 65px;
+}
+
+.server-plus-option:hover {
+    background-color: #747F8D14;
+}
+
+.create-server-img {
+    margin: 8px 8px 8px 16px;
+}
+
+
+.server-plus-option h1 {
+    font-size: 16px;
+    font-family: 'Whitney Bold';
+    color: #2E3338
+}
+
+.server-plus-arrow {
+    position: absolute;
+    left: 386px;
+}
+
+.start-template {
+    color: #4F5660;
+    font-family: 'Whitney Bold';
+    font-size: 12px;
+    margin: 16px 0px 8px;
+}
+
+.sp-join-container {
+    width: 408px;
+    height: 70px;
+    padding: 16px;
+    background-color: #f6f6f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sp-join-container h1 {
+    font-size: 20px;
+    font-family: "Whitney Semibold Regular";
+    // font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+    line-height: 24px;
+}
+
+.sp-join-container button {
+    width: 408px;
+    height: 38px;
+    background-color: #747f8d;
+    color: #fff;
+    font {
+        size: 14px;
+        family: 'Whitney';
+    }
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+.sp-join-container button:hover {
+    background-color: #68737F;
+}
+
