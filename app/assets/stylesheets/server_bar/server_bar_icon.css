@@ -14,3 +14,11 @@
     border-radius: 15px;
     transition: all 0.2s ease-in-out;
 }
+
+.server-icon-name {
+    visibility: hidden;
+}
+
+.server-index-item:hover > .server-icon-name {
+    visibility: visible;
+}

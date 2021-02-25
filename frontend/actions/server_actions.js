@@ -37,7 +37,7 @@ export const requestServers = () => {
 
 export const requestServer = (serverId) => {
     return dispatch => {
-        return ServerAPIUtil.requestServers(serverId).then(server => {
+        return ServerAPIUtil.requestServer(serverId).then(server => {
             dispatch(receiveServer(server))
         })
     }

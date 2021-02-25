@@ -11,13 +11,16 @@ class ChannelIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.location !== this.props.location) this.props.requestServerChannels(this.props.match.params.serverId)
+        if (prevProps.location !== this.props.location) {
+            this.props.requestServerChannels(this.props.match.params.serverId)}
     }
 
     render() {
-        const {channels} = this.props;
+        const {channels, servers} = this.props;
         
-        if (!channels) return null;
+        if (!channels || !servers[1]) {
+            console.log('test pass')
+            return null};
 
         const channelIndex = channels.map((channel, i) => {
             return (
@@ -25,9 +28,11 @@ class ChannelIndex extends React.Component {
             );
         })
 
+        const serverName = (servers[this.props.match.params.serverId]) ? servers[this.props.match.params.serverId].name : '';
+
         return (
             <div className="channel-index-holder">
-                <div className="server-setting">{this.props.servers[this.props.match.params.serverId].name}</div>
+                <div className="server-setting">{serverName}</div>
                 <div className="text-channel">TEXT CHANNEL</div> 
                 {channelIndex}
             </div>
@@ -35,4 +40,5 @@ class ChannelIndex extends React.Component {
     }
 }
 
+//
 export default ChannelIndex;
