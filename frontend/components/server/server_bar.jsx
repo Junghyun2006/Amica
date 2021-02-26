@@ -5,15 +5,20 @@ import {Link} from 'react-router-dom'
 class ServerBar extends React.Component {
     constructor(props) {
         super(props);
+        this.state = this.props.newServerInfo;
+
     }
     
     componentDidMount(){
         this.props.receiveCurrentUser(this.props.currentUser.id)
     }
 
+
     render() {
         // debugger
         const {currentUser, servers} = this.props;
+
+        
 
         if (!servers) return null;
 
@@ -30,7 +35,14 @@ class ServerBar extends React.Component {
                     <ul className="server-bar-index">
                         {serverIndex}
                     </ul>
-                    <div onClick={() => this.props.openModal('serverPlus')} className="add-server-btn-container"><p className="add-server-btn">+</p></div>
+                    <div onClick={() => this.props.openModal({
+                        modal:'serverPlus', 
+                        createServer: this.props.createServer, 
+                        newServerInfo: this.state,
+                        test: 'hello'})} 
+                        className="add-server-btn-container">
+                        <p className="add-server-btn">+</p>
+                    </div>
                     <div className='bar-divider' />
                 </div>
         )

@@ -1,10 +1,11 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import ServerPlusModal from '../server/modal/server_plus_modal';
+import ServerCreateModal from '../server/modal/server_create_modal';
 
 
-function Modal({modal, closeModal}) {
+function Modal({modal, closeModal, openModal}) {
   if (!modal) {
     return null;
   }
@@ -12,12 +13,23 @@ function Modal({modal, closeModal}) {
   let component;
   let width;
   let height;
-  
-  switch (modal) {
+
+  switch (modal.modal) {
     case "serverPlus":
-      component = <ServerPlusModal/>;
+      component = <ServerPlusModal openModal={openModal} 
+                    createServer={modal.createServer}
+                    newServerInfo={modal.newServerInfo}
+                  />;
       width = `440px`;
-      height = `558px`;
+      height = `552px`;
+      break;
+    case "serverCreate":
+      component = <ServerCreateModal openModal={openModal}
+                    createServer={modal.createServer}
+                    newServerInfo={modal.newServerInfo}
+                  />;
+      width = `440px`;
+      height = `414px`;
       break;
     default:
       return null;
@@ -45,7 +57,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    openModal: (modal) => dispatch(openModal(modal))
   };
 };
 

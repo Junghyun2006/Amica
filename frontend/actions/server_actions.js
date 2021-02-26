@@ -49,7 +49,7 @@ export const createServer = (server) => {
         return ServerAPIUtil.createServer(server).then(server => {
             dispatch(receiveServer(server))
         })
-    }
+    } 
 }
 
 export const updateServer = (server) => {
