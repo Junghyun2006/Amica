@@ -1,0 +1,1 @@
+json.extract! subscription, :id, :subscribeable_type, :subscribeable_id, :user_id

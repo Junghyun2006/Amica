@@ -8,7 +8,7 @@ const ServerCreateModal = ({openModal, createServer, newServerInfo}) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        createServer({host_id: newServerInfo.host_id, name: newServerName})
+        createServer({name: newServerName})
     }
 
     return (

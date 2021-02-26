@@ -8,11 +8,14 @@ class Api::ServersController < ApplicationController
         @server = Server.new(server_params)
         @server[:host_id] = current_user.id
             
-        if @server.save
+        if @server.save 
             render "api/servers/show"
         else
             render json: ["- Must be between 2 and 100 in length."], status: 422
         end
+
+        
+
     end
 
     def show
