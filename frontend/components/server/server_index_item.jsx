@@ -8,7 +8,7 @@ const ServerIndexItem = (props) => {
         <Link to={`/servers/${id}/channels`}>
             <div className="server-index-item">
                 <img src={photoUrl} className="server-icon"/>
-                <h1 className="server-icon-name">{name}</h1>
+                {/* <h1 className="server-icon-name">{name}</h1> */}
             </div>
             
         </Link>

@@ -48,10 +48,8 @@ export const requestServer = (serverId) => {
 export const createServer = (server) => {
     return dispatch => {
         return ServerAPIUtil.createServer(server).then(server => {
-            debugger
             dispatch(receiveServer(server))
-            SubAPIUtil.createSubscription({subscribeable_id: server.id, subscribeable_type: "Server"})
-        })
+        }) 
     } 
 }
 

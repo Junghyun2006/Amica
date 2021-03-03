@@ -11,8 +11,8 @@ export const requestServer = (serverId) => {
 }
 export const createServer = (server) => {
     return $.ajax({
-        url: `/api/servers`,
-        method: 'POST',
+        method: "POST",
+        url: "/api/servers",
         data: server,
         contentType: false,
         processData: false

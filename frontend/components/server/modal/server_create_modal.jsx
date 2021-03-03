@@ -1,19 +1,23 @@
 import React, {useState, useRef} from "react";
 import { openModal } from "../../../actions/modal_actions";
+import * as SubAPIUtil from "../../../utils/sub_utils"
 
 const ServerCreateModal = ({openModal, createServer, newServerInfo}) => {
 
     const [newServerName, setNewServerName] = useState(newServerInfo.name);
     const handleChange = (e) => setNewServerName(e.target.value);
-    const [serverImg, setServerImg] = useState(null)
+    const [serverImg, setServerImg] = useState('')
+    
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        createServer({name: newServerName});
+        // createServer({name: newServerName});
         const formData = new FormData();
-        formData.append('server[name]', newServerName);
-        formData.append('server[photo]', serverImg);
+        formData.append("server[name]", newServerName);
+        formData.append("server[photo]", serverImg);
+        debugger
         createServer(formData)
+        SubAPIUtil.createSubscription({subscribeable_id: '0'})
     }
 
     const inputFile = useRef(null);
