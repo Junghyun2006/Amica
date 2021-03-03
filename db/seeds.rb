@@ -66,8 +66,8 @@ server_4 = Server.create!(
     host_id: 4
 )
 
-file4 = open('https://app-amica-seeds.s3.amazonaws.com/blue_car.jpeg')
-server_4.photo.attach(io: file4, filename: 'blue_car.jpeg')
+file4 = open('https://app-amica-seeds.s3.amazonaws.com/white_car.jpeg')
+server_4.photo.attach(io: file4, filename: 'white_car.jpeg')
 
 subscription_1 = Subscription.create!(
     subscribeable_type: 'Server',

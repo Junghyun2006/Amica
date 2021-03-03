@@ -4,11 +4,6 @@ export const requestSubscriptions = () => {
     })
 }
 
-export const requestSubscription = (subscriptionId) => {
-    return $.ajax({
-        url: `/api/subscriptions/${subscriptionId}`
-    })
-}
 export const createSubscription = (subscription) => {
     return $.ajax({
         url: `/api/subscriptions`,

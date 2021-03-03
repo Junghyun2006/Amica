@@ -1,4 +1,5 @@
 import * as ServerAPIUtil from "./../utils/server_utils";
+import * as SubAPIUtil from "../utils/sub_utils";
 
 export const RECEIVE_SERVERS = "RECEIVE_SERVERS";
 export const RECEIVE_SERVER = "RECEIVE_SERVER";
@@ -47,10 +48,14 @@ export const requestServer = (serverId) => {
 export const createServer = (server) => {
     return dispatch => {
         return ServerAPIUtil.createServer(server).then(server => {
+            debugger
             dispatch(receiveServer(server))
+            SubAPIUtil.createSubscription({subscribeable_id: server.id, subscribeable_type: "Server"})
         })
     } 
 }
+
+  
 
 export const updateServer = (server) => {
     return dispatch => {
