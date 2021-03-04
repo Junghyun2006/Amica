@@ -1,47 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ServerBarContainer from '../server/server_bar_container';
+import React from "react";
+import { Link } from "react-router-dom";
+import ServerBarContainer from "../server/server_bar_container";
 
 class HomePage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {
-            active_server: 'lol'
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      active_server: "lol",
+    };
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.logout().then(() => this.props.history.push("/")); // modify the string inside push - MOST LIKELY THE ERROR
+  }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.logout()
-            .then(() => this.props.history.push('/')); // modify the string inside push - MOST LIKELY THE ERROR
-    }
+  handleActiveServer(serverId) {
+    this.setState({ active_server: serverId });
+    console.log(this.state.active_server);
+  }
 
-    handleActiveServer(serverId) {
-        this.setState({active_server: serverId})
-        console.log(this.state.active_server)
-    } 
-
-    render() {
-
-        return (
-            <div className="home-wrapper">
-                <ServerBarContainer />
-                <div className="conversation-index-container"></div>
-                <div className="friend-list-container">
-                    <div className="friend-header"></div>
-                    <div className="friend-container">
-                        <div className="friend-box"></div>
-                        <div className="friend-status"></div>
-                    </div>
-                </div>
-                <button className='logout-btn' onClick={this.handleSubmit}>Logout</button>  
-            </div>
-            
-
-        )
-    }
+  render() {
+    return (
+      <div className="home-wrapper">
+        <ServerBarContainer />
+        <div className="channel-index-holder"></div>
+        <div className="channel-container">
+          <div className="friend-header"></div>
+          <div className="friend-container">
+            <div className="friend-box"></div>
+            <div className="friend-status"></div>
+          </div>
+        </div>
+        <button className="logout-btn" onClick={this.handleSubmit}>
+          Logout
+        </button>
+      </div>
+    );
+  }
 }
 
 export default HomePage;

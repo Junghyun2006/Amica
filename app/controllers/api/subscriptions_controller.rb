@@ -7,7 +7,9 @@ class Api::SubscriptionsController < ApplicationController
     end
 
     def create
+        debugger
         @server = (subscription_params[:subscribeable_id] != '0') ? (Server.includes(:subscriptions).find_by(id: subscription_params[:subscribeable_id])) : (Server.includes(:subscriptions).last)
+        debugger
         if @server
             if current_user.subscribed?(@server)
                 render "api/servers/show"

@@ -1,11 +1,10 @@
-import React from 'react';
-import { openModal, closeModal } from '../../actions/modal_actions';
-import { connect } from 'react-redux';
-import ServerPlusModal from '../server/modal/server_plus_modal';
-import ServerCreateModal from '../server/modal/server_create_modal';
+import React from "react";
+import { openModal, closeModal } from "../../actions/modal_actions";
+import { connect } from "react-redux";
+import ServerPlusModal from "../server/modal/server_plus_modal";
+import ServerCreateModal from "../server/modal/server_create_modal";
 
-
-function Modal({modal, closeModal, openModal}) {
+function Modal({ modal, closeModal, openModal }) {
   if (!modal) {
     return null;
   }
@@ -16,25 +15,30 @@ function Modal({modal, closeModal, openModal}) {
 
   switch (modal.modal) {
     case "serverPlus":
-      component = <ServerPlusModal openModal={openModal} 
-                    createServer={modal.createServer}
-                    newServerInfo={modal.newServerInfo}
-                  />;
+      component = (
+        <ServerPlusModal
+          openModal={openModal}
+          createServer={modal.createServer}
+          newServerInfo={modal.newServerInfo}
+        />
+      );
       width = `440px`;
       height = `552px`;
       break;
     case "serverCreate":
-      component = <ServerCreateModal openModal={openModal}
-                    createServer={modal.createServer}
-                    newServerInfo={modal.newServerInfo}
-                  />;
+      component = (
+        <ServerCreateModal
+          openModal={openModal}
+          createServer={modal.createServer}
+          newServerInfo={modal.newServerInfo}
+        />
+      );
       width = `440px`;
       height = `414px`;
       break;
     default:
       return null;
   }
-
 
   return (
     <div className="modal-container" onClick={closeModal}>
@@ -55,10 +59,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     closeModal: () => dispatch(closeModal()),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal) => dispatch(openModal(modal)),
   };
 };
 

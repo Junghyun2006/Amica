@@ -3,32 +3,47 @@ import { openModal } from "../../../actions/modal_actions";
 import * as SubAPIUtil from "../../../utils/sub_utils"
 
 const ServerCreateModal = ({openModal, createServer, newServerInfo}) => {
-
+    
+    const defaultImg = {url: "", file: null}
     const [newServerName, setNewServerName] = useState(newServerInfo.name);
     const handleChange = (e) => setNewServerName(e.target.value);
-    const [serverImg, setServerImg] = useState('')
+    const [serverImg, setServerImg] = useState(defaultImg)
+
     
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        // createServer({name: newServerName});
         const formData = new FormData();
         formData.append("server[name]", newServerName);
-        formData.append("server[photo]", serverImg);
-        debugger
+        formData.append("server[photo]", serverImg.file);
         createServer(formData)
+        debugger
         SubAPIUtil.createSubscription({subscribeable_id: '0'})
     }
 
     const inputFile = useRef(null);
+
+    const handleRefresh = () => {
+        setServerImg(defaultImg);
+        inputFile.current.value = "";
+    }
 
     const handleServerImg = () => {
         inputFile.current.click()
     }
 
     const handleFileChange = (e) => { 
-        setServerImg(e.currentTarget.files[0])
-    }
+        // setServerImg(e.currentTarget.files[0])
+        const fileReader = new FileReader();
+        const [file] = e.currentTarget.files;
+        fileReader.onloadend = () => setServerImg({ url: fileReader.result, file });
+
+        if (file) {
+            fileReader.readAsDataURL(file);
+        } else {
+            handleRefresh();
+        }
+    };
 
     return (
         <div className="sc-modal">
