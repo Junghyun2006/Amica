@@ -17,8 +17,6 @@ const ServerCreateModal = ({openModal, createServer, newServerInfo}) => {
         formData.append("server[name]", newServerName);
         formData.append("server[photo]", serverImg.file);
         createServer(formData)
-        debugger
-        SubAPIUtil.createSubscription({subscribeable_id: '0'})
     }
 
     const inputFile = useRef(null);

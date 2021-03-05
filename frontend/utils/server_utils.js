@@ -1,3 +1,5 @@
+import {createSubscription} from './sub_utils'
+
 export const requestServers = () => {
   return $.ajax({
     url: "/api/servers",
@@ -17,6 +19,7 @@ export const createServer = (server) => {
     contentType: false,
     processData: false,
   }).then(
+    (response) => createSubscription({subscribeable_id: response.id, subscribeable_type: 'Server'}),
     (response) => console.log(response.message),
     (response) => console.log(response.responseJSON)
   );

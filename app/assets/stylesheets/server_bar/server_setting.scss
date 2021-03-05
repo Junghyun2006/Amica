@@ -8,6 +8,7 @@
     position: absolute;
     top: 55px;
     left: 78px;
+    z-index: 5;
 
 }
 
@@ -66,20 +67,141 @@
 
 .server-setting-option-inv:hover > .ss-text-invite {
     color: white;
+    cursor: pointer;
 }
 
 .server-setting-option-inv:hover > svg > path {
     fill: white;
+    cursor: pointer;
 }
 
 .server-setting-option:hover {
     background-color:#5d71af;
+    cursor: pointer;
 }
 
 .server-setting-option:hover > .ss-text {
     color: white;
+    cursor: pointer;
 }
 
 .server-setting-option:hover > svg > path {
     fill: white;
+    cursor: pointer;
+}
+
+.ssp-container {
+    display: flex;
+    flex: row;
+}
+
+.ssp-left {
+    height: 100%;
+    width: 35vw;
+    background-color: #2f3136;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+   
+}
+
+.ssp-right {
+    height: 100%;
+    background-color: #36393f;
+    position: absolute;
+    z-index: 10;
+    width: 65vw;
+    top: 0;
+    right: 0;  
+}
+
+.ssp-option-container {
+    width: 218px;
+    padding: 60px 6px 60px 20px;
+    color: #8e9297;
+    display: block;
+}
+
+.ssp-server-name {
+    padding: 0 10px 6px;
+    font-family: "Whitney Bold";
+    font-size: 13px;
+    margin-bottom:5px;
+}
+
+.ssp-overview {
+    background-color: #3a3c43;
+    color: white;
+}
+.ssp-option-container > div > h2 {
+    padding: 6px 10px;
+    font-size: 16px;
+    font-family: "Whitney Medium";
+    text-align: left;
+    border-radius: 3px;
+    height: 20px;
+    margin: 0 0 2px;
+    align-items: center;
+}
+
+.ssp-divider {
+    width: 88%;
+    margin: 8px auto;
+    border-bottom: 1px solid #3b3d42;
+}
+
+.ssp-overview-container {
+    padding: 0 4px;
+}
+
+.ssp-delete {
+    color: #f04747;
+    padding: 6px 10px;
+    font-size: 16px;
+    font-family: "Whitney Medium";
+    text-align: left;
+    border-radius: 3px;
+    height: 20px;
+    margin: 0 0 2px;
+    align-items: center;
+}
+
+.ssp-delete:hover {
+    background-color: #423338;
+}
+
+.ssp-close-circle {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #72767d;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.ssp-close-circle:hover {
+    background-color: #404549;
+}
+
+.ssp-x {
+    position: relative;
+    bottom:26px;
+    left: 8px;
+}
+
+.ssp-exit {
+    position: absolute;
+    left: 600px;
+    top: 60px;
+}
+.ssp-x:hover {
+    cursor: pointer;
+}
+.ssp-exit:hover > .ssp-close-circle {
+    background-color: #404549;
 }

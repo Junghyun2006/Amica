@@ -7,9 +7,9 @@ class Api::SubscriptionsController < ApplicationController
     end
 
     def create
-        debugger
-        @server = (subscription_params[:subscribeable_id] != '0') ? (Server.includes(:subscriptions).find_by(id: subscription_params[:subscribeable_id])) : (Server.includes(:subscriptions).last)
-        debugger
+        # @server = (subscription_params[:subscribeable_id] != '0') ? (Server.includes(:subscriptions).find_by(id: subscription_params[:subscribeable_id])) : (Server.includes(:subscriptions).last)
+        @server = Server.includes(:subscriptions).find_by(id: subscription_params[:subscribeable_id])
+
         if @server
             if current_user.subscribed?(@server)
                 render "api/servers/show"
@@ -28,7 +28,7 @@ class Api::SubscriptionsController < ApplicationController
     end
 
     def destroy
-        @subscription.find_by(subscribeable_id: params[:subscribeable_id], subscribeable_type: params[:subscribeable_type])
+        @subscription = Subscription.find_by(subscribeable_id: subscription_params[:subscribeable_id], subscribeable_type: subscription_params[:subscribeable_type])
 
         if @subscription.destroy
             render "api/servers/show"

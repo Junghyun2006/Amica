@@ -15,16 +15,14 @@ const ServerSettingDD = (props) => {
         >
           <path
             fill="#738BD8"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
             d="M21 3H24V5H21V8H19V5H16V3H19V0H21V3ZM10 12C12.205 12 14 10.205 14 8C14 5.795 12.205 4 10 4C7.795 4 6 5.795 6 8C6 10.205 7.795 12 10 12ZM10 13C5.289 13 2 15.467 2 19V20H18V19C18 15.467 14.711 13 10 13Z"
           ></path>
         </svg>
       </div>
-      <div className="server-setting-option">
+      <div onMouseDown={() => {props.handleServerSettingP()} } className="server-setting-option">
         <div className="ss-text">Server Settings</div>
         <svg
-          class="ss-setting"
+          className="ss-setting"
           aria-hidden="false"
           width="24"
           height="24"
@@ -33,8 +31,6 @@ const ServerSettingDD = (props) => {
         >
           <path
             fill="#B9BBBE"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
             d="M19.738 10H22V14H19.739C19.498 14.931 19.1 15.798 18.565 16.564L20 18L18 20L16.565 18.564C15.797 19.099 14.932 19.498 14 19.738V22H10V19.738C9.069 19.498 8.203 19.099 7.436 18.564L6 20L4 18L5.436 16.564C4.901 15.799 4.502 14.932 4.262 14H2V10H4.262C4.502 9.068 4.9 8.202 5.436 7.436L4 6L6 4L7.436 5.436C8.202 4.9 9.068 4.502 10 4.262V2H14V4.261C14.932 4.502 15.797 4.9 16.565 5.435L18 3.999L20 5.999L18.564 7.436C19.099 8.202 19.498 9.069 19.738 10ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
           ></path>
         </svg>
@@ -42,7 +38,7 @@ const ServerSettingDD = (props) => {
       <div className="server-setting-option">
         <div className="ss-text">Create Channel</div>
         <svg
-          class="ss-create-channel"
+          className="ss-create-channel"
           width="16"
           height="16"
           viewBox="0 0 24 24"
@@ -59,7 +55,3 @@ const ServerSettingDD = (props) => {
 };
 
 export default ServerSettingDD;
-
-{
-  /* <img className="ss-invite" src={window.invite}/> */
-}

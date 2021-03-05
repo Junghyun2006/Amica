@@ -12,9 +12,10 @@ export const createSubscription = (subscription) => {
     })
 }
 
-export const deleteSubscription = (subscriptionId) => {
+export const deleteSubscription = (subscription) => {
     return $.ajax({
-        url: `/api/subscriptions/${subscriptionId}`,
-        method: 'DELETE'
+        url: `/api/subscriptions/1`,
+        method: 'DELETE',
+        data: {subscription}
     })
 }

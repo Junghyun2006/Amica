@@ -1,12 +1,14 @@
 import React from "react";
 import ChannelIndexItem from "./channel_index_item";
 import ServerSettingDD from '../server/server_setting_dd';
+import ServerSetting from '../server/server_setting';
 
 class ChannelIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {serverSetting: false};
+        this.state = {serverSetting: false, serverSettingP: false};
         this.handleServerSetting = this.handleServerSetting.bind(this);
+        this.handleServerSettingP = this.handleServerSettingP.bind(this);
     }
 
     componentDidMount(){
@@ -14,7 +16,7 @@ class ChannelIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.location !== this.props.location) {
+        if (prevProps.location !== this.props.location || prevProps.servers !== this.props.servers) {
             this.props.requestServerChannels(this.props.match.params.serverId)}
     }
 
@@ -23,12 +25,15 @@ class ChannelIndex extends React.Component {
         this.setState({serverSetting: !state})
     }
 
+    handleServerSettingP() {
+        const state = this.state.serverSettingP
+        this.setState({serverSettingP: !state})
+    }
+
     render() {
         const {channels, servers} = this.props;
         
-        if (!channels || !servers[1]) {
-            console.log('test pass')
-            return null};
+        if (!channels || !servers[1]) {return null};
 
         const channelIndex = channels.map((channel, i) => {
             return (
@@ -38,10 +43,13 @@ class ChannelIndex extends React.Component {
 
         const serverName = (servers[this.props.match.params.serverId]) ? servers[this.props.match.params.serverId].name : '';
 
-        const serverSettingDD = (this.state.serverSetting === true) ? <ServerSettingDD /> : null;
+        const serverSettingDD = (this.state.serverSetting === true) ? <ServerSettingDD handleServerSettingP={this.handleServerSettingP}/> : null;
+        const serverSettingP = (this.state.serverSettingP === true) ? <ServerSetting serverName={serverName} handleServerSettingP={this.handleServerSettingP} serverId={this.props.match.params.serverId} push={this.props.history.push}/> : null;
 
         return (
             <div>
+                
+                {serverSettingDD}
                 <div className="channel-index-holder">
                     <div className="server-setting-container">
                         <div className="server-setting">{serverName}</div>
@@ -50,15 +58,13 @@ class ChannelIndex extends React.Component {
                         </div> 
                     </div>
                     <div className="text-channel">TEXT CHANNEL</div> 
-                    {channelIndex}
-                    {serverSettingDD}
+                    {channelIndex} 
                 </div>
-               
+                {serverSettingP}
             </div>   
            
         )
     }
 }
 
-//
 export default ChannelIndex;
