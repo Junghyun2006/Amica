@@ -1,6 +1,6 @@
 import React from "react";
 
-const ServerPlusModal = ({openModal, createServer, newServerInfo}) => {
+const ServerPlusModal = ({openModal, createServer, newServerInfo, push}) => {
     return (
         <div className="server-plus-modal">
             <h1 className="server-plus-title">Create a server</h1>
@@ -9,7 +9,8 @@ const ServerPlusModal = ({openModal, createServer, newServerInfo}) => {
                 <div onClick={() => openModal({
                     modal: 'serverCreate',
                     createServer: createServer,
-                    newServerInfo: newServerInfo
+                    newServerInfo: newServerInfo,
+                    push: push
                     })} className="server-plus-option">
                     <img className="create-server-img" src={window.createServerSvg}/>
                     <h1>Create My Own</h1>

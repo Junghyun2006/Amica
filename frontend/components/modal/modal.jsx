@@ -20,6 +20,7 @@ function Modal({ modal, closeModal, openModal }) {
           openModal={openModal}
           createServer={modal.createServer}
           newServerInfo={modal.newServerInfo}
+          push={modal.push}
         />
       );
       width = `440px`;
@@ -28,9 +29,11 @@ function Modal({ modal, closeModal, openModal }) {
     case "serverCreate":
       component = (
         <ServerCreateModal
+          closeModal={closeModal}
           openModal={openModal}
           createServer={modal.createServer}
           newServerInfo={modal.newServerInfo}
+          push={modal.push}
         />
       );
       width = `440px`;
