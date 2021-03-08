@@ -11,7 +11,7 @@ export const requestServer = (serverId) => {
     url: `/api/servers/${serverId}`,
   });
 };
-export const createServer = ({ serverFormData, push }) => {
+export const createServer = ({ serverFormData, push, handleActiveServer }) => {
   return $.ajax({
     method: "POST",
     url: "/api/servers",
@@ -24,6 +24,7 @@ export const createServer = ({ serverFormData, push }) => {
       subscribeable_type: "Server",
     });
     push(`/servers/${response.id}/channels`);
+    handleActiveServer(response.id)
   });
 };
 export const updateServer = (server) => {

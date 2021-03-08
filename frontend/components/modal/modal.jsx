@@ -21,6 +21,7 @@ function Modal({ modal, closeModal, openModal }) {
           createServer={modal.createServer}
           newServerInfo={modal.newServerInfo}
           push={modal.push}
+          handleActiveServer={modal.handleActiveServer}
         />
       );
       width = `440px`;
@@ -34,6 +35,7 @@ function Modal({ modal, closeModal, openModal }) {
           createServer={modal.createServer}
           newServerInfo={modal.newServerInfo}
           push={modal.push}
+          modal={modal.handleActiveServer}
         />
       );
       width = `440px`;

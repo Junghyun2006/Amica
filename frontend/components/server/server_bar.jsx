@@ -12,13 +12,6 @@ class ServerBar extends React.Component {
     this.props.receiveCurrentUser(this.props.currentUser.id);
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //     if (prevProps.servers.length !== this.props.servers.length) {
-  //         debugger
-  //         // this.props.requestServerChannels(this.props.match.params.serverId)}
-  //         this.props.receiveCurrentUser(this.props.currentUser.id)}
-  // }
-
   render() {
     const { currentUser, servers } = this.props;
 
@@ -41,7 +34,9 @@ class ServerBar extends React.Component {
               modal: "serverPlus",
               createServer: this.props.createServer,
               newServerInfo: this.state,
-              push: this.props.history.push
+              push: this.props.history.push,
+              handleActiveServer: this.props.handleActiveServer
+
             })
           }
           className="add-server-btn-container"

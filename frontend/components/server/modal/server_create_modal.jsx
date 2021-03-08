@@ -2,7 +2,7 @@ import React, {useState, useRef} from "react";
 import { openModal } from "../../../actions/modal_actions";
 import * as SubAPIUtil from "../../../utils/sub_utils"
 
-const ServerCreateModal = ({closeModal, openModal, createServer, newServerInfo, push}) => {
+const ServerCreateModal = ({closeModal, openModal, createServer, newServerInfo, push, handleActiveServer}) => {
     
     const defaultImg = {url: "", file: null}
     const [newServerName, setNewServerName] = useState(newServerInfo.name);
@@ -16,7 +16,7 @@ const ServerCreateModal = ({closeModal, openModal, createServer, newServerInfo, 
         const serverFormData = new FormData();
         serverFormData.append("server[name]", newServerName);
         serverFormData.append("server[photo]", serverImg.file);
-        createServer({serverFormData, push})
+        createServer({serverFormData, push, handleActiveServer})
         closeModal()
     }
 

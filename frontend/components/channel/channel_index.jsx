@@ -6,7 +6,7 @@ import ServerSetting from "../server/server_setting";
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { serverSetting: false, serverSettingP: false };
+    this.state = { serverSetting: false, serverSettingP: false, deleted: false };
     this.handleServerSetting = this.handleServerSetting.bind(this);
     this.handleServerSettingP = this.handleServerSettingP.bind(this);
   }
@@ -16,14 +16,10 @@ class ChannelIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // debugger
     if (prevProps.location !== this.props.location) {
-      this.props.requestServerChannels(this.props.match.params.serverId);
+        // this.props.requestServers();
+        this.props.requestServerChannels(this.props.match.params.serverId);
     }
-    // if (prevProps.servers !== this.props.servers) {
-    //     debugger
-    //     this.props.requestServers();
-    // }
   }
 
   handleServerSetting() {

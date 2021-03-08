@@ -6,8 +6,9 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleActiveServer = this.handleActiveServer.bind(this);
     this.state = {
-      active_server: "lol",
+      active_server: null,
     };
   }
 
@@ -18,13 +19,12 @@ class HomePage extends React.Component {
 
   handleActiveServer(serverId) {
     this.setState({ active_server: serverId });
-    console.log(this.state.active_server);
   }
 
   render() {
     return (
       <div className="home-wrapper">
-        <ServerBarContainer />
+        <ServerBarContainer handleActiveServer={this.handleActiveServer} />
         <div className="channel-index-holder"></div>
         <div className="channel-container">
           <div className="friend-header"></div>
