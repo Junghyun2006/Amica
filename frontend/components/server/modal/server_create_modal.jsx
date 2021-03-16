@@ -70,8 +70,8 @@ const ServerCreateModal = ({closeModal, openModal, createServer, newServerInfo, 
                     <div className="sc-back" onClick={() => openModal({
                         modal:'serverPlus', 
                         createServer: createServer, 
-                        newServerInfo: newServerInfo,
-                        test: 'hello'})}>Back</div>
+                        newServerInfo: newServerInfo
+                        })}>Back</div>
                     <button className="sc-create-btn">Create</button>
                 </div>
             </form> 

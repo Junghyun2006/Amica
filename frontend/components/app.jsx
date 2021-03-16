@@ -11,21 +11,22 @@ import Modal from "./modal/modal";
 
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 
-const App = () => (
+const App = () => {
+  
+  return (
   <div className="app">
     <Modal />
     <Switch>
       <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/signup" component={SignupContainer} />
       <AuthRoute exact path="/login" component={LoginContainer} />
-      <ProtectedRoute exact path="/@me" component={HomeContainer} />
+      <ProtectedRoute exact path="/@me" component={HomeContainer}/>
       <ProtectedRoute
-        exact
-        path="/servers/:serverId/channels"
+        exact path="/servers/:serverId/:channelId"
         component={Server}
       />
     </Switch>
   </div>
-);
+)};
 
 export default App;

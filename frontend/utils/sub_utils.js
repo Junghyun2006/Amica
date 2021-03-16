@@ -14,7 +14,7 @@ export const createSubscription = (subscription) => {
 
 export const deleteSubscription = (subscription) => {
     return $.ajax({
-        url: `/api/subscriptions/i`,
+        url: `/api/subscriptions`,
         method: 'DELETE',
         data: {subscription}
     })

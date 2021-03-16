@@ -6,10 +6,33 @@ class ServerBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.newServerInfo;
+    this.handleActiveServer = this.handleActiveServer.bind(this)
+    this.handleRefresh = this.handleRefresh.bind(this)
+    this._isMounted = false;
+
   }
 
   componentDidMount() {
-    this.props.receiveCurrentUser(this.props.currentUser.id);
+    this._isMounted = true;
+    this.props.receiveCurrentUser(this.props.currentUser.id).then(this.handleRefresh());
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.activeServer !== this.state.activeServer) {
+      this.props.receiveCurrentUser(this.props.currentUser.id).then(this.handleRefresh());
+    }
+  }
+  
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  handleRefresh() {
+    this.setState({activeServer: null})
+  }
+  
+  handleActiveServer(serverId) {
+    if (this._isMounted) this.setState({ activeServer: serverId});
   }
 
   render() {
@@ -35,8 +58,7 @@ class ServerBar extends React.Component {
               createServer: this.props.createServer,
               newServerInfo: this.state,
               push: this.props.history.push,
-              handleActiveServer: this.props.handleActiveServer
-
+              handleActiveServer: this.handleActiveServer
             })
           }
           className="add-server-btn-container"

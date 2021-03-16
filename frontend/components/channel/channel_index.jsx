@@ -6,17 +6,19 @@ import ServerSetting from "../server/server_setting";
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { serverSetting: false, serverSettingP: false, deleted: false };
+    this.state = { serverSetting: false, serverSettingP: false, deleted: false, activeChannel: null};
     this.handleServerSetting = this.handleServerSetting.bind(this);
     this.handleServerSettingP = this.handleServerSettingP.bind(this);
   }
 
   componentDidMount() {
     this.props.requestServerChannels(this.props.match.params.serverId);
+    this.setState({activeChannel: this.props.match.params.channelId})
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.location !== this.props.location) {
+
         // this.props.requestServers();
         this.props.requestServerChannels(this.props.match.params.serverId);
     }
@@ -40,7 +42,7 @@ class ChannelIndex extends React.Component {
     }
 
     const channelIndex = channels.map((channel, i) => {
-      return <ChannelIndexItem channel={channel} key={i} />;
+      return <ChannelIndexItem channel={channel} key={i} activeChannel={channel.id === activeChannel}/>;
     });
 
     const serverName = servers[this.props.match.params.serverId]

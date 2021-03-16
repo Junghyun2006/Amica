@@ -13,6 +13,7 @@ const msp = (state,ownProps) => {
         newServerInfo: {
             host_id: state.session.currentUser.id,
             name: `${state.session.currentUser.username}'s server`,
+            activeServer: null
         },
         ownProps
     }    

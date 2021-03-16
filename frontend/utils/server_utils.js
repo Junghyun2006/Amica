@@ -1,4 +1,5 @@
 import { createSubscription } from "./sub_utils";
+import {createChannel} from "./channel_utils";
 
 export const requestServers = () => {
   return $.ajax({
@@ -23,8 +24,13 @@ export const createServer = ({ serverFormData, push, handleActiveServer }) => {
       subscribeable_id: response.id,
       subscribeable_type: "Server",
     });
-    push(`/servers/${response.id}/channels`);
-    handleActiveServer(response.id)
+    createChannel({
+      name: 'general',
+      server_id: response.id
+    }).then((channel_response) => {
+      push(`/servers/${response.id}/${channel_response.id}`);
+      handleActiveServer(response.id);
+    })
   });
 };
 export const updateServer = (server) => {

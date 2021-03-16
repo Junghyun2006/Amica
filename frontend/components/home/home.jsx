@@ -6,9 +6,8 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleActiveServer = this.handleActiveServer.bind(this);
     this.state = {
-      active_server: null,
+      active_server: null
     };
   }
 
@@ -17,14 +16,10 @@ class HomePage extends React.Component {
     this.props.logout().then(() => this.props.history.push("/")); // modify the string inside push - MOST LIKELY THE ERROR
   }
 
-  handleActiveServer(serverId) {
-    this.setState({ active_server: serverId });
-  }
-
   render() {
     return (
       <div className="home-wrapper">
-        <ServerBarContainer handleActiveServer={this.handleActiveServer} />
+        <ServerBarContainer />
         <div className="channel-index-holder"></div>
         <div className="channel-container">
           <div className="friend-header"></div>

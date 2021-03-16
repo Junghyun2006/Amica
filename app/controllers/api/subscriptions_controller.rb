@@ -1,9 +1,9 @@
 class Api::SubscriptionsController < ApplicationController
     def index
-        @server = Server.find_by(id: params[:server_id])
-        # @subscriptions = Subscription.where(subscribeable_id: subscription_params[:subscribeable_id], subscribeable_type: subscription_params[:subscribeable_type])
-        @subscriptions = @server.subscriptions
-        # render :index
+    #     @server = Server.find_by(id: params[:server_id])
+        @subscriptions = Subscription.all
+    #     @subscriptions = @server.subscriptions
+    #     # render :index
     end
 
     def create
