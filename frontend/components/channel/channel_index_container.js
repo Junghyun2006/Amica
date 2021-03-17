@@ -3,6 +3,7 @@ import ChannelIndex from "./channel_index";
 import {requestServerChannels} from "../../actions/channel_actions"
 import {withRouter} from "react-router";
 import {requestServers} from "../../actions/server_actions"
+import {openModal} from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {
     return {
@@ -15,7 +16,8 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
     return {
         requestServerChannels: (serverId) => dispatch(requestServerChannels(serverId)),
-        requestServers: () => dispatch(requestServers())
+        requestServers: () => dispatch(requestServers()),
+        openModal: (modal) => dispatch(openModal(modal))
     }
 }
 

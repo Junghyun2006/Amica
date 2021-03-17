@@ -3,6 +3,7 @@ import { openModal, closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
 import ServerPlusModal from "../server/modal/server_plus_modal";
 import ServerCreateModal from "../server/modal/server_create_modal";
+import ChannelSetting from "../channel/channel_setting"
 
 function Modal({ modal, closeModal, openModal }) {
   if (!modal) {
@@ -40,6 +41,11 @@ function Modal({ modal, closeModal, openModal }) {
       );
       width = `440px`;
       height = `414px`;
+      break;
+    case "channel":
+      component = (<ChannelSetting />)
+      width = `440px`;
+      height= `200px`
       break;
     default:
       return null;

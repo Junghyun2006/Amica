@@ -101,19 +101,20 @@ class ChannelIndex extends React.Component {
           </div>
           <div className="text-channel-container">
             <div className="text-channel">TEXT CHANNELS</div>
-            <svg
-              className="text-channel-plus"
-              aria-hidden="false"
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-            >
-              <polygon
-                fill-rule="nonzero"
-                fill="currentColor"
-                points="15 10 10 10 10 15 8 15 8 10 3 10 3 8 8 8 8 3 10 3 10 8 15 8"
-              ></polygon>
-            </svg>
+            <div className="channel-settings" onClick={() => this.props.openModal({modal: 'channel'})}>
+              <svg
+                className="text-channel-plus"
+                aria-hidden="false"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+              >
+                <polygon
+                  fill="currentColor"
+                  points="15 10 10 10 10 15 8 15 8 10 3 10 3 8 8 8 8 3 10 3 10 8 15 8"
+                ></polygon>
+              </svg>
+            </div>
           </div>
           {channelIndex}
         </div>
