@@ -6,21 +6,33 @@ import ServerSetting from "../server/server_setting";
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { serverSetting: false, serverSettingP: false, deleted: false, activeChannel: null};
+    this.state = {
+      serverSetting: false,
+      serverSettingP: false,
+      deleted: false,
+    };
     this.handleServerSetting = this.handleServerSetting.bind(this);
     this.handleServerSettingP = this.handleServerSettingP.bind(this);
   }
 
   componentDidMount() {
     this.props.requestServerChannels(this.props.match.params.serverId);
-    this.setState({activeChannel: this.props.match.params.channelId})
+    // this.setState({activeChannel: this.props.match.params.channelId})
+    this.props.handleActiveChannels(
+      this.props.match.params.serverId,
+      this.props.match.params.channelId
+    );
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.location !== this.props.location) {
-
-        // this.props.requestServers();
-        this.props.requestServerChannels(this.props.match.params.serverId);
+      // this.props.requestServers();
+      this.props.requestServerChannels(this.props.match.params.serverId);
+      this.props.handleActiveChannels(
+        this.props.match.params.serverId,
+        this.props.match.params.channelId
+      );
+      // this.setState({activeChannel: this.props.match.params.channelId})
     }
   }
 
@@ -42,7 +54,17 @@ class ChannelIndex extends React.Component {
     }
 
     const channelIndex = channels.map((channel, i) => {
-      return <ChannelIndexItem channel={channel} key={i} activeChannel={channel.id === activeChannel}/>;
+      const aChannel = !this.props.activeChannels
+        ? null
+        : this.props.activeChannels[this.props.match.params.serverId];
+      return (
+        <ChannelIndexItem
+          serverId={this.props.match.params.serverId}
+          channel={channel}
+          key={i}
+          activeChannel={aChannel}
+        />
+      );
     });
 
     const serverName = servers[this.props.match.params.serverId]
@@ -77,7 +99,22 @@ class ChannelIndex extends React.Component {
               <img className="server-setting-arrow" src={window.ssDropArrow} />
             </div>
           </div>
-          <div className="text-channel">TEXT CHANNEL</div>
+          <div className="text-channel-container">
+            <div className="text-channel">TEXT CHANNELS</div>
+            <svg
+              className="text-channel-plus"
+              aria-hidden="false"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+            >
+              <polygon
+                fill-rule="nonzero"
+                fill="currentColor"
+                points="15 10 10 10 10 15 8 15 8 10 3 10 3 8 8 8 8 3 10 3 10 8 15 8"
+              ></polygon>
+            </svg>
+          </div>
           {channelIndex}
         </div>
         {serverSettingP}

@@ -5,14 +5,19 @@ import ChannelIndexContainer from "../channel/channel_index_container";
 class Server extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { channels: null };
+    this.state = { activeChannels: null};
+    this.handleActiveChannels = this.handleActiveChannels.bind(this);
+  }
+
+  handleActiveChannels(server, channel) {
+    this.setState({activeChannels: {...this.state.activeChannels, [server]: channel}})
   }
 
   render() {
     return (
       <div className="main-server-container">
-        <ServerBarContainer />
-        <ChannelIndexContainer />
+        <ServerBarContainer activeChannels={this.state.activeChannels}/>
+        <ChannelIndexContainer activeChannels={this.state.activeChannels} handleActiveChannels={this.handleActiveChannels}/>
         <div className="channel-container">
           <div className="channel-message-header"></div>
           <div className="channel-message-container">

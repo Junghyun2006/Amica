@@ -41,7 +41,8 @@ class ServerBar extends React.Component {
     if (!servers) return null;
 
     const serverIndex = servers.map((server, i) => {
-      return <ServerIndexItem server={server} key={i} />;
+      const activeChannel = (!this.props.activeChannels) ? null : this.props.activeChannels[server.id]
+      return <ServerIndexItem  server={server} key={i} activeChannel={activeChannel} />;
     });
 
     return (

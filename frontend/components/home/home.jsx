@@ -7,7 +7,8 @@ class HomePage extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      active_server: null
+      active_server: null,
+      activeChannels: null
     };
   }
 
