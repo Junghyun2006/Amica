@@ -3,6 +3,7 @@ import ChannelIndexItem from "./channel_index_item";
 import ServerSettingDD from "../server/server_setting_dd";
 import ServerSetting from "../server/server_setting";
 
+
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -101,7 +102,7 @@ class ChannelIndex extends React.Component {
           </div>
           <div className="text-channel-container">
             <div className="text-channel">TEXT CHANNELS</div>
-            <div className="channel-settings" onClick={() => this.props.openModal({modal: 'channel'})}>
+            <div className="channel-settings" onClick={() => this.props.openModal({modal: 'channel', serverId: this.props.match.params.serverId, push: this.props.history.push})}>
               <svg
                 className="text-channel-plus"
                 aria-hidden="false"

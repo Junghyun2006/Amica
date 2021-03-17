@@ -1,8 +1,9 @@
 import React from "react";
 
-const ServerPlusModal = ({handleActiveServer, openModal, createServer, newServerInfo, push}) => {
+const ServerPlusModal = ({handleActiveServer, openModal, createServer, newServerInfo, push, closeModal}) => {
     return (
         <div className="server-plus-modal">
+            <div className="server-plus-close" onClick={() => closeModal()}><img className="server-plus-close-icon" src={window.close}/></div>
             <h1 className="server-plus-title">Create a server</h1>
             <h2 className="server-plus-description">Your server is where you and your friends hang out. Make yours and start talking.</h2>
             <div className="server-plus-option-container">

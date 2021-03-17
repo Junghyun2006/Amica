@@ -1,10 +1,10 @@
 
 .channel-index-item {
-   width: 232px;
+   width: 270px;
    height: 34px;
    padding: 1px 0px;
    list-style-type: none;
-   padding-left: 6px;
+   padding-left: 8px;
    display: flex;
    flex-direction: horizontal;
 }
@@ -24,7 +24,7 @@
     // font-weight: 500;
 }
 
-.channel-text:hover {
+.channel-index-item:hover > .channel-text {
     background-color: #363A3E;
     cursor: pointer;
     color: rgb(214, 214, 214);
@@ -56,6 +56,11 @@
     flex-direction: row;
 }
 
+.channel-setting-icon:hover > .channel-text {
+    background-color: #363A3E;
+    color: rgb(214, 214, 214);
+}
+
 .text-channel-plus {
     position: relative;
     top: 19px;
@@ -68,3 +73,26 @@
 .text-channel-plus:hover {
     color: rgb(214, 214, 214);
 }
+
+.channel-setting-icon {
+    visibility: hidden;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 11px;
+    right: 24px;
+}
+
+.channel-index-item:hover > .channel-setting-icon {
+    visibility: visible;
+}
+
+.channel-setting-icon-active-channel {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 11px;
+    right: 24px;
+}
+
+

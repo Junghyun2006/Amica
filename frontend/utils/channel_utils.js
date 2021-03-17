@@ -10,11 +10,13 @@ export const requestChannel = (channelId) => {
   });
 };
 
-export const createChannel = (channel) => {
+export const createChannel = ({channel, push}) => {
   return $.ajax({
     url: `/api/channels`,
     method: "POST",
-    data: { channel },
+    data: {channel},
+  }).then((response) => {
+    push(`/servers/${channel.server_id}/${response.id}`)
   });
 };
 

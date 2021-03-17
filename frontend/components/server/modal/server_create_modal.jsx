@@ -46,6 +46,7 @@ const ServerCreateModal = ({closeModal, openModal, createServer, newServerInfo, 
 
     return (
         <div className="sc-modal">
+            <div className="server-plus-close" onClick={() => closeModal()}><img className="server-plus-close-icon" src={window.close}/></div>
             <h1 className="server-plus-title">Customize your server</h1>
             <h2 className="server-plus-description">Give your new server a personality with a name and an icon. You can always change it later.</h2>
             <form className="sc-form" onSubmit={handleSubmit}>

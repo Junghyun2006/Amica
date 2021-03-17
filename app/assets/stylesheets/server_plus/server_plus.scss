@@ -117,3 +117,15 @@
     background-color: #68737F;
 }
 
+.server-plus-close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.server-plus-close-icon:hover {
+    cursor: pointer;
+}
