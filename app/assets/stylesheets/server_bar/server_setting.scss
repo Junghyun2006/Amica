@@ -97,7 +97,7 @@
 
 .ssp-left {
     height: 100%;
-    width: 35vw;
+    width: 30vw;
     background-color: #2f3136;
     position: absolute;
     z-index: 10;
@@ -116,7 +116,7 @@
     background-color: #36393f;
     position: absolute;
     z-index: 10;
-    width: 65vw;
+    width: 70vw;
     top: 0;
     right: 0;  
 }
@@ -133,6 +133,8 @@
     font-family: "Whitney Bold";
     font-size: 13px;
     margin-bottom:5px;
+    display: flex;
+    flex-direction: row;
 }
 
 .ssp-overview {
@@ -182,6 +184,8 @@
     border: 2px solid #72767d;
     border-radius: 50%;
     cursor: pointer;
+    position: relative;
+    left: 142px;
 }
 
 .ssp-close-circle:hover {
@@ -191,7 +195,7 @@
 .ssp-x {
     position: relative;
     bottom:26px;
-    left: 8px;
+    left: 150px;
 }
 
 .ssp-exit {

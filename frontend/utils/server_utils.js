@@ -25,11 +25,10 @@ export const createServer = ({ serverFormData, push, handleActiveServer }) => {
       subscribeable_type: "Server",
     });
     createChannel({
-      name: 'general',
-      server_id: response.id
-    }).then((channel_response) => {
-      push(`/servers/${response.id}/${channel_response.id}`);
-      handleActiveServer(response.id);
+      channel: {name: 'general',
+      server_id: response.id},
+      push: push,
+      handleActiveServer: handleActiveServer
     })
   });
 };

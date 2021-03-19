@@ -9,6 +9,7 @@ const msp = (state, ownProps) => {
     return {
         channels: Object.values(state.entities.channels),
         servers: state.entities.servers,
+        channelsTwo: state.entities.channels,
         ownProps
     }
 }

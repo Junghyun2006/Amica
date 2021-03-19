@@ -10,13 +10,14 @@ export const requestChannel = (channelId) => {
   });
 };
 
-export const createChannel = ({channel, push}) => {
+export const createChannel = ({channel, push, handleActiveServer}) => {
   return $.ajax({
     url: `/api/channels`,
     method: "POST",
     data: {channel},
   }).then((response) => {
-    push(`/servers/${channel.server_id}/${response.id}`)
+    push(`/servers/${channel.server_id}/${response.id}`);
+    handleActiveServer(channel.server_id);
   });
 };
 
