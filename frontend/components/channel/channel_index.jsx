@@ -4,7 +4,6 @@ import ServerSettingDD from "../server/server_setting_dd";
 import ServerSetting from "../server/server_setting";
 import ChannelSettingOverlay from "../channel/channel_setting_overlay";
 
-
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -80,7 +79,12 @@ class ChannelIndex extends React.Component {
 
     const serverSettingDD =
       this.state.serverSetting === true ? (
-        <ServerSettingDD handleServerSettingP={this.handleServerSettingP} />
+        <ServerSettingDD
+          handleServerSettingP={this.handleServerSettingP}
+          push={this.props.history.push}
+          serverId={this.props.match.params.serverId}
+          openModal={this.props.openModal}
+        />
       ) : null;
     const serverSettingP =
       this.state.serverSettingP === true ? (
@@ -91,15 +95,17 @@ class ChannelIndex extends React.Component {
           push={this.props.history.push}
         />
       ) : null;
-      const channelSettingOverlay =
+    const channelSettingOverlay =
       this.state.channelSettingOverlay === true ? (
         <ChannelSettingOverlay
-          handleChannelSetting={this.handleChannelSetting} 
-          channelName={this.props.channelsTwo[this.props.match.params.channelId].name}
+          handleChannelSetting={this.handleChannelSetting}
+          channelName={
+            this.props.channelsTwo[this.props.match.params.channelId].name
+          }
           channelId={this.props.match.params.channelId}
         />
       ) : null;
-      
+
     return (
       <div>
         {channelSettingOverlay}
@@ -117,7 +123,16 @@ class ChannelIndex extends React.Component {
           </div>
           <div className="text-channel-container">
             <div className="text-channel">TEXT CHANNELS</div>
-            <div className="channel-settings" onClick={() => this.props.openModal({modal: 'channel', serverId: this.props.match.params.serverId, push: this.props.history.push})}>
+            <div
+              className="channel-settings"
+              onClick={() =>
+                this.props.openModal({
+                  modal: "channel",
+                  serverId: this.props.match.params.serverId,
+                  push: this.props.history.push,
+                })
+              }
+            >
               <svg
                 className="text-channel-plus"
                 aria-hidden="false"

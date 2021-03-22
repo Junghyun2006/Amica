@@ -1,6 +1,6 @@
 import React from "react";
 
-const ServerSettingDD = (props) => {
+const ServerSettingDD = ({handleServerSettingP, push, serverId, openModal}) => {
   return (
     <div className="ss-container">
       <div className="server-setting-option-inv">
@@ -19,7 +19,7 @@ const ServerSettingDD = (props) => {
           ></path>
         </svg>
       </div>
-      <div onMouseDown={() => {props.handleServerSettingP()} } className="server-setting-option">
+      <div onMouseDown={() => {handleServerSettingP()} } className="server-setting-option">
         <div className="ss-text">Server Settings</div>
         <svg
           className="ss-setting"
@@ -35,7 +35,7 @@ const ServerSettingDD = (props) => {
           ></path>
         </svg>
       </div>
-      <div className="server-setting-option">
+      <div className="server-setting-option" onMouseDown={() => {openModal({modal: 'channel', serverId: serverId, push: push})}}>
         <div className="ss-text">Create Channel</div>
         <svg
           className="ss-create-channel"

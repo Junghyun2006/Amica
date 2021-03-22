@@ -17,6 +17,19 @@ const ChannelSettingOverlay = ({
     } else { setChannelNameChanged(false)}
   };
 
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    if (tempChannelName.length) {
+      setChannelNameChanged(false)
+      return updateChannel({
+        id: channelId,
+        name: tempChannelName
+      })
+    } else {
+      console.log('error')
+    }
+  } 
+
   const saveChange = (!channelNameChanged) ? 'save-inactive' : null;
 
   return (
@@ -56,9 +69,13 @@ const ChannelSettingOverlay = ({
             value={tempChannelName}></input>
           <h1 className="cs-right-channel-name">CHANNEL TOPIC</h1>
           <textarea maxLength="1024" placeholder="Let everyone know how to use this channel!" className="cs-right-ct-input" type="text"></textarea>
-        </div>
-        <div className={`c-save-changes ${saveChange}`}>
-          HELLO
+          <div className={`c-save-changes-container ${saveChange}`}>
+            <h1 className="unsaved-changes-text">Careful — you have unsaved changes!</h1>
+            <div className='c-save-button-container'>
+              <button className="c-save-reset" type='button'>Reset</button>
+              <button className="c-save-changes" type='button' onClick={handleUpdate}>Save Changes</button>
+            </div>
+          </div>
         </div>
       </div>
 

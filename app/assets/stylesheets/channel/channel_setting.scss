@@ -159,3 +159,81 @@
 .save-inactive {
     visibility: hidden;
 }
+
+.c-save-changes-container {
+    display: flex;
+    flex-direction: row;
+    width: 674px;
+    height: 30px;
+    padding: 10px 10px 10px 16px;
+    overflow: hidden;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+    background-color: rgba(32, 34, 37, 0.9);
+    position: absolute;
+    bottom: 20px;
+    align-items: center;
+}
+
+.c-save-button-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    // width: 180px;
+}
+.unsaved-changes-text {
+    font-family: "Whitney Medium";
+    font-size: 16px;
+    color: #fff;
+    width: 450px;
+    margin-right: 10px;
+
+}
+
+.c-save-reset {
+    width: 60px;
+    height: 32px;
+    font-family: "Whitney Medium";
+    font-size: 14px;
+    color: #fff;
+    margin-left: 10px;
+    padding: 2px 0px;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.c-save-reset:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.c-save-changes {
+    font-family: "Whitney Medium";
+    font-size: 14px;
+    color: #fff;
+    margin-left: 10px;
+    padding: 2px 16px;
+    width: 124px;
+    height: 32px;
+    background-color: #43b581;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+}
+
+.c-save-changes:hover {
+    cursor: pointer;
+    background-color: #3CA374;
+}
+
+.cs-right-cn-input:hover, .cs-right-ct-input:hover {
+    border-color: black;
+    outline: none;
+}
+
+.cs-right-cn-input:focus, .cs-right-ct-input:focus {
+    border-color: #7289DA;
+    outline: none !important;; 
+}

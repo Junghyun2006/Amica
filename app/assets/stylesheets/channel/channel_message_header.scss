@@ -13,9 +13,8 @@
     padding: 18px 0px;
     padding-left: 8px;
     color: #fff;
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Whitney Semibold Regular', sans-serif;
     font-size: 16px;
-    font-weight: bolder;
     box-shadow: var(--bot-shadow);
     --bot-shadow: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
     position: absolute;
@@ -23,6 +22,9 @@
     z-index: 2;
     background-color: #37393F;
     overflow: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     
 }
 
@@ -47,4 +49,14 @@
     background-color: #2E3137;
     z-index: 1;
    
+}
+
+.hashtag-img-header  {
+    width: 20px;
+    height: 20px;
+    padding-left: 10px;
+}
+
+.cm-header-name {
+    padding-left: 10px;
 }
