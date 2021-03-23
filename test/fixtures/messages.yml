@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_id: 1
+  message_body: MyText
+  messageable: one
+  messageable_type: Messageable
+  created_at: 2021-03-23 17:38:14
+  updated_at: 2021-03-23 17:38:14
+
+two:
+  sender_id: 1
+  message_body: MyText
+  messageable: two
+  messageable_type: Messageable
+  created_at: 2021-03-23 17:38:14
+  updated_at: 2021-03-23 17:38:14

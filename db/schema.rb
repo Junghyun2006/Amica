@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_185105) do
+ActiveRecord::Schema.define(version: 2021_03_23_214558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,24 @@ ActiveRecord::Schema.define(version: 2021_01_28_185105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["server_id"], name: "index_channels_on_server_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.text "message_body", null: false
+    t.string "messageable_type"
+    t.bigint "messageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["messageable_type", "messageable_id", "sender_id"], name: "messabe_index", unique: true
+    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "servers", force: :cascade do |t|
