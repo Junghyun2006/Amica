@@ -34,6 +34,7 @@ class ChannelIndex extends React.Component {
         this.props.match.params.channelId
       );
     }
+    
   }
 
   handleServerSetting() {
@@ -54,9 +55,8 @@ class ChannelIndex extends React.Component {
   render() {
     const { channels, servers } = this.props;
 
-    if (!channels || !servers[1]) {
-      return null;
-    }
+    if (!channels || !servers[1] ) return null;
+    
 
     const channelIndex = channels.map((channel, i) => {
       const aChannel = !this.props.activeChannels

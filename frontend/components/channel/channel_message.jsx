@@ -5,18 +5,18 @@ class ChannelMessage extends React.Component {
     super(props);
   }
 
-
-
   render() {
     
     const {channels} = this.props;
-    if (!channels || Object.values(channels).length === 0) return null; 
 
+    // if (typeof(channels[this.props.match.params.channelId]) === "undefined") return null; 
+
+    const channelName = (typeof(channels[this.props.match.params.channelId]) === "undefined") ? "" : channels[this.props.match.params.channelId].name
     return (
       <div className="channel-container">
         <div className="channel-message-header">
           <img className="hashtag-img-header" src={window.hashtag} />
-          <h1 className="cm-header-name">{channels[this.props.match.params.channelId].name}</h1>
+          <h1 className="cm-header-name">{channelName}</h1>
         </div>
         <div className="channel-message-container">
           <div className="channel-message-box"></div>
