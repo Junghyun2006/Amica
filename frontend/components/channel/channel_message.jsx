@@ -46,7 +46,14 @@ class ChannelMessage extends React.Component {
           </div>
         </div>
         <div className="channel-message-container">
-          <div className="channel-message-box"></div>
+          <img className='chat-attach' src={window.chat_attach} />
+          <div className="channel-message-box">
+            <input 
+              className="chat-message"
+              type="text"
+              placeholder="Message #general"
+            />
+          </div>
           <div className="server-member-list"></div>
         </div>
       </div>

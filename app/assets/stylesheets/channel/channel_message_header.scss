@@ -46,6 +46,7 @@
     height: 100%;
     width: calc(100vw - 232px - 240px - 72px);
     background-color: #37393F;
+    padding: 0px 16px;
 }
 
 .server-member-list {
@@ -104,4 +105,31 @@
 .mh-magnify {
     position: absolute;
     right: 45px;
+}
+
+
+.chat-message {
+    width: calc(100vw - 232px - 240px - 177px);
+    height: 21px;
+    padding: 11px 10px 11px 55px;
+    font-family: "Whitney";
+    font-weight: 700;
+    font-size: 16px;
+    position: absolute;
+    bottom: 24px;
+    outline: none;
+    border: none;
+    background-color: #40444b;
+    border-radius: 8px;
+    color: #dcddde;
+    z-index: 1;
+}
+
+.chat-attach {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 34px;
+    left: 344px;
+    z-index: 2;
 }
