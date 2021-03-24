@@ -25,7 +25,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     
+}
+
+.mh-left {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
 }
 
 .channel-message-container {
@@ -59,4 +66,42 @@
 
 .cm-header-name {
     padding-left: 10px;
+}
+
+.mh-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mh-pin:hover, .mh-mute:hover, .mh-member:hover {
+    // fill: #dcddde;
+    cursor: pointer;
+    filter: brightness(.2) invert(1)
+}
+
+.mh-right > img {
+    margin: 0px 8px;
+}
+
+.mh-search {
+    margin: 0px 8px;
+    border: none;
+    outline: none;
+    background-color: #202225;
+    color: #dcddde;
+    padding: 0px 5px;
+    height: 24px;
+    width: 144px;
+    border-radius: 3px;
+    font-family: "Whitney Medium";
+}
+
+.mh-search:focus {
+    width: 240px;
+}
+
+.mh-magnify {
+    position: absolute;
+    right: 45px;
 }
