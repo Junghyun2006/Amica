@@ -9,7 +9,7 @@ const serversReducer = (state = {}, action) => {
         case RECEIVE_SERVER:
             return Object.assign({}, state, action.server);
         case RECEIVE_CURRENT_USER:
-            return Object.assign({}, state, action.user.servers)
+            return action.user.servers;
         case REMOVE_SERVER:
             const newState = { ...state };
             delete newState[action.id];

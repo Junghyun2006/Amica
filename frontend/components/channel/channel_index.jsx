@@ -51,11 +51,11 @@ class ChannelIndex extends React.Component {
     const state = this.state.channelSettingOverlay;
     this.setState({ channelSettingOverlay: !state });
   }
-
+  
   render() {
     const { channels, servers } = this.props;
-
-    if (!channels || !servers[1] ) return null;
+    debugger
+    if (!channels || !Object.values(servers)[1] ) return null;
     
 
     const channelIndex = channels.map((channel, i) => {
