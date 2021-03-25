@@ -9,7 +9,6 @@ const serversReducer = (state = {}, action) => {
         case RECEIVE_SERVER:
             return Object.assign({}, state, action.server);
         case RECEIVE_CURRENT_USER:
-            debugger
             // return Object.assign({}, state, action.user.servers)
             if (!action.user.servers) {
                 return {};
