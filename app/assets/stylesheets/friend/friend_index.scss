@@ -1,0 +1,109 @@
+.friend-index-container {
+    width: 240px;
+    height: 100%;
+}
+
+.friend-index-holder {
+    width: 232px;
+    height: calc(100% - 49px);
+    background-color: #2E3137;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-right: 8px;
+}
+
+.friend-search-container {
+    padding: 0px 10px 0px 10px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    background-color: #2E3137;
+    // box-shadow: var(--bot-shadow);
+    // --bot-shadow: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+    border-bottom: 1px solid #232428;
+    box-shadow: var(--elevation-low);
+    --elevation-low: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+}
+
+.friend-search-btn {
+    width: 100%;
+    height: 28px;
+    outline: none; 
+    border: none;
+    background-color: #202225;
+    border-radius: 3px;
+    padding: 1px 6px;
+    color: #6f737a;
+    text-align: left;
+    font-size: 14px;
+    font-family: 'Whitney Medium';
+}
+
+.friends-btn-container {
+    padding: 8px 0px 8px 8px;;
+    width: auto;
+    height: 42px;
+}
+
+.friends-btn {
+    color: #8e9297;
+    background-color: #2E3137;
+    list-style-type: none;
+    width: 100%;
+    height:42px;
+    border-radius: 4px;
+    font-family: 'Whitney Medium', sans-serif;
+    font-size: 16px;
+    padding: 0px 8px;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.friend-icon {
+    margin-left: 3px;
+}
+
+.friends-btn-text {
+    margin-left: 16px;
+}
+
+.friends-btn:hover {
+    background-color: rgba(79,84,92,0.16);
+    cursor: pointer;
+    color: rgb(214, 214, 214);
+}
+
+.friend-text-channel {
+    height: 8px;
+    width: 200px;
+    // padding: 16px 0px;
+    padding-bottom: 10px;
+    padding-top: 7px;
+    font-size: 12px;
+    font-family: 'Whitney Semibold Regular', sans-serif;
+    color: #8e9297;
+    padding-left: 15px;
+}
+
+.friend-text-channel:hover {
+    color:rgb(214, 214, 214);
+    cursor: pointer;
+}
+
+.friend-text-channel-plus {
+    position: relative;
+    top: 4px;
+    right: 8px;
+    cursor: pointer;
+    color: #8e9297;
+
+}
+
+.friend-text-channel-plus:hover {
+    color: rgb(214, 214, 214);
+}
+

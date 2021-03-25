@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ServerBarContainer from "../server/server_bar_container";
+import FriendIndex from '../friend/friend_index';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class HomePage extends React.Component {
     return (
       <div className="home-wrapper">
         <ServerBarContainer />
-        <div className="channel-index-holder"></div>
+        <FriendIndex />
         <div className="channel-container">
           <div className="friend-header"></div>
           <div className="friend-container">
