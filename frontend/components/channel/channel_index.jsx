@@ -54,8 +54,7 @@ class ChannelIndex extends React.Component {
   
   render() {
     const { channels, servers } = this.props;
-    debugger
-    if (!channels || !Object.values(servers)[1] ) return null;
+    if (!channels ) return null;
     
 
     const channelIndex = channels.map((channel, i) => {
