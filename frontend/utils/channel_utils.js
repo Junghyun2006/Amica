@@ -35,3 +35,11 @@ export const deleteChannel = (channelId) => {
     method: "DELETE",
   });
 };
+
+export const requestChannelMessages = (channelId) => {
+  const message = {messageable_type: 'Channel', messageable_id: channelId}
+  return $.ajax({
+      url: `/api/channels/${channelId}/messages`,
+      data: {message}
+  })
+}

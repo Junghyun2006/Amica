@@ -13,31 +13,41 @@ ActiveRecord::Base.connection.reset_pk_sequence!('channels')
 ActiveRecord::Base.connection.reset_pk_sequence!('messages')
 
 demo = User.create!(
-    username: 'Demouser',
+    username: 'DemoUser',
     password: 'password',
     email: 'demo@gmail.com',
     tag: '0000',
     dob: '2009-09-16'
 )
 
-file = open('https://app-amica-seeds.s3.amazonaws.com/demouser_avatar.jpg')
-demo.avatar.attach(io: file, filename: 'demouser_avatar.jpg')
+file = open('https://app-amica-seeds.s3.amazonaws.com/default_avatar.jpg')
+demo.avatar.attach(io: file, filename: 'default_avatar.jpg')
 
 user_2 = User.create!(
-    username: 'testuser1',
+    username: 'Irelia',
     password: 'password',
     email: 'testuser1@gmail.com',
     tag: '0001',
     dob: '2003-09-15'
 )
 
+file = open('https://app-amica-seeds.s3.amazonaws.com/irelia.jpeg')
+user_2.avatar.attach(io: file, filename: 'irelia.jpeg')
+
+
+
+
 user_3 = User.create!(
-    username: 'testuser2',
+    username: 'OnlyYasuoJungle',
     password: 'password',
     email: 'testuser2@gmail.com',
     tag: '0002',
     dob: '1994-04-03'
 )
+
+file = open('https://app-amica-seeds.s3.amazonaws.com/yasuo.jpeg')
+user_3.avatar.attach(io: file, filename: 'yasuo.jpeg')
+
 
 server_1 = Server.create!(
     name: 'Red Car Fans',

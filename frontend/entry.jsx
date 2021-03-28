@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import {deleteSession} from './utils/session';
 import {requestUser} from './utils/user_utils';
+import {requestChannelMessages} from './utils/channel_utils';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById('root');
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dispatch = store.dispatch;
     window.logout = deleteSession;
     window.requestUser = requestUser;
+    window.requestChannelMessages = requestChannelMessages;
 
 
     ReactDOM.render(<Root store={store}/>, root);

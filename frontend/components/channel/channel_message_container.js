@@ -4,10 +4,12 @@ import {withRouter} from "react-router";
 import {openModal} from '../../actions/modal_actions';
 import {requestServerChannels} from "../../actions/channel_actions"
 import {requestServers} from "../../actions/server_actions"
+import {requestChannelMessages} from "../../actions/channel_actions"
 
 const msp = (state, ownProps) => {
     return {
-        channels: state.entities.channels
+        channels: state.entities.channels,
+        channelMessages: Object.values(state.entities.messages)
     }
 }
 
@@ -15,6 +17,7 @@ const mdp = dispatch => {
     return {
         requestServerChannels: (serverId) => dispatch(requestServerChannels(serverId)),
         requestServers: () => dispatch(requestServers()),
+        requestChannelMessages: (channelId) => dispatch(requestChannelMessages(channelId))
     }
 }
 

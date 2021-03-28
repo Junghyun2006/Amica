@@ -1,4 +1,5 @@
 import React from "react";
+import ChannelMessageItem from './channel_message_item';
 
 class ChannelMessage extends React.Component {
   constructor(props) {
@@ -13,8 +14,24 @@ class ChannelMessage extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.requestChannelMessages(this.props.match.params.channelId)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.location !== this.props.location) {
+      this.props.requestChannelMessages(this.props.match.params.channelId)
+    }
+  }
+
   render() {
-    const { channels } = this.props;
+    const { channels, channelMessages } = this.props;
+
+    const channelMessageIndex = channelMessages.map((message, i) => {
+      return (
+        <ChannelMessageItem message={message} key={i}/>
+      )
+    })
 
     // if (typeof(channels[this.props.match.params.channelId]) === "undefined") return null;
 
@@ -48,6 +65,9 @@ class ChannelMessage extends React.Component {
         <div className="channel-message-container">
           <img className='chat-attach' src={window.chat_attach} />
           <div className="channel-message-box">
+            <div className="channel-message-index">
+              {channelMessageIndex}
+            </div>
             <input 
               className="chat-message"
               type="text"
