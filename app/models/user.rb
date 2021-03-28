@@ -16,6 +16,10 @@ class User < ApplicationRecord
     source: :subscribeable, 
     source_type: :Server
 
+  has_many :messages,
+    foreign_key: :sender_id,
+    class_name: :Message
+
 
   def password=(password)
     # Set temporary instance variable so that we can validate length
