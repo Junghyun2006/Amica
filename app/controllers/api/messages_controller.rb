@@ -4,8 +4,8 @@ class Api::MessagesController < ApplicationController
             .includes(:sender)
             .where(
                 "messageable_type= :type AND messageable_id= :id",
-                {type: 'Channel',
-                 id: '12'})
+                {type: message_params[:messageable_type],
+                 id: message_params[:messageable_id]})
             .limit(25)
         render :index
     end
