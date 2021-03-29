@@ -1,5 +1,6 @@
 import React from "react";
 import ChannelMessageItem from './channel_message_item';
+import ChannelMessages from './channel_messages_main';
 
 class ChannelMessage extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class ChannelMessage extends React.Component {
 
   render() {
     const { channels, channelMessages } = this.props;
+    const channelId = this.props.match.params.channelId;
 
     const channelMessageIndex = channelMessages.map((message, i) => {
       return (
@@ -67,6 +69,7 @@ class ChannelMessage extends React.Component {
           <div className="channel-message-box">
             <div className="channel-message-index">
               {channelMessageIndex}
+              <ChannelMessages channelId={channelId}/>
             </div>
             <input 
               className="chat-message"
