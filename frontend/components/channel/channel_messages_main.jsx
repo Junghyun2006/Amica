@@ -1,11 +1,12 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 
-const ChannelMessages = ({channelId}) => {
-    // const cable = useContext(ActionCableContext)
+const ChannelMessages = () => {
     const [channel, setChannel] = useState(null)
     const senderId = useSelector((state) => state.session.currentUser.id)
+    const { channelId } = useParams();
 
     useEffect(() => {
         const channel = App.cable.subscriptions.create({
@@ -42,7 +43,7 @@ const ChannelMessages = ({channelId}) => {
     return (
         <div>
             {/* {channelMessages} */}
-            <button onClick={()=> dothis()}>this first</button>
+            {/* <button onClick={()=> dothis()}>this first</button> */}
             <button onClick={() => sendMessage('another test')} >hihihi</button>
         </div>
     )

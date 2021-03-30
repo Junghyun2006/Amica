@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ChannelMessageItem = ({message}) => {
-    debugger
     return (
         <>  
             <img src={message.user.avatarUrl} className="avatar-icon" />

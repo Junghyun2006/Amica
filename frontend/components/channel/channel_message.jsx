@@ -69,7 +69,7 @@ class ChannelMessage extends React.Component {
           <div className="channel-message-box">
             <div className="channel-message-index">
               {channelMessageIndex}
-              <ChannelMessages channelId={channelId}/>
+              <ChannelMessages />
             </div>
             <input 
               className="chat-message"

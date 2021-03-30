@@ -4,6 +4,7 @@ export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
 export const RECEIVE_CHANNEL_MESSAGES = "RECEIVE_CHANNEL_MESSAGES";
+export const RECEIVE_CHANNEL_MESSAGE = "RECEIVE_CHANNEL_MESSAGE";
 
 const receiveChannels = (channels) => {
     return {
@@ -30,6 +31,13 @@ const receiveChannelMessages = (messages) => {
     return {
         type: RECEIVE_CHANNEL_MESSAGES,
         messages
+    }
+}
+
+export const receiveChannelMessage = (message) => {
+    return {
+        type: RECEIVE_CHANNEL_MESSAGE,
+        message
     }
 }
 
