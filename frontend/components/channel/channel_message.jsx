@@ -61,24 +61,9 @@ class ChannelMessage extends React.Component {
             />
             <img className="mh-magnify" src={window.mh_magnify} />
             <img className="mh-member" src={window.mh_member} /> {/* linkedin placeholder */}
-            
           </div>
         </div>
-        <div className="channel-message-container">
-          <img className='chat-attach' src={window.chat_attach} />
-          <div className="channel-message-box">
-            <div className="channel-message-index">
-              {channelMessageIndex}
-              <ChannelMessages />
-            </div>
-            <input 
-              className="chat-message"
-              type="text"
-              placeholder="Message #general"
-            />
-          </div>
-          <div className="server-member-list"></div>
-        </div>
+        <ChannelMessages channelMessageIndex={channelMessageIndex}/>
       </div>
     );
   }

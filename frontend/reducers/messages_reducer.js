@@ -2,7 +2,6 @@ import {RECEIVE_CHANNEL_MESSAGE, RECEIVE_CHANNEL_MESSAGES} from "../actions/chan
 
 const messagesReducer = (state = {}, action) => {
     Object.freeze(state);
-    debugger
     switch (action.type) {
         case RECEIVE_CHANNEL_MESSAGES:  
             return action.messages

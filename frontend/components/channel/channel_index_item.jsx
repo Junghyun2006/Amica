@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import {receiveChannelMessage} from "../../actions/channel_actions"
@@ -19,6 +19,7 @@ const ChannelIndexItem = (props) => {
         },
       }
     )
+    console.log('use effect ran')
   }, [channel, dispatch])
 
   return (
