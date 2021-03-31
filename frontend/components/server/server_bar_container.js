@@ -6,7 +6,6 @@ import {createServer} from '../../actions/server_actions'
 import {withRouter} from "react-router";
 
 const msp = (state,ownProps) => {
-    // debugger
     return {
         currentUser: state.session.currentUser,
         servers: Object.values(state.entities.servers),
