@@ -35,8 +35,6 @@ class ChannelMessage extends React.Component {
       )
     })
 
-    // if (typeof(channels[this.props.match.params.channelId]) === "undefined") return null;
-
     const channelName =
       typeof channels[this.props.match.params.channelId] === "undefined"
         ? ""

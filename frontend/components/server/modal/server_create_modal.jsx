@@ -32,7 +32,6 @@ const ServerCreateModal = ({closeModal, openModal, createServer, newServerInfo, 
     }
 
     const handleFileChange = (e) => { 
-        // setServerImg(e.currentTarget.files[0])
         const fileReader = new FileReader();
         const [file] = e.currentTarget.files;
         fileReader.onloadend = () => setServerImg({ url: fileReader.result, file });
