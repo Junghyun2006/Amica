@@ -1,6 +1,6 @@
 json.message do
     json.set! message.id do 
-        json.extract! message, :id, :sender_id, :message_body, :messageable_id, :messageable_type
+        json.extract! message, :id, :sender_id, :message_body, :created_at, :messageable_id, :messageable_type
     end
 end
 

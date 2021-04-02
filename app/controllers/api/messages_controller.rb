@@ -6,6 +6,7 @@ class Api::MessagesController < ApplicationController
                 "messageable_type= :type AND messageable_id= :id",
                 {type: message_params[:messageable_type],
                  id: message_params[:messageable_id]})
+            .order(created_at: :desc)
             .limit(25)
         render :index
     end

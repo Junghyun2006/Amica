@@ -1,7 +1,7 @@
 .channel-container {
     height: 100%;
     width: calc(100vw - 232px - 240px - 72px);
-    background-color: #363A3E;
+    background-color: #37393F;
     /* border: 1px yellow solid; */
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@
     height: 100%;
     width: calc(100vw - 232px - 240px - 72px);
     background-color: #37393F;
-    padding: 0px 16px;
+    padding-right: 16px;
 }
 
 .server-member-list {
@@ -123,6 +123,7 @@
     border-radius: 8px;
     color: #dcddde;
     z-index: 1;
+    margin-left: 16px;
 }
 
 .chat-attach {

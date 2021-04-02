@@ -20,8 +20,8 @@ demo = User.create!(
     dob: '2009-09-16'
 )
 
-file = open('https://app-amica-seeds.s3.amazonaws.com/default_avatar.jpg')
-demo.avatar.attach(io: file, filename: 'default_avatar.jpg')
+file = open('https://app-amica-seeds.s3.amazonaws.com/poro_demo.jpeg')
+demo.avatar.attach(io: file, filename: 'poro_demo.jpeg')
 
 user_2 = User.create!(
     username: 'Irelia',
@@ -263,14 +263,16 @@ message_1 = Message.create!(
     messageable_type: 'Channel',
     messageable_id: '12',
     sender_id: '1',
-    message_body: 'Epic Seven is so much fun!'
+    message_body: 'Epic Seven is so much fun!',
+    created_at: '2021-03-03T17:40:38.800Z'
 )
 
 message_2 = Message.create!(
     messageable_type: 'Channel',
     messageable_id: '12',
     sender_id: '2',
-    message_body: 'I know right, I shouldve downloaded it earlier.'
+    message_body: 'I know right, I shouldve downloaded it earlier.',
+    created_at: '2021-03-31T17:40:38.800Z'
 )
 
 message_3 = Message.create!(
@@ -286,4 +288,6 @@ message_4 = Message.create!(
     sender_id: '1',
     message_body: 'updates coming soon'
 )
+
+
 

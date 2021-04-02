@@ -19,7 +19,6 @@ const ChannelIndexItem = (props) => {
         },
       }
     )
-    console.log('use effect ran')
   }, [channel, dispatch])
 
   return (

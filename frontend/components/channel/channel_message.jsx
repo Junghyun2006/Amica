@@ -1,11 +1,11 @@
 import React from "react";
-import ChannelMessageItem from './channel_message_item';
-import ChannelMessages from './channel_messages_main';
+import ChannelMessageItem from "./channel_message_item";
+import ChannelMessagesIndex from "./channel_messages_main";
 
 class ChannelMessage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: "" };
+    this.state = { search: ""};
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -16,12 +16,12 @@ class ChannelMessage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestChannelMessages(this.props.match.params.channelId)
+    this.props.requestChannelMessages(this.props.match.params.channelId);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.location !== this.props.location) {
-      this.props.requestChannelMessages(this.props.match.params.channelId)
+      this.props.requestChannelMessages(this.props.match.params.channelId);
     }
   }
 
@@ -29,11 +29,20 @@ class ChannelMessage extends React.Component {
     const { channels, channelMessages } = this.props;
     const channelId = this.props.match.params.channelId;
 
-    const channelMessageIndex = channelMessages.map((message, i) => {
-      return (
-        <ChannelMessageItem message={message} key={i}/>
-      )
-    })
+    const filteredChannelMessages = channelMessages.filter((message) => {
+      return Object.values(message.message)[0].messageable_id == channelId;
+    });
+
+    let lastUser = null;
+
+    const channelMessageIndex = filteredChannelMessages.map((message, i) => {
+      if (message.user.id === lastUser) {
+        return <ChannelMessageItem message={message} key={i} lastUser={true} />;
+      } else {
+        lastUser = message.user.id
+        return <ChannelMessageItem message={message} key={i} lastUser={false} />
+      }
+    });
 
     const channelName =
       typeof channels[this.props.match.params.channelId] === "undefined"
@@ -58,10 +67,11 @@ class ChannelMessage extends React.Component {
               onChange={this.handleSearch()}
             />
             <img className="mh-magnify" src={window.mh_magnify} />
-            <img className="mh-member" src={window.mh_member} /> {/* linkedin placeholder */}
+            <img className="mh-member" src={window.mh_member} />{" "}
+            {/* linkedin placeholder */}
           </div>
         </div>
-        <ChannelMessages channelMessageIndex={channelMessageIndex}/>
+        <ChannelMessagesIndex channelMessageIndex={channelMessageIndex} />
       </div>
     );
   }

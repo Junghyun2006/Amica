@@ -4,10 +4,75 @@
 }
 
 .avatar-icon {
-    height: 48px;
-    width: 48px;
+    height: 40px;
+    width: 40px;
     display: block;
     border: none;
     border-radius: 48px;
     margin-bottom: 9px;
+    margin-right: 16px;
+    margin-top: 2px;
+}
+
+.cmi-message-wo-av {
+    display: flex;
+    flex-direction: column;
+    // text-align: center;
+}
+.cmi-message-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 17px;
+    height: 44px;
+    width: 100%;
+    padding: 2px 0px 2px 16px;
+    
+}
+
+.cmi-username-date {
+    display: flex;
+    flex-direction: row;
+    height: 22px;
+    align-items: center;
+}
+
+.cmi-username {
+    color: white;
+    font-family: "Whitney Medium";
+    font-size: 16px;
+}
+
+.cmi-created-at {
+    color: #72767d;
+    font-family: "Whitney Medium";
+    font-size: 12px;
+    margin-left: 8px;
+    position: relative;
+    top: 3px;
+}
+.cmi-body {
+    height: 22px;
+    width: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: #dcddde;
+    font-family: "Whitney Book Regular";
+    font-size: 16px;
+}
+
+.cmi-body-solo {
+    height: 22px;
+    width: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: #dcddde;
+    font-family: "Whitney Book Regular";
+    font-size: 16px;
+    padding: 2px 0px 2px 72px;
+}
+
+.cmi-message-container:hover, .cmi-body-solo:hover {
+    background-color: #32353B;
 }

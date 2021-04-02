@@ -5,7 +5,6 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
-    "actioncable": "^5.2.5",
     "babel-loader": "^8.2.2",
     "http": "0.0.1-security",
     "react": "^17.0.1",
@@ -30,6 +29,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch --mode=development",
+    "prod": "webpack --watch --mode=production",
     "postinstall": "webpack"
   },
   "engines": {
