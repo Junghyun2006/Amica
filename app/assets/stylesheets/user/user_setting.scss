@@ -1,0 +1,54 @@
+.user-setting-container {
+    width: 240px;
+    height: 52px;
+    // border: 1px solid black;
+    position: relative;
+    bottom: 52px;
+    display: flex;
+    align-items: center;
+    background: #292b2f;
+    flex-direction: row;
+}
+
+.username-tag-container {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+}
+
+.user-setting-username {
+    color: white;
+    font-family: 'Whitney Bold';
+    font-size: 14px;
+
+
+}
+
+.tag {
+    color: #b9bbbe;
+    font-family: 'Whitney Medium';
+    font-size: 12px;
+    margin-top: 1px;
+}
+
+.user-setting-icon {
+    height: 32px;
+    width: 32px;
+    display: block;
+    border: none;
+    border-radius: 48px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.server-setting-cog {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: 128px;
+}
+
+.server-setting-cog:hover {
+    cursor: pointer;
+    filter: brightness(.2) invert(1)
+}

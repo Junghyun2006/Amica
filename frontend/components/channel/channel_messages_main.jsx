@@ -54,7 +54,6 @@ const ChannelMessages = (props) => {
                     value={message}
                 />
                 </div>
-                <div className="server-member-list"></div>
             </div>
         </form>
     </div>

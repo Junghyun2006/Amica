@@ -1,0 +1,49 @@
+.server-member-list {
+    height: 100%;
+    width: 224px;
+    position: absolute;
+    right: 0px;
+    background-color: #2E3137;
+    z-index: 1;
+    padding: 0px 8px;
+   
+}
+
+.server-member-container {
+    padding-top: 75px;
+}
+
+.text-members {
+    height: 13px;
+    width: 200px;
+    padding-left: 8px;
+    font-size: 12px;
+    font-family: 'Whitney Semibold Regular', sans-serif;
+    color: #8e9297;
+}
+.member-icon {
+    height: 32px;
+    width: 32px;
+    display: block;
+    border: none;
+    border-radius: 48px;
+    margin-left: 8px;
+    margin-right: 12px;
+}
+
+.server-sub-container {
+    display: flex;
+    flex-direction: row;
+    height: 42px;
+    width: auto;
+    align-items: center;
+    color: #8e9297;
+    font-family: 'Whitney Medium';
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.server-sub-container:hover {
+    background-color: rgba(79,84,92,0.16);
+    cursor: pointer;
+}

@@ -1,11 +1,12 @@
 import React from "react";
 import ChannelMessageItem from "./channel_message_item";
 import ChannelMessagesIndex from "./channel_messages_main";
+import ServerSubsIndex from "../server/server_subs_index"
 
 class ChannelMessage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: ""};
+    this.state = { search: "" };
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -26,21 +27,66 @@ class ChannelMessage extends React.Component {
   }
 
   render() {
-    const { channels, channelMessages } = this.props;
+    const { channels, channelMessages, servers } = this.props;
     const channelId = this.props.match.params.channelId;
 
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0, 0);
+
+    const ElapsedDayConverter = (mili) => {
+      return Math.floor(mili / 1000 / 60 / 60 / 24);
+    };
+
+    function convert(input) {
+      return moment(input, "HH:mm:ss").subtract(4, "hours").format("h:mm A");
+    }
     const filteredChannelMessages = channelMessages.filter((message) => {
       return Object.values(message.message)[0].messageable_id == channelId;
     });
+
+    const dateStandard2 = (date) => {
+      const datemod = [];
+      date.split("").forEach((el) => {
+        if (el === "-") {
+          datemod.push("/");
+        } else {
+          datemod.push(el);
+        }
+      });
+      return datemod.join("");
+    };
+    
 
     let lastUser = null;
 
     const channelMessageIndex = filteredChannelMessages.map((message, i) => {
       if (message.user.id === lastUser) {
-        return <ChannelMessageItem message={message} key={i} lastUser={true} />;
+        return (
+          <ChannelMessageItem
+            message={message}
+            key={i}
+            lastUser={true}
+            today={today}
+            ElapsedDayConverter={ElapsedDayConverter}
+            convert={convert}
+            dateStandard2={dateStandard2}
+          />
+        );
       } else {
-        lastUser = message.user.id
-        return <ChannelMessageItem message={message} key={i} lastUser={false} />
+        lastUser = message.user.id;
+        return (
+          <ChannelMessageItem
+            message={message}
+            key={i}
+            lastUser={false}
+            today={today}
+            ElapsedDayConverter={ElapsedDayConverter}
+            convert={convert}
+            dateStandard2={dateStandard2}
+          />
+        );
       }
     });
 
@@ -48,6 +94,9 @@ class ChannelMessage extends React.Component {
       typeof channels[this.props.match.params.channelId] === "undefined"
         ? ""
         : channels[this.props.match.params.channelId].name;
+
+    const currentServer = servers[this.props.match.params.serverId]
+
     return (
       <div className="channel-container">
         <div className="channel-message-header">
@@ -72,6 +121,7 @@ class ChannelMessage extends React.Component {
           </div>
         </div>
         <ChannelMessagesIndex channelMessageIndex={channelMessageIndex} />
+        <ServerSubsIndex currentServer={currentServer}/>
       </div>
     );
   }

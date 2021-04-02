@@ -10,6 +10,7 @@ const msp = (state, ownProps) => {
         channels: Object.values(state.entities.channels),
         servers: state.entities.servers,
         channelsTwo: state.entities.channels,
+        currentUser: state.session.currentUser,
         ownProps
     }
 }

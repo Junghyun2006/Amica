@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChannelMessageItem = ({ message, lastUser }) => {
+const ChannelMessageItem = ({ message, lastUser, today, ElapsedDayConverter, convert, dateStandard2 }) => {
   const fMessage = Object.values(message.message)[0];
   const user = message.user;
   const dateStandard =
@@ -8,29 +8,13 @@ const ChannelMessageItem = ({ message, lastUser }) => {
   const time = fMessage.created_at.slice(11, 19);
   const messageDate = new Date(fMessage.created_at);
 
-  function convert(input) {
-    return moment(input, "HH:mm:ss").subtract(4, "hours").format("h:mm A");
-  }
-
   const dateAMPM = convert(time);
 
-  const ElapsedDayConverter = (mili) => {
-    return Math.floor(mili / 1000 / 60 / 60 / 24);
-  };
+  messageDate.setHours(0);
+  messageDate.setMinutes(0);
+  messageDate.setSeconds(0, 0);
 
-  const daysElapsed = ElapsedDayConverter(Date.now() - messageDate.getTime());
-
-  const dateStandard2 = (date) => {
-    const datemod = [];
-    date.split("").forEach((el) => {
-      if (el === "-") {
-        datemod.push("/");
-      } else {
-        datemod.push(el);
-      }
-    });
-    return datemod.join("");
-  };
+  const daysElapsed = ElapsedDayConverter(today - messageDate.getTime());
 
   let date = dateStandard2(dateStandard);
 
@@ -44,8 +28,6 @@ const ChannelMessageItem = ({ message, lastUser }) => {
     default:
       break;
   }
-
-  const lol = lastUser ? "true" : "false";
 
   const messageContainer = lastUser ? (
     <h1 className="cmi-body-solo">{fMessage.message_body}</h1>

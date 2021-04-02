@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        @user[:tag] = rand(1..9999) # make sure the tag isnt already used with  the same username, user Activerecord query.
+        @user[:tag] = rand(1000..9999) # make sure the tag isnt already used with  the same username, user Activerecord query.
         if @user.save
             file = open('https://app-amica-seeds.s3.amazonaws.com/poro_demo.jpeg')
             @user.avatar.attach(io: file, filename: 'poro_demo.jpeg')

@@ -9,7 +9,8 @@ import {requestChannelMessages} from "../../actions/channel_actions"
 const msp = (state, ownProps) => {
     return {
         channels: state.entities.channels,
-        channelMessages: Object.values(state.entities.messages)
+        channelMessages: Object.values(state.entities.messages),
+        servers: state.entities.servers
     }
 }
 

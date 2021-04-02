@@ -16,7 +16,7 @@ demo = User.create!(
     username: 'DemoUser',
     password: 'password',
     email: 'demo@gmail.com',
-    tag: '0000',
+    tag: '5162',
     dob: '2009-09-16'
 )
 
@@ -27,7 +27,7 @@ user_2 = User.create!(
     username: 'Irelia',
     password: 'password',
     email: 'testuser1@gmail.com',
-    tag: '0001',
+    tag: '4152',
     dob: '2003-09-15'
 )
 
@@ -41,7 +41,7 @@ user_3 = User.create!(
     username: 'OnlyYasuoJungle',
     password: 'password',
     email: 'testuser2@gmail.com',
-    tag: '0002',
+    tag: '3562',
     dob: '1994-04-03'
 )
 

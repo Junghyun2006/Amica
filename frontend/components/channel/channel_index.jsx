@@ -3,6 +3,7 @@ import ChannelIndexItem from "./channel_index_item";
 import ServerSettingDD from "../server/server_setting_dd";
 import ServerSetting from "../server/server_setting";
 import ChannelSettingOverlay from "../channel/channel_setting_overlay";
+import UserSetting from "../user/user_setting";
 
 class ChannelIndex extends React.Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class ChannelIndex extends React.Component {
   }
   
   render() {
-    const { channels, servers } = this.props;
+    const { channels, servers, currentUser } = this.props;
     if (!channels ) return null;
     
 
@@ -149,6 +150,7 @@ class ChannelIndex extends React.Component {
           {channelIndex}
         </div>
         {serverSettingP}
+        <UserSetting currentUser={currentUser}/>
       </div>
     );
   }

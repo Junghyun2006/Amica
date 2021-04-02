@@ -12,8 +12,8 @@ const sessionReducer = (state = _nullSession, action) => {
     
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            const {username, id, avatarUrl} = action.user;
-            return Object.assign({}, { currentUser: {username, id, avatarUrl}}); 
+            const {username, id, avatarUrl, tag} = action.user;
+            return Object.assign({}, { currentUser: {username, id, avatarUrl, tag}}); 
             //old state is not needed, if a currentUser is returned that should be the currentUser
         case LOGOUT_CURRENT_USER:
             return _nullSession;
