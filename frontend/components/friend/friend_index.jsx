@@ -1,4 +1,5 @@
 import React from 'react';
+import UserSetting from '../user/user_setting';
 
 const FriendIndex = (props) => {
     return (
@@ -28,6 +29,7 @@ const FriendIndex = (props) => {
                         </div>
                     </div>
                 </div>
+                {/* <UserSetting /> */}
         </div>
     )
 }

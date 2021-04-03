@@ -4,9 +4,19 @@
     display: block;
     border: none;
     border-radius: 48px;
-    margin-bottom: 9px;
+    // margin-bottom: 9px;
+    
+}
+
+.server-index-item-container {
+    display: flex;
+    flex-direction: row;
     position: relative;
     top: 12px;
+    width: 60px;
+    padding-left: 12px;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .server-icon:hover {
@@ -23,3 +33,22 @@
     visibility: visible;
 }
 
+.active-server-item {
+    visibility: hidden;
+    width: 8px;
+    height: 40px;
+    background-color: white;
+    position: absolute;
+    left: 0px;
+    margin-left: -4px;
+    border-radius: 20px;
+
+}
+
+.active-server {
+    visibility: visible;
+}
+
+.active-server-icon {
+    border-radius: 15px;
+}

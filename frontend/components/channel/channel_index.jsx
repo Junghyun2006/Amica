@@ -54,7 +54,7 @@ class ChannelIndex extends React.Component {
   }
   
   render() {
-    const { channels, servers, currentUser } = this.props;
+    const { channels, servers, currentUser, logout } = this.props;
     if (!channels ) return null;
     
 
@@ -73,6 +73,8 @@ class ChannelIndex extends React.Component {
       );
     });
 
+    const push = this.props.history.push;
+
     const serverName = servers[this.props.match.params.serverId]
       ? servers[this.props.match.params.serverId].name
       : "";
@@ -81,7 +83,7 @@ class ChannelIndex extends React.Component {
       this.state.serverSetting === true ? (
         <ServerSettingDD
           handleServerSettingP={this.handleServerSettingP}
-          push={this.props.history.push}
+          push={push}
           serverId={this.props.match.params.serverId}
           openModal={this.props.openModal}
         />
@@ -92,7 +94,7 @@ class ChannelIndex extends React.Component {
           serverName={serverName}
           handleServerSettingP={this.handleServerSettingP}
           serverId={this.props.match.params.serverId}
-          push={this.props.history.push}
+          push={push}
         />
       ) : null;
     const channelSettingOverlay =
@@ -129,7 +131,7 @@ class ChannelIndex extends React.Component {
                 this.props.openModal({
                   modal: "channel",
                   serverId: this.props.match.params.serverId,
-                  push: this.props.history.push,
+                  push: push,
                 })
               }
             >
@@ -150,7 +152,7 @@ class ChannelIndex extends React.Component {
           {channelIndex}
         </div>
         {serverSettingP}
-        <UserSetting currentUser={currentUser}/>
+        <UserSetting currentUser={currentUser} logout={logout} push={push}/>
       </div>
     );
   }

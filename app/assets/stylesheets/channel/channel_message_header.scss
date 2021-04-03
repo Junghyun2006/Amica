@@ -42,11 +42,12 @@
     display: flex;
     flex-direction: row;
 }
-.channel-message-box{
-    height: 100%;
+.channel-message-box {
+    height: calc(100vh - 67px);
     width: calc(100vw - 232px - 240px - 72px);
     background-color: #37393F;
     padding-right: 16px;
+    overflow-y: scroll;
 }
 
 .hashtag-img-header  {

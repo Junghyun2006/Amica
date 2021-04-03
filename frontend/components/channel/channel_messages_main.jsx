@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -27,6 +27,12 @@ const ChannelMessages = (props) => {
           setMessage(e.target.value)
       }
   }
+  
+  const dummyDiv = useRef(null);
+
+  useEffect(() => {
+    if (dummyDiv.current) dummyDiv.current.scrollIntoView();
+  }, [props.channelMessageIndex])
 
   const sendMessage = (message_body) => {
     const data = {
@@ -38,6 +44,7 @@ const ChannelMessages = (props) => {
     if (message.length > 0) channel.send(data);
     setMessage('')
   };
+  
 
   return (
     <div>
@@ -45,7 +52,10 @@ const ChannelMessages = (props) => {
             <div className="channel-message-container">
                 <img className="chat-attach" src={window.chat_attach} />
                 <div className="channel-message-box">
-                <div className="channel-message-index">{props.channelMessageIndex}</div>
+                <div className="channel-message-index">
+                  {props.channelMessageIndex}
+                  <div ref={dummyDiv}>&nbsp;</div>
+                </div>
                 <input
                     onChange={handleMessageChange()}
                     className="chat-message"

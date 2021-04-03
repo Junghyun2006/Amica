@@ -1,12 +1,10 @@
 .server-bar-holder {
-    width: 56px;
+    width: 72px;
     height: 100%;
     background-color: #202225;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 8px;
-    padding-right: 8px;
 
     overflow-y: auto;
     &::-webkit-scrollbar {

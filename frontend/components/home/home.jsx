@@ -3,19 +3,14 @@ import { Link } from "react-router-dom";
 import ServerBarContainer from "../server/server_bar_container";
 import FriendIndex from '../friend/friend_index';
 
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       active_server: null,
       activeChannels: null
     };
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.logout().then(() => this.props.history.push("/")); // modify the string inside push - MOST LIKELY THE ERROR
   }
 
   render() {
@@ -30,9 +25,6 @@ class HomePage extends React.Component {
             <div className="friend-status"></div>
           </div>
         </div>
-        <button className="logout-btn" onClick={this.handleSubmit}>
-          Logout
-        </button>
       </div>
     );
   }

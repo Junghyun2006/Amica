@@ -1,6 +1,6 @@
 .user-setting-container {
     width: 240px;
-    height: 52px;
+    height: 51px;
     // border: 1px solid black;
     position: relative;
     bottom: 52px;
@@ -8,6 +8,7 @@
     align-items: center;
     background: #292b2f;
     flex-direction: row;
+    margin-bottom: 1px;
 }
 
 .username-tag-container {
@@ -44,8 +45,8 @@
 .server-setting-cog {
     width: 20px;
     height: 20px;
-    position: relative;
-    left: 128px;
+    position: absolute;
+    left: 206px;
 }
 
 .server-setting-cog:hover {

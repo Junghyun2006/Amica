@@ -20,6 +20,9 @@
     padding-top: 6px;
     color: #8e9297;
     padding-left: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     
     // font-weight: 500;
 }
@@ -49,6 +52,9 @@
     font-size: 15px;
     padding-top: 6px;
     padding-left: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .text-channel-container {
