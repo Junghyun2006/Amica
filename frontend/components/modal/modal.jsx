@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import ServerPlusModal from "../server/modal/server_plus_modal";
 import ServerCreateModal from "../server/modal/server_create_modal";
 import ChannelSetting from "../channel/channel_setting";
+import UserSettingModal from "../user/modal/user_setting_modal"
 
 function Modal({ modal, closeModal, openModal }) {
   if (!modal) {
@@ -53,6 +54,14 @@ function Modal({ modal, closeModal, openModal }) {
       );
       width = `440px`;
       height = `200px`;
+      break;
+    case "userSetting":
+       component = (
+        <UserSettingModal
+        />
+      );
+      width = `440px`;
+      height = `338px`;
       break;
     default:
       return null;

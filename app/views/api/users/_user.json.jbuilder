@@ -1,4 +1,4 @@
-json.extract! user, :username, :id, :tag
+json.extract! user, :username, :id, :tag, :email
 
 user.servers.each do |server|
     json.servers do

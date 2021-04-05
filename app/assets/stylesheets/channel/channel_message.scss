@@ -51,7 +51,7 @@
     top: 3px;
 }
 .cmi-body {
-    height: 22px;
+    min-height: 22px;
     width: auto;
     display: flex;
     justify-content: left;
@@ -61,6 +61,7 @@
     font-family: "Whitney Book Regular";
     font-size: 16px;
     line-height: 1.5rem;
+    padding-right: 48px;
 }
 
 .cmi-body-solo {
@@ -73,7 +74,7 @@
     color: #dcddde;
     font-family: "Whitney Book Regular";
     font-size: 16px;
-    padding: 2px 0px 2px 72px;
+    padding: 2px 48px 2px 72px;
     line-height: 1.5rem;
 }
 

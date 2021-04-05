@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import UserSettingOverlay from './user_setting_overlay'
 
-const UserSetting = ({currentUser, logout, push}) => {
-    const [userSettingActive, setUserSettingActive] = useState(false);
+const UserSetting = ({currentUser, logout, push, openModal}) => {
+    const [userSettingActive, setUserSettingActive] = useState(true);
 
     
     const setActive = () => {
@@ -13,7 +13,7 @@ const UserSetting = ({currentUser, logout, push}) => {
         logout().then(() => push("/"))
     }
 
-    const userSetting = (userSettingActive) ? <UserSettingOverlay setActive={setActive} logout={handleLogout}/> : null;
+    const userSetting = (userSettingActive) ? <UserSettingOverlay currentUser={currentUser} setActive={setActive} logout={handleLogout} openModal={openModal}/> : null;
 
     return (
         <>

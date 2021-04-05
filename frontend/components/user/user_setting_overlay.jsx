@@ -3,7 +3,7 @@ import { logout } from "../../actions/session_actions";
 import { deleteServer } from "../../utils/server_utils";
 import { deleteSubscription } from "../../utils/sub_utils";
 
-const UserSettingOverlay = ({setActive, logout}) => {
+const UserSettingOverlay = ({setActive, logout, currentUser, openModal}) => {
   return (
     <div className="ssp-container">
       <div className="ssp-left">
@@ -26,7 +26,32 @@ const UserSettingOverlay = ({setActive, logout}) => {
       <div className="ssp-right">
         <div onClick={() => setActive()} className="ssp-exit">
           <div className="ssp-close-circle"></div>
-          <img className="ssp-x" src={window.sspExit} />
+        <img className="ssp-x" src={window.sspExit} />
+        </div>
+        <div className="us-container"> 
+              <h1 className="us-header">MY ACCOUNT</h1>
+              <div className="us-setting-box">
+                <div className="us-up-setting">
+                  <img src={currentUser.avatarUrl} className="us-overlay-icon" />
+                  <div className="us-overlay-icon-name">{currentUser.username}<h1 className="us-overlay-tag">#{currentUser.tag}</h1></div>
+                </div>
+              <div className="us-ind-setting-box">
+                <div className="us-ind-setting">
+                  <div className="us-settings">
+                    <h1 className="us-setting-header">USERNAME</h1>
+                    <div className="us-setting-per">{currentUser.username}<h1 className="us-overlay-tag2">#{currentUser.tag}</h1></div>
+                  </div>
+                  <button onClick={() => openModal({modal: 'userSetting'})} className="us-btn">Edit</button>
+                </div>
+                <div className="us-ind-setting">
+                  <div className="us-settings">
+                    <h1 className="us-setting-header">EMAIL</h1>
+                    <h1 className="us-setting-per">{currentUser.email}</h1>
+                  </div>
+                  <button className="us-btn">Edit</button>
+                </div>
+              </div>
+              </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import UserSetting from '../user/user_setting';
 
-const FriendIndex = (props) => {
+const FriendIndex = ({currentUser, logout, push, openModal}) => {
     return (
         <div className="friend-index-container">
             <div className="friend-search-container">
@@ -29,7 +29,7 @@ const FriendIndex = (props) => {
                         </div>
                     </div>
                 </div>
-                {/* <UserSetting /> */}
+                <UserSetting currentUser={currentUser} logout={logout} push={push} openModal={openModal}/>
         </div>
     )
 }

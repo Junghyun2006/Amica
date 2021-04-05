@@ -14,10 +14,13 @@ class HomePage extends React.Component {
   }
 
   render() {
+    const {currentUser, logout, openModal} = this.props;
+    const push = this.props.history.push;
+
     return (
       <div className="home-wrapper">
         <ServerBarContainer />
-        <FriendIndex />
+        <FriendIndex currentUser={currentUser} logout={logout} push={push} openModal={openModal} />
         <div className="channel-container">
           <div className="friend-header"></div>
           <div className="friend-container">

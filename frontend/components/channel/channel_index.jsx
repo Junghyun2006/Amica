@@ -152,7 +152,7 @@ class ChannelIndex extends React.Component {
           {channelIndex}
         </div>
         {serverSettingP}
-        <UserSetting currentUser={currentUser} logout={logout} push={push}/>
+        <UserSetting currentUser={currentUser} logout={logout} push={push} openModal={this.props.openModal}/>
       </div>
     );
   }

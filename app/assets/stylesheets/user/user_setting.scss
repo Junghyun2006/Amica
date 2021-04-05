@@ -53,3 +53,132 @@
     cursor: pointer;
     filter: brightness(.2) invert(1)
 }
+
+.us-container {
+    display: flex;
+    flex-direction: column;  
+    width: 740px;
+    height: 420px;
+    padding: 60px 40px 80px;
+    
+}
+
+.us-setting-box {
+    display: flex;
+    flex-direction: column;
+    width: 628px;
+    height: 237px;
+    padding: 16px;
+    background-color: #2f3136;
+    border-radius: 8px;
+}
+
+.us-ind-setting {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 24px;
+}
+
+.us-settings {
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+    height: 40px;
+    margin-right: 16px;
+}
+
+.us-header {
+    font-family: "Whitney Semibold Regular";
+    font-size: 16px; 
+    color: white;
+    margin-bottom: 20px;
+}
+
+.us-up-setting {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.us-overlay-icon {
+    height: 80px;
+    width: 80px;
+    display: block;
+    border: none;
+    border-radius: 48px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.us-overlay-icon-name {
+    font-family: "Whitney Semibold Regular";
+    font-size: 20px; 
+    color: white;
+    display: flex;
+    flex-direction: row;
+    margin-left: 7px;
+}
+
+.us-overlay-tag {
+    font-family: "Whitney Book Regular";
+    font-size: 16px; 
+    color: #b9bbbe;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 4px;
+}
+
+.us-ind-setting-box{
+    display:flex;
+    flex-direction: column;
+    width: 596px;
+    height: 97px;
+    padding: 16px;
+    background-color: #36393f;
+    border-radius: 8px;
+    margin-top: 16px;
+   
+    // align-items: center;
+}
+
+.us-setting-per {
+    font-family: "Whitney";
+    font-size: 16px; 
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.us-setting-header {
+    color: #8e9297;
+    font-family: "Whitney Medium";
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.us-btn {
+    width: 60px;
+    height: 32px;
+    padding: 2px 16px;
+    margin: 4px 0px;
+    border: none;
+    outline: none;
+    background-color: #747F8D;
+    border-radius: 3px;
+    color: white;
+    font-family: "Whitney Medium";
+    font-size: 14px;
+}
+
+.us-btn {
+    cursor: pointer;
+}
+
+.us-overlay-tag2 {
+    font-family: "Whitney Book Regular";
+    font-size: 16px; 
+    color: #b9bbbe;
+    display: flex;
+    flex-direction: row;
+}

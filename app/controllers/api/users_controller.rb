@@ -25,6 +25,12 @@ class Api::UsersController < ApplicationController
         render "api/users/show"
     end
 
+    # def update
+    #     if current_user.update()
+
+
+    # end
+
     private
 
     def user_params
