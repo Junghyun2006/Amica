@@ -5,6 +5,7 @@ import ServerPlusModal from "../server/modal/server_plus_modal";
 import ServerCreateModal from "../server/modal/server_create_modal";
 import ChannelSetting from "../channel/channel_setting";
 import UserSettingModal from "../user/modal/user_setting_modal"
+import { updateUser } from '../../utils/user_utils';
 
 function Modal({ modal, closeModal, openModal }) {
   if (!modal) {
@@ -58,10 +59,14 @@ function Modal({ modal, closeModal, openModal }) {
     case "userSetting":
        component = (
         <UserSettingModal
+          type={modal.type}
+          updateUser={updateUser}
+          currentUser={modal.currentUser}
+          closeModal={closeModal}
         />
       );
       width = `440px`;
-      height = `338px`;
+      height = `300px`;
       break;
     default:
       return null;

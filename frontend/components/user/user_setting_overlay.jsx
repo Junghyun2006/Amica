@@ -1,7 +1,4 @@
 import React from "react";
-import { logout } from "../../actions/session_actions";
-import { deleteServer } from "../../utils/server_utils";
-import { deleteSubscription } from "../../utils/sub_utils";
 
 const UserSettingOverlay = ({setActive, logout, currentUser, openModal}) => {
   return (
@@ -41,14 +38,14 @@ const UserSettingOverlay = ({setActive, logout, currentUser, openModal}) => {
                     <h1 className="us-setting-header">USERNAME</h1>
                     <div className="us-setting-per">{currentUser.username}<h1 className="us-overlay-tag2">#{currentUser.tag}</h1></div>
                   </div>
-                  <button onClick={() => openModal({modal: 'userSetting'})} className="us-btn">Edit</button>
+                  <button onClick={() => openModal({modal: 'userSetting', type: 'username', currentUser: currentUser})} className="us-btn">Edit</button>
                 </div>
                 <div className="us-ind-setting">
                   <div className="us-settings">
                     <h1 className="us-setting-header">EMAIL</h1>
                     <h1 className="us-setting-per">{currentUser.email}</h1>
                   </div>
-                  <button className="us-btn">Edit</button>
+                  <button onClick={() => openModal({modal: 'userSetting', type: 'email', currentUser: currentUser})} className="us-btn">Edit</button>
                 </div>
               </div>
               </div>

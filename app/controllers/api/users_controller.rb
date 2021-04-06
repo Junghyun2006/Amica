@@ -25,11 +25,15 @@ class Api::UsersController < ApplicationController
         render "api/users/show"
     end
 
-    # def update
-    #     if current_user.update()
-
-
-    # end
+    def update
+        if current_user
+            if @current_user.is_password?(user_params[:password])
+                 @current_user.update(user_params)
+            else
+                render json: [["CURRENT PASSWORD", "Password does not match."]], status: 422
+            end
+        end
+    end
 
     private
 

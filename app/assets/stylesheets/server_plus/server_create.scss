@@ -40,7 +40,7 @@
     outline: none;
 }
 
-.sc-server-name-input:hover {
+.sc-server-name-input:hover:not(:focus) {
     border: 1px solid rgb(160,196,231);
     outline: none;
 }
