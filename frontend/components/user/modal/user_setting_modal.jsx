@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { closeModal } from "../../../actions/modal_actions";
+import {useDispatch} from 'react-redux';
 
-const UserSettingModal = ({type, updateUser, currentUser, closeModal}) => {
+const UserSettingModal = ({type, updateUser, currentUser, closeModal, receiveCUser}) => {
 
     const header1 = (type === "username") ? "Change your username" : "Enter an email address"
     const header2 = (type === "username") ? "Enter a new username and your existing password." : "Enter an email address and your existing password."
@@ -11,6 +12,7 @@ const UserSettingModal = ({type, updateUser, currentUser, closeModal}) => {
     const [email, setEmail] = useState(currentUser.email)
     const [errors, setErrors] = useState(false)
     const [passwordLabel, setPasswordLabel] = useState('CURRENT PASSWORD')
+    const dispatch = useDispatch();
     
     const handlePasswordChange = (e) => setPassword(e.target.value)
     const handleUsernameChange = (e) => setUsername(e.target.value)
@@ -21,7 +23,10 @@ const UserSettingModal = ({type, updateUser, currentUser, closeModal}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const user = {password, username, email, id: currentUser.id}
-        updateUser(user).then(user => closeModal(), errors => {
+        updateUser(user).then(user => {
+            closeModal()
+            dispatch(receiveCUser(currentUser.id))
+        }, errors => {
             if (errors.responseJSON) {
                 setErrors(true)
                 setPasswordLabel(`${errors.responseJSON[0][0]} - ${errors.responseJSON[0][1]}`)}

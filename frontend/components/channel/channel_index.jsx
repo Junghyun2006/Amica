@@ -54,7 +54,7 @@ class ChannelIndex extends React.Component {
   }
   
   render() {
-    const { channels, servers, currentUser, logout } = this.props;
+    const { channels, servers, logout, receiveCurrentUser, currentUser } = this.props;
     if (!channels ) return null;
     
 
@@ -69,6 +69,7 @@ class ChannelIndex extends React.Component {
           key={i}
           activeChannel={aChannel}
           handleChannelSetting={this.handleChannelSetting}
+          currentUser={currentUser}
         />
       );
     });
@@ -152,7 +153,7 @@ class ChannelIndex extends React.Component {
           {channelIndex}
         </div>
         {serverSettingP}
-        <UserSetting currentUser={currentUser} logout={logout} push={push} openModal={this.props.openModal}/>
+        <UserSetting currentUser={currentUser} logout={logout} push={push} openModal={this.props.openModal} receiveCurrentUser={receiveCurrentUser}/>
       </div>
     );
   }

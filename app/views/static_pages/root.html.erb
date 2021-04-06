@@ -1,6 +1,5 @@
 <% if signed_in? %>
     <script>
-        console.log("<%= current_user.username %>")
         window.currentUser = {
             "id": <%= current_user.id %>,
             "username": "<%= current_user.username %>",

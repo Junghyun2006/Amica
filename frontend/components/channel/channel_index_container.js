@@ -5,6 +5,7 @@ import { logout } from '../../actions/session_actions';
 import {withRouter} from "react-router";
 import {requestServers} from "../../actions/server_actions"
 import {openModal} from '../../actions/modal_actions';
+import {receiveCUser} from '../../actions/user_action'
 
 const msp = (state, ownProps) => {
     return {
@@ -21,7 +22,9 @@ const mdp = dispatch => {
         requestServerChannels: (serverId) => dispatch(requestServerChannels(serverId)),
         requestServers: () => dispatch(requestServers()),
         openModal: (modal) => dispatch(openModal(modal)),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        receiveCurrentUser: userId => dispatch(receiveCUser(userId))
+
     }
 }
 

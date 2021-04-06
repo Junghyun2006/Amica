@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {receiveChannelMessage} from "../../actions/channel_actions"
 
 const ChannelIndexItem = (props) => {
-  const { serverId, channel } = props;
+  const { serverId, channel, currentUser } = props;
   const { name, id } = props.channel;
   const dispatch = useDispatch();
   const currActiveChannel =

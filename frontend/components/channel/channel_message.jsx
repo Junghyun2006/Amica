@@ -21,7 +21,7 @@ class ChannelMessage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.location !== this.props.location) {
+    if ((prevProps.location !== this.props.location) || (prevProps.currentUser !== this.props.currentUser)) { 
       this.props.requestChannelMessages(this.props.match.params.channelId);
     }
   }

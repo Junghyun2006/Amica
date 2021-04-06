@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
-const UserSettingOverlay = ({setActive, logout, currentUser, openModal}) => {
+const UserSettingOverlay = ({setActive, logout, currentUser, openModal, receiveCurrentUser}) => {
+
   return (
     <div className="ssp-container">
       <div className="ssp-left">

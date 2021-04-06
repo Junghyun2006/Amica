@@ -6,6 +6,7 @@ import ServerCreateModal from "../server/modal/server_create_modal";
 import ChannelSetting from "../channel/channel_setting";
 import UserSettingModal from "../user/modal/user_setting_modal"
 import { updateUser } from '../../utils/user_utils';
+import {receiveCUser} from '../../actions/user_action';
 
 function Modal({ modal, closeModal, openModal }) {
   if (!modal) {
@@ -63,6 +64,7 @@ function Modal({ modal, closeModal, openModal }) {
           updateUser={updateUser}
           currentUser={modal.currentUser}
           closeModal={closeModal}
+          receiveCUser={receiveCUser}
         />
       );
       width = `440px`;
@@ -73,7 +75,7 @@ function Modal({ modal, closeModal, openModal }) {
   }
 
   return (
-    <div className="modal-container" onClick={closeModal}>
+    <div className="modal-container">
       <div
         className="modal-component"
         style={{ width: `${width}`, height: `${height}` }}
