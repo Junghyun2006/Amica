@@ -3,7 +3,6 @@ import ServerSubsIndexItem from "./server_subs_index_item"
 
 const ServerSubsIndex = ({currentServer}) => {
     if (!currentServer) return null;
-    
     const serverSubs = Object.values(currentServer.subscriptions)
     const serverCount = serverSubs.length
     const serverSubsList = serverSubs.map((sub, i) => {

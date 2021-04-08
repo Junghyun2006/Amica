@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { deleteChannel, updateChannel } from "../../utils/channel_utils";
+import { deleteChannel, updateChannel } from "../../actions/channel_actions";
+import {useDispatch} from "react-redux";
 
 const ChannelSettingOverlay = ({
   handleChannelSetting,
@@ -9,6 +10,7 @@ const ChannelSettingOverlay = ({
 
   const [tempChannelName, setTempChannelName] = useState(channelName);
   const [channelNameChanged, setChannelNameChanged] = useState(false);
+  const dispatch = useDispatch();
   
   const handleChannelName = (e) => {
     setTempChannelName(e.target.value)
@@ -21,10 +23,10 @@ const ChannelSettingOverlay = ({
     e.preventDefault();
     if (tempChannelName.length) {
       setChannelNameChanged(false)
-      return updateChannel({
+      return dispatch(updateChannel({
         id: channelId,
         name: tempChannelName
-      })
+      }))
     } else {
       console.log('error')
     }
@@ -46,7 +48,7 @@ const ChannelSettingOverlay = ({
             <div
               className="ssp-delete"
               onClick={() => {
-                deleteChannel(channelId);
+                dispatch(deleteChannel(channelId));
                 handleChannelSetting();
               }}
             >

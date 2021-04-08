@@ -17,7 +17,7 @@ export const createChannel = ({channel, push, handleActiveServer}) => {
     data: {channel},
   }).then((response) => {
     push(`/servers/${channel.server_id}/${response.id}`);
-    handleActiveServer(channel.server_id);
+    if (handleActiveServer !== undefined) handleActiveServer(channel.server_id);
   });
 };
 

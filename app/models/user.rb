@@ -20,6 +20,7 @@ class User < ApplicationRecord
     foreign_key: :sender_id,
     class_name: :Message
 
+  has_friendship
 
   def password=(password)
     # Set temporary instance variable so that we can validate length

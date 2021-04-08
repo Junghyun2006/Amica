@@ -5,12 +5,17 @@ Server.delete_all
 Subscription.delete_all
 Channel.delete_all
 Message.delete_all
+Friendship.delete_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('servers')
 ActiveRecord::Base.connection.reset_pk_sequence!('subscriptions')
 ActiveRecord::Base.connection.reset_pk_sequence!('channels')
 ActiveRecord::Base.connection.reset_pk_sequence!('messages')
+ActiveRecord::Base.connection.reset_pk_sequence!('friendships')
+
+
+#users
 
 demo = User.create!(
     username: 'DemoUser',
@@ -48,6 +53,8 @@ user_3 = User.create!(
 file = open('https://app-amica-seeds.s3.amazonaws.com/yasuo.jpeg')
 user_3.avatar.attach(io: file, filename: 'yasuo.jpeg')
 
+
+# servers
 
 server_1 = Server.create!(
     name: 'Red Car Fans',
@@ -97,6 +104,8 @@ server_6 = Server.create!(
 file6 = open('https://app-amica-seeds.s3.amazonaws.com/potatoimg.png')
 server_6.photo.attach(io: file6, filename: 'potatoimg.png')
 
+#subscriptions
+
 subscription_1 = Subscription.create!(
     subscribeable_type: 'Server',
     subscribeable_id: '1',
@@ -144,6 +153,8 @@ subscription_8 = Subscription.create!(
     subscribeable_id: '6',
     user_id: 1
 )
+
+# channels
 
 channel_1 = Channel.create!(
     name: 'general-chat',
@@ -259,6 +270,8 @@ channel_23 = Channel.create!(
     server_id: 6
 )
 
+# messages
+
 message_1 = Message.create!(
     messageable_type: 'Channel',
     messageable_id: '12',
@@ -288,6 +301,15 @@ message_4 = Message.create!(
     sender_id: '1',
     message_body: 'updates coming soon'
 )
+
+# friends
+
+demo.friend_request(user_2)
+user_2.accept_request(demo)
+demo.friend_request(user_3)
+user_3.accept_request(demo)
+user_2.friend_request(user_3)
+user_3.accept_request(user_2)
 
 
 

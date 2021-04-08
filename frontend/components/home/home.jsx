@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ServerBarContainer from "../server/server_bar_container";
-import FriendIndex from '../friend/friend_index';
+import FriendConversation from '../friend/friend_conversation_index';
+import FriendsIndex from '../friend/friend_index';
 
 
 class HomePage extends React.Component {
@@ -13,18 +14,24 @@ class HomePage extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.requestFriends()
+  }
+
   render() {
-    const {currentUser, logout, openModal} = this.props;
+    const {currentUser, logout, openModal, friends} = this.props;
     const push = this.props.history.push;
+
+    if (!friends) return null;
 
     return (
       <div className="home-wrapper">
         <ServerBarContainer />
-        <FriendIndex currentUser={currentUser} logout={logout} push={push} openModal={openModal} />
+        <FriendConversation currentUser={currentUser} logout={logout} push={push} openModal={openModal} friends={friends} />
         <div className="channel-container">
           <div className="friend-header"></div>
           <div className="friend-container">
-            <div className="friend-box"></div>
+            <FriendsIndex friends={friends}/>
             <div className="friend-status"></div>
           </div>
         </div>

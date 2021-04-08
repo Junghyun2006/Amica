@@ -1,0 +1,24 @@
+.friends-list-container {
+    width: calc(100vw - 232px - 240px - 72px);
+    position: relative;
+    top: 49px;
+}
+
+.all-friends-label {
+    padding: 16px 20px 8px 30px;
+    height: 16px;
+    width: 100%;
+    color: #b9bbbe;
+    font-family: 'Whitney Semibold Regular';
+    font-size: 12px;
+}
+
+.friend-item-container {
+    margin: 0px 45px 8px 30px;
+    height: 53px;
+    border-top: 0.1px solid #42454a;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}

@@ -30,8 +30,9 @@ export const createServer = ({ serverFormData, push, handleActiveServer }) => {
       push: push,
       handleActiveServer: handleActiveServer
     })
-  });
+  })
 };
+
 export const updateServer = (server) => {
   return $.ajax({
     url: `/api/servers/${server.id}`,

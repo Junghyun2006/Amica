@@ -8,12 +8,14 @@ Rails.application.routes.draw do
     resources :servers, only: [:create, :show, :destroy, :update, :index] do
       resources :channels, only: [:index]
     end
-    resources :subscriptions, only: [:create, :destroy, :update, :index] 
+    resources :subscriptions, only: [:create, :update] 
+    delete 'subscriptions', to: 'subscriptions#destroy'
+
     resource :session, only: [:create, :destroy]
     resources :channels, only: [:show, :create, :update, :destroy] do
       resources :messages, only: [:index]
     end
-
+    resources :friends, only: [:index, :show, :create, :update, :destroy]
   end
   
   root to: 'static_pages#root'
