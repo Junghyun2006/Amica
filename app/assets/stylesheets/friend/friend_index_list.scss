@@ -1,5 +1,5 @@
 .friends-list-container {
-    width: calc(100vw - 232px - 240px - 72px);
+    width: calc(100vw - 232px - 80px);
     position: relative;
     top: 49px;
 }
@@ -7,18 +7,115 @@
 .all-friends-label {
     padding: 16px 20px 8px 30px;
     height: 16px;
-    width: 100%;
+    width: calc(100vw - 232px - 240px - 80px);
     color: #b9bbbe;
     font-family: 'Whitney Semibold Regular';
     font-size: 12px;
 }
 
-.friend-item-container {
-    margin: 0px 45px 8px 30px;
-    height: 53px;
+
+.friend-item-border {
     border-top: 0.1px solid #42454a;
+    margin: 0px 37px 0px 30px;
+}
+
+.friend-item-container {
+    margin: 0px 27px 0px 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    height: 45px;
+    // border-top: 0.1px solid #42454a;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.friend-item-left {
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    margin-left: 10px;
 }
+
+.friend-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.friend-avatar-icon {
+    height: 32px;
+    width: 32px;
+    display: block;
+    border: none;
+    border-radius: 48px;
+    margin-right: 12px;
+}
+
+.friend-avatar-icon:hover {
+    cursor: pointer;
+}
+
+.friend-info {
+    margin-top: 6px;
+}
+
+.friend-info-username {
+    font-family: "Whitney Semibold Regular";
+    font-size: 16px;
+    color: white;
+    height: 17px;
+}
+
+.friend-item-status {
+    display: flex;
+    font-family: "Whitney Medium";
+    font-size: 14px;
+    color: #b9bbbe;
+    height: 20px;
+    align-items: center;
+}
+
+.friend-item-setting-cont1 {
+    display: flex;
+    position: relative;
+    left: 10px;
+}
+
+.friend-item-setting-cont2 {
+    display: flex;
+}
+
+.friend-item-setting-icon {
+    position: relative;
+    left: 28px;
+}
+
+.friend-item-setting-icon:hover {
+    cursor: pointer;
+    filter: brightness(.2) invert(1)
+}
+
+.friend-item-right {
+    display: flex;
+    margin-right: 10px;
+    // align-items: center;
+    // flex-direction: row;
+}
+
+.friend-item-circle {
+    width: 36px;
+    height: 36px;
+    background-color: #2f3136;
+    border-radius: 48px;
+}
+
+.friend-item-container:hover {
+    cursor: pointer;
+    background: #3a3e44;
+    border-radius: 8px;
+    // border: none;
+}
+
+
+

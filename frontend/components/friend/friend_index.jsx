@@ -3,9 +3,9 @@ import FriendIndexItem from '../friend/friend_index_item';
 
 const FriendsIndex = ({friends}) => {
 
-    const friendsList = Object.values(friends).map((friend) => {
+    const friendsList = Object.values(friends).map((friend, i) => {
         return (
-            <FriendIndexItem friend={friend}/>
+            <FriendIndexItem friend={friend} key={i}/>
         )
     })
 

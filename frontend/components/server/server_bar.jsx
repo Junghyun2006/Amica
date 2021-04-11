@@ -45,9 +45,13 @@ class ServerBar extends React.Component {
       return <ServerIndexItem  server={server} key={i} activeChannel={activeChannel} />;
     });
 
+    const activeHome = (!this.props.match.params.serverId) ? <div className={`active-home-item`}></div> : null;
+    const activeHomeIcon = (!this.props.match.params.serverId) ? 'active-home' : null;
+
     return (
       <div className="server-bar-holder">
-        <Link to="/@me" className="home-btn-container">
+        {activeHome}
+        <Link to="/@me" className={`home-btn-container ${activeHomeIcon}`}>
           <img className="home-btn" src={window.logo} />
         </Link>
         <div className="bar-divider" />

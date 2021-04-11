@@ -24,8 +24,7 @@
 
 .friend-header {
     width: calc(100vw - 240px - 80px);
-    height: 12px;
-    padding: 18px 0px;
+    height: 48px;
     padding-left: 8px;
     color: #fff;
     font-family: 'Catamaran', sans-serif;
@@ -37,7 +36,27 @@
     top: 0px;
     z-index: 2;
     background-color: #37393F;
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+}
+
+.vertical-separator {
+    width: 1px;
+    height: 24px;
+    margin: 0px 8px;
+    background-color: #FFFFFF0F;
+}
+
+.friend-label-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.friend-header-icon {
+   padding-left: 8px;
+   filter: brightness(.8) 
 }
 
 .friend-container {
@@ -53,18 +72,78 @@
     background-color: #37393F;
 }
 
-.friend-status {
-    height: 100%;
-    width: 240px;
-    position: absolute;
-    right: 0px;
-    background-color: #2E3137;
-    z-index: 1;
-   
-}
-
 .logout-btn {
     position: absolute;
     bottom: 10px;
     left: 5px;
+} 
+
+.friend-main-container {
+    height: 100%;
+    background-color: #37393F;
+    /* border: 1px yellow solid; */
+    display: flex;
+    flex-direction: column;
+}
+
+.active-home-item {
+   
+    width: 8px;
+    height: 40px;
+    background-color: white;
+    position: absolute;
+    left: 0px;
+    top: 16px;
+    margin-left: -4px;
+    border-radius: 20px;
+} 
+
+.friend-label-name {
+    font: {
+        family: "Whitney Medium";
+        size: 16px;
+    }
+    padding: 2px 8px;
+    position: relative;
+    bottom: 1px;
+}
+
+.friend-header-btn {
+    outline: none;
+    border: none;
+    background: none;
+    color: #b9bbbe;
+    font: {
+        family: "Whitney Medium";
+        size: 16px;
+    }
+    margin: 0px 9px;
+    padding: 3px 8px;
+    position: relative;
+    bottom: 1px;
+}
+
+.friend-header-btn:hover {
+    cursor: pointer;
+    background-color: rgba(79,84,92,0.16);
+    border-radius: 4px;
+    color: white;
+}
+
+.add-friend-header-btn {
+    outline: none;
+    border: none;
+    background: #43b581;
+    color: white;
+    font: {
+        family: "Whitney Medium";
+        size: 16px;
+    }
+    margin: 0px 8px;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.add-friend-header-btn:hover {
+    cursor: pointer;
 }

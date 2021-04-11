@@ -28,11 +28,21 @@ class HomePage extends React.Component {
       <div className="home-wrapper">
         <ServerBarContainer />
         <FriendConversation currentUser={currentUser} logout={logout} push={push} openModal={openModal} friends={friends} />
-        <div className="channel-container">
-          <div className="friend-header"></div>
+        <div className="friend-main-container">
+          <div className="friend-header">
+            <div className="friend-label-container">
+              <img className="friend-header-icon" src={window.friend_icon}></img>
+              <h1 className="friend-label-name">Friends</h1>
+            </div>
+            <div className="vertical-separator"></div>
+            <button className="friend-header-btn">Online</button>
+            <button className="friend-header-btn">All</button>
+            <button className="friend-header-btn">Pending</button>
+            <button className="friend-header-btn">Blocked</button>
+            <button className="add-friend-header-btn">Add Friend</button>
+          </div>
           <div className="friend-container">
             <FriendsIndex friends={friends}/>
-            <div className="friend-status"></div>
           </div>
         </div>
       </div>
