@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route} from "react-router-dom";
 import ServerBarContainer from "../server/server_bar_container";
-import FriendConversation from '../friend/friend_conversation_index';
-import FriendsIndex from '../friend/friend_index';
+import FriendConversationIndex from '../friend/friend_conversation_index';
+import Friend from '../friend/friend';
+import ChannelMessageContainer from "../channel/channel_message_container"
+
 
 
 class HomePage extends React.Component {
@@ -19,7 +21,7 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const {currentUser, logout, openModal, friends} = this.props;
+    const {currentUser, logout, openModal, friends, conversations} = this.props;
     const push = this.props.history.push;
 
     if (!friends) return null;
@@ -27,24 +29,14 @@ class HomePage extends React.Component {
     return (
       <div className="home-wrapper">
         <ServerBarContainer />
-        <FriendConversation currentUser={currentUser} logout={logout} push={push} openModal={openModal} friends={friends} />
-        <div className="friend-main-container">
-          <div className="friend-header">
-            <div className="friend-label-container">
-              <img className="friend-header-icon" src={window.friend_icon}></img>
-              <h1 className="friend-label-name">Friends</h1>
-            </div>
-            <div className="vertical-separator"></div>
-            <button className="friend-header-btn">Online</button>
-            <button className="friend-header-btn">All</button>
-            <button className="friend-header-btn">Pending</button>
-            <button className="friend-header-btn">Blocked</button>
-            <button className="add-friend-header-btn">Add Friend</button>
-          </div>
-          <div className="friend-container">
-            <FriendsIndex friends={friends}/>
-          </div>
-        </div>
+        <FriendConversationIndex currentUser={currentUser} logout={logout} push={push} openModal={openModal} friends={friends} conversations={conversations}/>
+        <Route
+          exact path="/@me"
+          render={() => (
+            <Friend friends={friends}/>
+          )}
+        />
+        <Route path="/@me/conversations/:conversationId" component={ChannelMessageContainer} />
       </div>
     );
   }

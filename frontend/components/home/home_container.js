@@ -11,7 +11,8 @@ import { requestFriends } from "../../actions/friend_actions"
 const msp = (state) => {
     return {
         currentUser: state.session.currentUser,
-        friends: state.entities.friends
+        friends: state.entities.friends,
+        conversations: state.entities.conversations
     }
 }
 

@@ -12,6 +12,7 @@ export const requestServer = (serverId) => {
     url: `/api/servers/${serverId}`,
   });
 };
+
 export const createServer = ({ serverFormData, push, handleActiveServer }) => {
   return $.ajax({
     method: "POST",

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       resources :messages, only: [:index]
     end
     resources :friends, only: [:index, :show, :create, :update, :destroy]
+    resources :conversations, only: [:index, :show, :create, :destroy] do
+      resources :messages, only: [:index]
+    end
   end
   
   root to: 'static_pages#root'

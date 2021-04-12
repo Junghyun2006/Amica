@@ -1,0 +1,81 @@
+.conversation-index {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+    padding-top: 2px;
+}
+
+.conversation-item-container {
+    height: 42px;
+}
+
+.conversation-member-icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 48px;
+    background: #43b581;
+
+}
+
+.conversation-item-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 220px;
+    border-radius: 4px;
+    padding-left: 7px;
+}
+
+.conversation-item-container:hover {
+    cursor: pointer;
+    background-color: rgba(79,84,92,0.16);
+}
+
+.conversation-member-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.conversation-member-icon-holder {
+    // width: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: -4px;
+}
+
+.conversation-member-icon-img {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    right: 23px;
+    filter: brightness(0) invert(1);
+}
+
+.conversation-item-name {
+    color: #8e9297;
+    font: {
+        family: "Whitney Medium";
+        size: 16px;
+    }
+    max-width: 143px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.conversation-item-name-cont {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+}
+
+.conversation-member-count {
+    color: #8e9297;
+    font: {
+        family: "Whitney Medium";
+        size: 12px;
+    }
+    padding-top: 3px;
+}

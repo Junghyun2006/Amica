@@ -20,6 +20,11 @@ class User < ApplicationRecord
     foreign_key: :sender_id,
     class_name: :Message
 
+  has_many :conversations,
+    through: :subscriptions,
+    source: :subscribeable,
+    source_type: :Conversation
+
   has_friendship
 
   def password=(password)

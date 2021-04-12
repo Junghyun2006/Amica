@@ -27,8 +27,9 @@ class ChannelMessage extends React.Component {
   }
 
   render() {
-    const { channels, channelMessages, servers } = this.props;
+    const { channels, channelMessages, servers, conversations } = this.props;
     const channelId = this.props.match.params.channelId;
+    const status = (!this.props.match.params.conversationId) ? 'server' : 'conversation';
 
     const today = new Date();
     today.setHours(0);
@@ -96,6 +97,7 @@ class ChannelMessage extends React.Component {
         : channels[this.props.match.params.channelId].name;
 
     const currentServer = servers[this.props.match.params.serverId]
+    const currentConversation = conversations[this.props.match.params.conversationId]
 
     return (
       <div className="channel-container">
@@ -121,7 +123,7 @@ class ChannelMessage extends React.Component {
           </div>
         </div>
         <ChannelMessagesIndex channelMessageIndex={channelMessageIndex} />
-        <ServerSubsIndex currentServer={currentServer}/>
+        <ServerSubsIndex currentServer={currentServer} currentConversation={currentConversation} status={status}/>
       </div>
     );
   }

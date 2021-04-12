@@ -6,6 +6,7 @@ Subscription.delete_all
 Channel.delete_all
 Message.delete_all
 Friendship.delete_all
+Conversation.delete_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('servers')
@@ -13,6 +14,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('subscriptions')
 ActiveRecord::Base.connection.reset_pk_sequence!('channels')
 ActiveRecord::Base.connection.reset_pk_sequence!('messages')
 ActiveRecord::Base.connection.reset_pk_sequence!('friendships')
+ActiveRecord::Base.connection.reset_pk_sequence!('conversations')
 
 
 #users
@@ -311,5 +313,60 @@ user_3.accept_request(demo)
 user_2.friend_request(user_3)
 user_3.accept_request(user_2)
 
+# conversations
+
+conversation_1 = Conversation.create!(
+    name: 'DemoUser, Yasuo, Irelia'
+)
+
+conversation_2 = Conversation.create!(
+    name: 'DemoUser, Yasuo'
+)
+
+conversation_3 = Conversation.create!(
+    name: 'DemoUser, Irelia'
+)
+
+subscription_9 = Subscription.create!(
+    subscribeable_type: 'Conversation',
+    subscribeable_id: '1',
+    user_id: 1
+)
+
+subscription_10 = Subscription.create!(
+    subscribeable_type: 'Conversation',
+    subscribeable_id: '1',
+    user_id: 2
+)
+
+subscription_11 = Subscription.create!(
+    subscribeable_type: 'Conversation',
+    subscribeable_id: '1',
+    user_id: 3
+)
+
+subscription_12 = Subscription.create!(
+    subscribeable_type: 'Conversation',
+    subscribeable_id: '2',
+    user_id: 1
+)
+
+subscription_13 = Subscription.create!(
+    subscribeable_type: 'Conversation',
+    subscribeable_id: '2',
+    user_id: 3
+)
+
+subscription_14 = Subscription.create!(
+    subscribeable_type: 'Conversation',
+    subscribeable_id: '3',
+    user_id: 1
+)
+
+subscription_15 = Subscription.create!(
+    subscribeable_type: 'Conversation',
+    subscribeable_id: '3',
+    user_id: 2
+)
 
 

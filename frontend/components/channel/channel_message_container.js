@@ -11,7 +11,8 @@ const msp = (state, ownProps) => {
         channels: state.entities.channels,
         channelMessages: Object.values(state.entities.messages),
         servers: state.entities.servers,
-        currentUser: state.session.currentUser
+        currentUser: state.session.currentUser,
+        conversations: state.entities.conversations
     }
 }
 

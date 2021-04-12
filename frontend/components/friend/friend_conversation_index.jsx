@@ -1,10 +1,8 @@
 import React, {useEffect} from 'react';
 import UserSetting from '../user/user_setting';
-import FriendIndexItem from './friend_index_item';
+import ConversationIndex from '../conversation/conversations_index';
 
-const FriendConversation = ({currentUser, logout, push, openModal, friends}) => {
-
-    
+const FriendConversationIndex = ({currentUser, logout, push, openModal, friends, conversations}) => {
 
     return (
         <div className="friend-index-container">
@@ -32,10 +30,11 @@ const FriendConversation = ({currentUser, logout, push, openModal, friends}) => 
                             </svg>
                         </div>
                     </div>
+                    <ConversationIndex conversations={conversations} currentUser={currentUser}/>
                 </div>
                 <UserSetting currentUser={currentUser} logout={logout} push={push} openModal={openModal}/>
         </div>
     )
 }
 
-export default FriendConversation;
+export default FriendConversationIndex;
