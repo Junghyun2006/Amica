@@ -15,7 +15,7 @@ const receiveConversations = (conversations) => {
 
 const receiveConversation = (conversation) => {
     return {
-        type: REMOVE_CONVERSATION,
+        type: RECEIVE_CONVERSATION,
         conversation
     }
 }
@@ -59,9 +59,10 @@ export const requestConversation = (conversationId) => {
     }
 }
 
-export const createConversation = (conversation) => {
+export const createConversation = (conversation, history) => {
     return dispatch => {
-        return ConversationAPIUtil.createConversation(conversation).then(conversation => {
+        return ConversationAPIUtil.createConversation(conversation, history).then(conversation => {
+            debugger
             dispatch(receiveConversation(conversation))
         })
     }

@@ -36,12 +36,12 @@ class ChannelMessage extends React.Component {
   }
 
   render() {
+    debugger
     const { channels, channelMessages, servers, conversations, currentUser } = this.props;
     const channelId = this.props.match.params.channelId;
     const conversationId = this.props.match.params.conversationId;
     const status = (!this.props.match.params.conversationId) ? 'server' : 'conversation';
     const ACid = (status === 'server') ? channelId : conversationId;
-    // debugger
     if (status === 'conversation' && (Object.values(conversations).length === 0)) return null;
 
     const today = new Date();

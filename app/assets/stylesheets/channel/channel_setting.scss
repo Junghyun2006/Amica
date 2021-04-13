@@ -66,17 +66,18 @@
     background-color: #7289da;
     outline: none;
     border: none;
-     font {
+     font: {
         size: 14px;
         family: 'Whitney';
     }
     color: #fff;
     border-radius: 3px;
-    cursor: pointer;
+   
 }
 
 .c-create-btn:hover {
     background-color: #687BC4;
+    cursor: pointer;
 }
 
 .in-text-channels {

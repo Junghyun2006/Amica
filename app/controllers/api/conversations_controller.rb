@@ -5,9 +5,10 @@ class Api::ConversationsController < ApplicationController
     end
 
     def create 
-        @conversation = Conversation.new(conversation_params)
+        @conversation = Conversation.new(name: conversation_params[:name])
 
         if @conversation.save
+            @conversation.subscribe(conversation_params[:users], @conversation.id)
             render :show
         else 
             render json ["- conversation creation error temporary"]
@@ -15,7 +16,9 @@ class Api::ConversationsController < ApplicationController
     end
 
     def show 
-        @conversation = Conversation.find(params[:id])
+        
+        @conversation = Conversation.includes(:subscribers).find(params[:id])
+        render "api/conversations/show"
     end
 
     def destroy
@@ -29,7 +32,7 @@ class Api::ConversationsController < ApplicationController
     private
 
     def conversation_params
-        params.require(:conversation).permit(:name)
+        params.require(:conversation).permit(:name, users: [])
     end
 
 end

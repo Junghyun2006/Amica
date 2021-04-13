@@ -1,0 +1,222 @@
+.conversation-create-container {
+  display: flex;
+  flex-direction: column;
+  width: 440px;
+  min-height: 394px;
+  background-color: #37393f;
+  position: absolute;
+  top: 137px;
+  left: 281px;
+  z-index: 20;
+  border: 1px solid #202225;
+  border-radius: 5px;
+}
+
+.conversation-create-sec-one {
+  width: 404px;
+  min-height: 90px;
+  padding: 16px;
+}
+
+.conv-create-header {
+  font: {
+    family: "Whitney Medium";
+    size: 16px;
+  }
+  color: white;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.conv-create-header-two {
+  font: {
+    family: "Whitney";
+    size: 12px;
+  }
+  color: #b9bbbe;
+  height: 16px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.conv-c-search {
+    height: 34px;
+    width: 100%;
+    max-width: 250px;
+    min-width: 50px;
+    flex: 1;
+}
+
+.conv-create-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 34px;
+  max-width: 250px;
+  min-width: 50px;
+  cursor: text;
+  border-radius: 3px;
+  text-decoration: none;
+  background-color: #202225;
+  // padding: 1px 6px;
+  font-family: "Whitney Medium";
+  font-size: 16px;
+
+  outline: none;
+  border: none;
+  color: white;
+  padding: 0px 8px;
+  overflow-x: auto;
+}
+
+.conv-create-friend-index {
+  padding: 0px 16px;
+  height: 190px;
+  overflow-y: hidden scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #202225;
+}
+
+.conv-create-friend-index:hover {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #202225;
+}
+    
+
+.conv-create-btn-container {
+  height: 38px;
+  padding: 20px;
+}
+
+.conv-create-btn {
+  height: 38px;
+  width: 400px;
+  background-color: #7289da;
+  outline: none;
+  border: none;
+  font: {
+    size: 14px;
+    family: "Whitney Medium";
+  }
+  color: #fff;
+  border-radius: 3px;
+}
+
+.conv-create-btn:hover {
+  cursor: pointer;
+  background-color: #687bc4;
+}
+
+.conversation-create-friend-ii-cont {
+  width: 400px;
+  height: 28px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.conversation-create-friend-ii-cont:hover {
+    cursor: pointer;
+    background-color: rgba(79,84,92,0.16);
+}
+
+.cc-f-username1 {
+  font: {
+    size: 14px;
+    family: "Whitney Semibold Regular";
+    weight: bolder;
+  }
+  color: #dcddde;
+  margin-left: -2px;
+  margin-right: 4px;
+  line-height: -1px;
+}
+
+.cc-f-username2 {
+  font: {
+    size: 15px;
+    family: "Whitney";
+  }
+  color: #b9bbbe;
+}
+
+.cc-f-tag {
+  font: {
+    size: 15px;
+    family: "Whitney";
+    
+  }
+  color: #b9bbbe;
+}
+
+.check-box {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #72767d;
+    border-radius: 3px;
+}
+
+.cc-f-user-info-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 332px;
+}
+
+.check-box:hover {
+    cursor: auto;
+} 
+
+.cc-f-check {
+    visibility: hidden;
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.checked {
+    visibility: visible;
+    border-color: #4f545c;
+}
+
+.conv-c-button-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-flow: row wrap;
+    min-height: 34px; 
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 3px;
+    background-color: #202225;
+    padding: 2px;
+}
+
+.member-add-box {
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+.member-add-button {
+    font: {
+    size: 16px;
+    family: "Whitney";
+   }
+    color: #dcddde;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    background: #36393f;
+    border-radius: 3px;
+    align-items: center;
+    white-space: nowrap;
+    padding: 12px;
+    color: #dcddde;
+    outline: none;
+    border: none;
+}
+

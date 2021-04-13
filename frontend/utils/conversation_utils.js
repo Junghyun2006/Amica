@@ -1,3 +1,5 @@
+
+
 export const requestConversations = () => {
   return $.ajax({
     url: "/api/conversations",
@@ -10,12 +12,12 @@ export const requestConversation = (conversationId) => {
   });
 };
 
-export const createConversation = (conversation) => {
+export const createConversation = (conversation, history) => {
     return $.ajax({
         method: "POST",
         url: "api/conversations",
         data: {conversation}
-    })
+    }).then(response => history.push(`/@me/conversations/${Object.keys(response)[0]}`))
 }
 
 export const deleteConversation = (conversationId) => {
