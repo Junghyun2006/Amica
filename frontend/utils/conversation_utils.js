@@ -24,3 +24,11 @@ export const deleteConversation = (conversationId) => {
         method: "DELETE"
     })
 }
+
+export const requestConversationMessages = (conversationId) => {
+  const message = {messageable_type: 'Conversation', messageable_id: conversationId}
+  return $.ajax({
+      url: `/api/conversations/${conversationId}/messages`,
+      data: {message}
+  })
+}

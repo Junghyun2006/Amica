@@ -2,9 +2,10 @@ import { connect } from "react-redux";
 import ChannelMessage from "./channel_message";
 import {withRouter} from "react-router";
 import {openModal} from '../../actions/modal_actions';
-import {requestServerChannels} from "../../actions/channel_actions"
-import {requestServers} from "../../actions/server_actions"
-import {requestChannelMessages} from "../../actions/channel_actions"
+import {requestServerChannels} from "../../actions/channel_actions";
+import {requestServers} from "../../actions/server_actions";
+import {requestChannelMessages} from "../../actions/channel_actions";
+import {requestConversationMessages} from "../../actions/conversation_actions";
 
 const msp = (state, ownProps) => {
     return {
@@ -20,7 +21,8 @@ const mdp = dispatch => {
     return {
         requestServerChannels: (serverId) => dispatch(requestServerChannels(serverId)),
         requestServers: () => dispatch(requestServers()),
-        requestChannelMessages: (channelId) => dispatch(requestChannelMessages(channelId))
+        requestChannelMessages: (channelId) => dispatch(requestChannelMessages(channelId)),
+        requestConversationMessages: (conversationId) => dispatch(requestConversationMessages(conversationId))
     }
 }
 

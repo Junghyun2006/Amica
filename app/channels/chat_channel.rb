@@ -2,7 +2,8 @@ class ChatChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
     stop_all_streams #check then maybe keep
-    @channel = Channel.find_by(id: params[:channel_id])
+    @channel = Channel.find_by(id: params[:id])
+
     stream_for @channel 
   end
 
@@ -18,7 +19,7 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    stop_all_streams #check then maybe keep
+    stop_all_streams 
     # Any cleanup needed when channel is unsubscribed
   end
 

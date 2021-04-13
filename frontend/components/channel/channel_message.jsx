@@ -17,19 +17,32 @@ class ChannelMessage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestChannelMessages(this.props.match.params.channelId);
+    if (this.props.match.params.channelId) {
+       this.props.requestChannelMessages(this.props.match.params.channelId);
+    } else {
+      this.props.requestConversationMessages(this.props.match.params.conversationId)
+    }
+     
   }
 
   componentDidUpdate(prevProps, prevState) {
     if ((prevProps.location !== this.props.location) || (prevProps.currentUser !== this.props.currentUser)) { 
-      this.props.requestChannelMessages(this.props.match.params.channelId);
+      if (this.props.match.params.channelId) {
+        this.props.requestChannelMessages(this.props.match.params.channelId);
+      } else {
+      this.props.requestConversationMessages(this.props.match.params.conversationId)
+      }
     }
   }
 
   render() {
-    const { channels, channelMessages, servers, conversations } = this.props;
+    const { channels, channelMessages, servers, conversations, currentUser } = this.props;
     const channelId = this.props.match.params.channelId;
+    const conversationId = this.props.match.params.conversationId;
     const status = (!this.props.match.params.conversationId) ? 'server' : 'conversation';
+    const ACid = (status === 'server') ? channelId : conversationId;
+    // debugger
+    if (status === 'conversation' && (Object.values(conversations).length === 0)) return null;
 
     const today = new Date();
     today.setHours(0);
@@ -43,8 +56,9 @@ class ChannelMessage extends React.Component {
     function convert(input) {
       return moment(input, "HH:mm:ss").subtract(4, "hours").format("h:mm A");
     }
+    
     const filteredChannelMessages = channelMessages.filter((message) => {
-      return Object.values(message.message)[0].messageable_id == channelId;
+      return Object.values(message.message)[0].messageable_id == ACid;
     });
 
     const dateStandard2 = (date) => {
@@ -96,15 +110,19 @@ class ChannelMessage extends React.Component {
         ? ""
         : channels[this.props.match.params.channelId].name;
 
+        
     const currentServer = servers[this.props.match.params.serverId]
     const currentConversation = conversations[this.props.match.params.conversationId]
+    const removedSpacesName = (status === "conversation") ? conversations[this.props.match.params.conversationId].name.split(' ').join('') : null;
+    const conversationName = (status === "conversation") ? removedSpacesName.split(',').filter(name => { return name !== currentUser.username}).join(', '): null;
+    const messageHeader = (status === "server") ? channelName : conversationName
 
     return (
       <div className="channel-container">
         <div className="channel-message-header">
           <div className="mh-left">
             <img className="hashtag-img-header" src={window.hashtag} />
-            <h1 className="cm-header-name">{channelName}</h1>
+            <h1 className="cm-header-name">{messageHeader}</h1>
           </div>
           <div className="mh-right">
             <img className="mh-mute" src={window.mh_mute} />

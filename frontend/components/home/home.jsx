@@ -17,8 +17,14 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestFriends()
+    this.props.requestFriends();
   }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //    if ((prevProps.location !== this.props.location)) { 
+  //     this.props.receiveCurrentUser(currentUser.id);
+  //   }
+  // }
 
   render() {
     const {currentUser, logout, openModal, friends, conversations} = this.props;

@@ -5,13 +5,17 @@ import { useParams } from "react-router-dom";
 const ChannelMessages = (props) => {
   const [channel, setChannel] = useState(null);
   const senderId = useSelector((state) => state.session.currentUser.id);
-  const { channelId } = useParams();
+  const { channelId, conversationId } = useParams();
   const [message, setMessage] = useState('');
+
+  const channelName = (channelId) ? "ChatChannel" : "ConversationChannel"
+  const m_type = (channelId) ? "Channel" : "Conversation"
+  const ACid = (channelId) ? channelId : conversationId
 
   useEffect(() => {
     const channel = App.cable.subscriptions.create({
-      channel: "ChatChannel",
-      id: channelId,
+      channel: channelName,
+      id: ACid,
     });
 
     setChannel(channel);
@@ -20,7 +24,7 @@ const ChannelMessages = (props) => {
       channel.unsubscribe();
       setMessage('')
     };
-  }, [channelId]);
+  }, [ACid]);
 
   const handleMessageChange = () => {
       return (e) => {
@@ -36,8 +40,8 @@ const ChannelMessages = (props) => {
 
   const sendMessage = (message_body) => {
     const data = {
-      messageable_id: channelId,
-      messageable_type: "Channel",
+      messageable_id: ACid,
+      messageable_type: m_type,
       sender_id: senderId,
       message_body,
     };

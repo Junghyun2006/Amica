@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import {receiveConversationMessage} from "../../actions/conversation_actions"
 
 const ConversationIndexItem = ({ conversation, currentUser }) => {
-  
+    const {id, name} = conversation;
     const dmIcon = Object.values(conversation.subscriptions).filter(sub => {return sub.id !== currentUser.id})[0].avatarUrl
-    const removedSpacesName = conversation.name.split(' ').join('');
+    const removedSpacesName = name.split(' ').join('');
     const conversationName = removedSpacesName.split(',').filter(name => {return name !== currentUser.username}).join(', ')
     const memberCount = Object.values(conversation.subscriptions).length;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        App.cable.subscriptions.create(
+            { channel: 'ConversationChannel', id: id },
+            {
+                received: (data) => {
+                dispatch(receiveConversationMessage(data))
+                },
+            }
+        )
+    }, [conversation, dispatch])
+
 
     const conversationIcon =
     memberCount > 2 ? (
@@ -27,7 +42,7 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
 
 
   return (
-      <Link to={`/@me/conversations/${conversation.id}`} style={{ textDecoration: "none" }}>
+      <Link to={`/@me/conversations/${id}`} style={{ textDecoration: "none" }}>
         <div className="conversation-item-container">
             {conversationIcon}
             <div className="conversation-item-name-cont">
