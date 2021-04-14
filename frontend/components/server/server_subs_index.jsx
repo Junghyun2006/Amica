@@ -2,8 +2,6 @@ import React from 'react';
 import ServerSubsIndexItem from "./server_subs_index_item"
 
 const ServerSubsIndex = ({currentServer, currentConversation, status}) => {
-
-    // debugger
     if (!currentServer && (status === 'server') || (!currentConversation && (status === 'conversation'))) return null;
 
     const currentMessage = (status === 'server') ? currentServer : currentConversation

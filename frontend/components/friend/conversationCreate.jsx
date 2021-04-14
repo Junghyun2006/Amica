@@ -54,7 +54,6 @@ const ConversationCreate = ({
   const membersWithUser = [...convMembers, currentUser]
 
   const membersToString = (members) => {
-    debugger
     const memberIds = members.map(member => member.id);
     return memberIds.sort().join(',')
   }

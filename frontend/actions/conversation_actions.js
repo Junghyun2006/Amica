@@ -20,10 +20,10 @@ const receiveConversation = (conversation) => {
     }
 }
 
-const removeConversation = (conversationId) => {
+const removeConversation = (conversation) => {
     return {
         type: REMOVE_CONVERSATION,
-        conversationId
+        conversation
     }
 }
 
@@ -70,7 +70,7 @@ export const createConversation = (conversation, history) => {
 export const deleteConversation = (conversationId) => {
     return dispatch => {
         return ConversationAPIUtil.deleteConversation(conversationId).then(conversation => {
-            dispatch(removeConversation(conversation.id))
+            dispatch(removeConversation(conversation))
         })
     }
 }

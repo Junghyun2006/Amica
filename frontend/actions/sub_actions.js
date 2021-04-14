@@ -11,10 +11,10 @@ const receiveSubscriptions = (subscriptions) => {
     }
 }
 
-const removeSubscription = (subscriptionId) => {
+const removeSubscription = (subscription) => {
     return {
         type: REMOVE_SUBSCRIPTION,
-        subscriptionId
+        subscription
     }
 }
 
@@ -24,6 +24,14 @@ export const requestSubscriptions = () => {
     return dispatch => {
         return SubAPIUtil.requestSubscriptions().then(subscriptions => {
             dispatch(receiveSubscriptions(subscriptions))
+        })
+    }
+}
+
+export const deleteSubscription = (subscription) => {
+    return dispatch => {
+        return SubAPIUtil.deleteSubscription(subscription).then(subscription => {
+            dispatch(removeSubscription(subscription))
         })
     }
 }

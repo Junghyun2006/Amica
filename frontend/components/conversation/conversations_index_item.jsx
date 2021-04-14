@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import {receiveConversationMessage} from "../../actions/conversation_actions"
+import {receiveConversationMessage, deleteConversation} from "../../actions/conversation_actions";
+import { useHistory } from "react-router";
 
 const ConversationIndexItem = ({ conversation, currentUser }) => {
     const {id, name} = conversation;
@@ -10,6 +11,7 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
     const conversationName = removedSpacesName.split(',').filter(name => {return name !== currentUser.username}).join(', ')
     const memberCount = Object.values(conversation.subscriptions).length;
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
         App.cable.subscriptions.create(
@@ -40,6 +42,11 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
         <h1 className="conversation-member-count">{memberCount}&nbsp;&nbsp;Members</h1>
     ) : null;
 
+    const handleDeleteSubscription = () => {
+
+        dispatch(deleteConversation(conversation.id)).then(() => history.push('/@me'))
+    }
+
 
   return (
       <Link to={`/@me/conversations/${id}`} style={{ textDecoration: "none" }}>
@@ -49,6 +56,7 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
                 <div className="conversation-item-name">{conversationName}</div>
                 {memberCountLabel}
             </div>
+            <button onClick={() => handleDeleteSubscription()}>delete</button>
         </div>
       </Link>
   );
