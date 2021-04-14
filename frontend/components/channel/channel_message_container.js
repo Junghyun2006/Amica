@@ -5,7 +5,8 @@ import {openModal} from '../../actions/modal_actions';
 import {requestServerChannels} from "../../actions/channel_actions";
 import {requestServers} from "../../actions/server_actions";
 import {requestChannelMessages} from "../../actions/channel_actions";
-import {requestConversationMessages} from "../../actions/conversation_actions";
+import {requestConversationMessages, requestConversations } from "../../actions/conversation_actions";
+import {receiveCUser} from "../../actions/user_action";
 
 const msp = (state, ownProps) => {
     return {
@@ -22,7 +23,9 @@ const mdp = dispatch => {
         requestServerChannels: (serverId) => dispatch(requestServerChannels(serverId)),
         requestServers: () => dispatch(requestServers()),
         requestChannelMessages: (channelId) => dispatch(requestChannelMessages(channelId)),
-        requestConversationMessages: (conversationId) => dispatch(requestConversationMessages(conversationId))
+        requestConversationMessages: (conversationId) => dispatch(requestConversationMessages(conversationId)),
+        requestConversations: () => dispatch(requestConversations()),
+        requestCurrentUser: (userId) => dispatch(receiveCUser(userId))
     }
 }
 

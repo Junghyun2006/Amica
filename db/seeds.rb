@@ -55,6 +55,16 @@ user_3 = User.create!(
 file = open('https://app-amica-seeds.s3.amazonaws.com/yasuo.jpeg')
 user_3.avatar.attach(io: file, filename: 'yasuo.jpeg')
 
+user_4 = User.create!(
+    username: 'Potato',
+    password: 'password',
+    email: 'testuser3@gmail.com',
+    tag: '3262',
+    dob: '1994-07-03'
+)
+
+file = open('https://app-amica-seeds.s3.amazonaws.com/potatoimg.png')
+user_4.avatar.attach(io: file, filename: 'potatoimg.png')
 
 # servers
 
@@ -312,6 +322,8 @@ demo.friend_request(user_3)
 user_3.accept_request(demo)
 user_2.friend_request(user_3)
 user_3.accept_request(user_2)
+demo.friend_request(user_4)
+user_4.accept_request(demo)
 
 # conversations
 
@@ -367,6 +379,18 @@ subscription_15 = Subscription.create!(
     subscribeable_type: 'Conversation',
     subscribeable_id: '3',
     user_id: 2
+)
+
+subscription_16 = Subscription.create!(
+    subscribeable_type: 'Server',
+    subscribeable_id: '4',
+    user_id: 3
+)
+
+subscription_17 = Subscription.create!(
+    subscribeable_type: 'Server',
+    subscribeable_id: '4',
+    user_id: 4
 )
 
 

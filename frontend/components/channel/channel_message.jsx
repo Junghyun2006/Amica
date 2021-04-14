@@ -26,23 +26,23 @@ class ChannelMessage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if ((prevProps.location !== this.props.location) || (prevProps.currentUser !== this.props.currentUser)) { 
+    if ((prevProps.location !== this.props.location)) { 
       if (this.props.match.params.channelId) {
         this.props.requestChannelMessages(this.props.match.params.channelId);
       } else {
-      this.props.requestConversationMessages(this.props.match.params.conversationId)
+        this.props.requestConversationMessages(this.props.match.params.conversationId);
+        this.props.requestCurrentUser(this.props.currentUser.id);
       }
     }
   }
 
   render() {
-    debugger
     const { channels, channelMessages, servers, conversations, currentUser } = this.props;
     const channelId = this.props.match.params.channelId;
     const conversationId = this.props.match.params.conversationId;
     const status = (!this.props.match.params.conversationId) ? 'server' : 'conversation';
     const ACid = (status === 'server') ? channelId : conversationId;
-    if (status === 'conversation' && (Object.values(conversations).length === 0)) return null;
+    if (status === 'conversation' && (Object.values(conversations).length === 0 || conversations[this.props.match.params.conversationId] === undefined)) return null;
 
     const today = new Date();
     today.setHours(0);

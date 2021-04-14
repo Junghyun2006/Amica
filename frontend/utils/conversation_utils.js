@@ -17,7 +17,10 @@ export const createConversation = (conversation, history) => {
         method: "POST",
         url: "api/conversations",
         data: {conversation}
-    }).then(response => history.push(`/@me/conversations/${Object.keys(response)[0]}`))
+    }).then(response => {
+      history.push(`/@me/conversations/${Object.keys(response)[0]}`)
+      return response;
+    })
 }
 
 export const deleteConversation = (conversationId) => {

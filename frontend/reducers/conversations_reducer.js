@@ -7,17 +7,15 @@ const conversationsReducer = (state  = {}, action) => {
         case RECEIVE_CONVERSATIONS:
             return action.conversations
         case RECEIVE_CONVERSATION:
-            // debugger
-            // const conversationId = action.conversation.id
-            // const conversation = {[conversationId]:action.conversation}
             return Object.assign({}, state, action.conversation)
         case REMOVE_CONVERSATION:
             const newState = {...state};
             delete newState[action.conversation.id] // check
             return newState
         case RECEIVE_CURRENT_USER:
-            if (!action.user.servers) {
-                return {};
+            debugger
+            if (!action.user.conversations) {
+                return state;
             } else {
                 return action.user.conversations;
             }

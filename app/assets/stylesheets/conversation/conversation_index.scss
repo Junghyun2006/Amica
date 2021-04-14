@@ -3,6 +3,16 @@
     flex-direction: column;
     padding-left: 8px;
     padding-top: 2px;
+    overflow-x: hidden;
+    overflow-y: scroll hidden;
+}
+
+.conversation-index::-webkit-scrollbar {
+    
+    width: 4px;
+    background-color: #303438;
+    border: none;
+    height: 4px;
 }
 
 .conversation-item-container {

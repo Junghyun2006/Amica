@@ -62,7 +62,6 @@ export const requestConversation = (conversationId) => {
 export const createConversation = (conversation, history) => {
     return dispatch => {
         return ConversationAPIUtil.createConversation(conversation, history).then(conversation => {
-            debugger
             dispatch(receiveConversation(conversation))
         })
     }

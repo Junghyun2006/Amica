@@ -20,6 +20,12 @@ class HomePage extends React.Component {
     this.props.requestFriends();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if ((prevProps.location !== this.props.location) || (prevProps.currentUser !== this.props.currentUser)) { 
+      this.props.requestFriends();
+    }
+  }
+
   // componentDidUpdate(prevProps, prevState) {
   //    if ((prevProps.location !== this.props.location)) { 
   //     this.props.receiveCurrentUser(currentUser.id);
