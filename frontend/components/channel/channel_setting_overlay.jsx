@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from "react";
 import { deleteChannel, updateChannel } from "../../actions/channel_actions";
 import {useDispatch} from "react-redux";
+import { useHistory } from "react-router";
 
 const ChannelSettingOverlay = ({
   handleChannelSetting,
   channelName,
   channelId,
+  channels
   }) => {
-
+    debugger
   const [tempChannelName, setTempChannelName] = useState(channelName);
   const [channelNameChanged, setChannelNameChanged] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
   
   const handleChannelName = (e) => {
     setTempChannelName(e.target.value)

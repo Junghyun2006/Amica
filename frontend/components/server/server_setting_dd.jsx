@@ -11,9 +11,8 @@ const ServerSettingDD = ({
   server,
   currentUser,
 }) => {
-  const dispatch = useDispatch();
   const history = useHistory();
-
+  const dispatch = useDispatch();
   const handleLeaveServer = () => {
     dispatch(deleteSubscription({subscribeable_id: serverId, subscribeable_type: "Server", user_id: currentUser.id}))
     history.push('/@me')

@@ -34,7 +34,6 @@ const ServerCreateModal = ({
   const handleRefresh = () => {
     setServerImg(defaultImg);
     inputFile.current.value = "";
-    debugger
   };
 
   const handleServerImg = () => {

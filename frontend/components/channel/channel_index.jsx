@@ -108,8 +108,11 @@ class ChannelIndex extends React.Component {
             this.props.channelsTwo[this.props.match.params.channelId].name
           }
           channelId={this.props.match.params.channelId}
+          channels={channelsArray}
         />
       ) : null;
+
+      const channelsArray = channels.map((channel => {return channel.id}))
 
     return (
       <div>
