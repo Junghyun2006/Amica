@@ -27,13 +27,19 @@ class Api::SubscriptionsController < ApplicationController
     end
 
     def destroy
-        @subscription = Subscription.find_by(subscribeable_id: subscription_params[:subscribeable_id], subscribeable_type: subscription_params[:subscribeable_type])
-        @subscription.destroy
+        if (subscription_params[:user_id]) 
+            @subscription = Subscription.find_by(subscribeable_id: subscription_params[:subscribeable_id], subscribeable_type: subscription_params[:subscribeable_type], user_id: subscription_params[:user_id])
+            @subscription.destroy
+        else
+            @subscription = Subscription.find_by(subscribeable_id: subscription_params[:subscribeable_id], subscribeable_type: subscription_params[:subscribeable_type])
+            @subscription.destroy
+        end
+
     end
 
     private
 
     def subscription_params
-        params.require(:subscription).permit(:subscribeable_id, :subscribeable_type)
+        params.require(:subscription).permit(:subscribeable_id, :subscribeable_type, :user_id)
     end
 end                                           

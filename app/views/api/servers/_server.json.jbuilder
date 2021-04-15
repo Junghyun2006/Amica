@@ -1,5 +1,7 @@
 json.extract! server, :id, :name, :host_id
-json.photoUrl url_for(server.photo) if server.photo.attached?
+if server.photo.attached?
+    json.photoUrl url_for(server.photo) 
+end
 json.channels server.channels.map(&:id)
 
 json.subscriptions do 

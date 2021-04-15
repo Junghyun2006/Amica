@@ -87,6 +87,8 @@ class ChannelIndex extends React.Component {
           push={push}
           serverId={this.props.match.params.serverId}
           openModal={this.props.openModal}
+          server={servers[this.props.match.params.serverId]}
+          currentUser={currentUser}
         />
       ) : null;
     const serverSettingP =

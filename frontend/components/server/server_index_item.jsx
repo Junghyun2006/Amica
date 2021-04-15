@@ -7,12 +7,24 @@ const ServerIndexItem = (props) => {
   const activeChannel = !props.activeChannel ? channels[0] : props.activeChannel;
   const activeServer = (serverId == id) ? 'active-server' : '';
   const activeServerIcon = (serverId == id) ? 'active-server-icon' : '';
+  const activeServerIcon2 = (serverId == id) ? 'active-server-icon2' : '';
+  // const activeServerIcon2 = (serverId == id) ? 'active-server-icon2' : '';
+  const serverNameInitial = () => {
+    const initials = name.split(" ");
+    if (initials.length > 1) {
+      return initials[0][0] + initials [1][0]
+    } else {
+      return initials[0][0]
+    }
+  }
+
+  const serverImg = (photoUrl) ? <img src={photoUrl} className={`server-icon ${activeServerIcon}`} /> : <button className={`no-photo ${activeServerIcon2}`}>{serverNameInitial()}</button>
 
   return (
-    <Link to={`/servers/${id}/${activeChannel}`}>
+    <Link to={`/servers/${id}/${activeChannel}`} style={{ textDecoration: 'none' }}>
       <div className="server-index-item">
         <div className="server-index-item-container">
-          <img src={photoUrl} className={`server-icon ${activeServerIcon}`} />
+          {serverImg}
           <div className={`active-server-item ${activeServer}`}></div>
         </div>
       </div>

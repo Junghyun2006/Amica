@@ -69,16 +69,25 @@
         family: "Whitney Medium";
         size: 16px;
     }
-    max-width: 143px;
+    width: 143px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-right: 6px;
 }
 
 .conversation-item-name-cont {
     display: flex;
     flex-direction: column;
     // align-items: center;
+}
+
+.conversation-item-container:hover .conversation-item-name {
+    color: #dcddde;
+}
+
+.conversation-item-container:hover .conversation-member-count {
+    color: #dcddde
 }
 
 .conversation-member-count {
@@ -89,3 +98,31 @@
     }
     padding-top: 3px;
 }
+
+.conversation-icon-close {
+    visibility: hidden;
+    width: 15px;
+    height: 15px;
+    color: white;
+    position:relative;
+    top: 2px;
+}
+
+.conversation-item-container:hover .conversation-icon-close {
+    visibility: visible;
+}
+
+.conv-icon-close-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  right: 0px;
+}
+
+.conversation-icon-close:hover {
+    // fill: #dcddde;
+    cursor: pointer;
+    filter: brightness(.2) invert(1)
+}
+

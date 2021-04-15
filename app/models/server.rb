@@ -1,7 +1,6 @@
 class Server < ApplicationRecord
     has_many :subscriptions, as: :subscribeable
     has_one_attached :photo
-
     has_many :subscribers, through: :subscriptions, source: :user
     has_many :channels,
         foreign_key: :server_id,

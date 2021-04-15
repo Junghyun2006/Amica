@@ -4,7 +4,9 @@ user.servers.each do |server|
     json.servers do
         json.set! server.id do
             json.extract! server, :id, :name, :host_id
-            json.photoUrl url_for(server.photo)
+            if server.photo.attached?
+                json.photoUrl url_for(server.photo) 
+            end
             json.channels server.channels.map(&:id)
             json.subscriptions do 
                 server.subscribers.each do |subscriber|

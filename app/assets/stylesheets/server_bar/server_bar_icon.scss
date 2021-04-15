@@ -52,3 +52,32 @@
 .active-server-icon {
     border-radius: 15px;
 }
+
+.no-photo {
+    display: block;
+    border: none;
+    height: 48px;
+    width: 48px;
+    background-color: #36393f;
+    border-radius: 48px;
+    align-items: center;
+    outline: none;
+    color: #dcddde;
+    font: {
+        family: "Whitney Medium";
+        size: 18px;
+    }
+}
+
+.no-photo:hover {
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+    background-color: #7289DA;
+}
+
+
+.active-server-icon2 {
+    border-radius: 15px;
+    background-color: #7289DA;
+}

@@ -51,12 +51,12 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
   return (
       <Link to={`/@me/conversations/${id}`} style={{ textDecoration: "none" }}>
         <div className="conversation-item-container">
-            {conversationIcon}
-            <div className="conversation-item-name-cont">
-                <div className="conversation-item-name">{conversationName}</div>
-                {memberCountLabel}
-            </div>
-            <button onClick={() => handleDeleteSubscription()}>delete</button>
+                {conversationIcon}
+                <div className="conversation-item-name-cont">
+                    <div className="conversation-item-name">{conversationName}</div>
+                    {memberCountLabel}
+                </div>
+            <div classname="conv-icon-close-cont" onClick={() => handleDeleteSubscription()}><img className="conversation-icon-close" src={window.close}/></div>
         </div>
       </Link>
   );

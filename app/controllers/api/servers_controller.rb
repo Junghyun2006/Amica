@@ -6,15 +6,17 @@ class Api::ServersController < ApplicationController
 
     def create
         @server = Server.new(server_params)
+       
         @server[:host_id] = current_user.id
             
         if @server.save 
             render :show
+            if (!server_params[:photo])
+                @server.photo.purge
+            end
         else
             render json: ["- Must be between 2 and 100 in length."], status: 422
-        end
-
-        
+        end 
 
     end
 

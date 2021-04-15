@@ -36,6 +36,16 @@
     border-radius: 3px;
 }
 
+.server-setting-option-leave {
+    display: flex;
+    flex-direction: row;
+    padding: 4px 6px;
+    justify-content: space-between;
+    margin: 2px 0;
+    align-items: center;
+    border-radius: 3px;
+}
+
 .ss-invite {
     width: 18px;
     height: 18px;
@@ -56,6 +66,12 @@
     font-size: 14px;
     font-family: 'Whitney Medium';
     
+}
+
+.ss-text-leave {
+    color: #F04747;
+    font-size: 14px;
+    font-family: 'Whitney Medium';
 }
 
 .ss-text-invite {
@@ -80,12 +96,27 @@
     cursor: pointer;
 }
 
+.server-setting-option-leave:hover {
+    background-color:#F04747;
+    cursor: pointer;
+}
+
+.server-setting-option-leave:hover > .ss-text-leave {
+    color: white;
+    cursor: pointer;
+}
+
 .server-setting-option:hover > .ss-text {
     color: white;
     cursor: pointer;
 }
 
 .server-setting-option:hover > svg > path {
+    fill: white;
+    cursor: pointer;
+}
+
+.server-setting-option-leave:hover > svg > path {
     fill: white;
     cursor: pointer;
 }
@@ -209,4 +240,8 @@
 }
 .ssp-exit:hover > .ssp-close-circle {
     background-color: #404549;
+}
+
+.ss-leave:hover {
+    color: #F04747
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { openModal } from "../../../actions/modal_actions";
 import * as SubAPIUtil from "../../../utils/sub_utils";
 
@@ -10,25 +10,31 @@ const ServerCreateModal = ({
   push,
   handleActiveServer,
 }) => {
+
   const defaultImg = { url: "", file: null };
   const [newServerName, setNewServerName] = useState(newServerInfo.name);
-  const handleChange = (e) => setNewServerName(e.target.value);
   const [serverImg, setServerImg] = useState(defaultImg);
+  const inputFile = useRef(null);
+  
+  const handleChange = (e) => setNewServerName(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const serverFormData = new FormData();
-    serverFormData.append("server[name]", newServerName);
-    serverFormData.append("server[photo]", serverImg.file);
-    createServer({ serverFormData, push, handleActiveServer });
+    if (newServerName.length > 0) {
+      const serverFormData = new FormData();
+      serverFormData.append("server[name]", newServerName);
+      if (serverImg.file) {serverFormData.append("server[photo]", serverImg.file)};
+      createServer({ serverFormData, push, handleActiveServer });
+    }
     closeModal();
   };
 
-  const inputFile = useRef(null);
+
 
   const handleRefresh = () => {
     setServerImg(defaultImg);
     inputFile.current.value = "";
+    debugger
   };
 
   const handleServerImg = () => {
@@ -48,9 +54,13 @@ const ServerCreateModal = ({
     }
   };
 
+  const {file, url} = serverImg;
+
   return (
     <div className="sc-modal">
-      <div className="server-plus-close" onClick={() => closeModal()}>
+      <div className="server-plus-close" onClick={() => {
+        handleRefresh();
+        closeModal()}}>
         <img className="server-plus-close-icon" src={window.close} />
       </div>
       <h1 className="server-plus-title">Customize your server</h1>
@@ -68,11 +78,14 @@ const ServerCreateModal = ({
             ref={inputFile}
           />
           <div className="sc-upload-img">
-            <img
+            {(file) ? <img
+              className="add-server-img-2"
+              src={url}
+            /> :  <img
               className="add-server-img"
               onClick={handleServerImg}
               src={window.spImportImg}
-            />
+            />}
           </div>
           <h1 className="sc-name-text">SERVER NAME</h1>
           <input
