@@ -15,8 +15,6 @@ const ChannelSettingOverlay = ({
   const dispatch = useDispatch();
   const history = useHistory();
   const { serverId } = useParams();
-
-  debugger
   const otherChannel = (channels.length > 1) ? channels.filter(channel => channel.toString() != channelId)[0] : `/servers/${serverId}/null`
   
   const handleChannelName = (e) => {
@@ -33,10 +31,8 @@ const ChannelSettingOverlay = ({
       return dispatch(updateChannel({
         id: channelId,
         name: tempChannelName
-      }))
-    } else {
-      console.log('error')
-    }
+      }))}
+
   } 
 
   const saveChange = (!channelNameChanged) ? 'save-inactive' : null;
