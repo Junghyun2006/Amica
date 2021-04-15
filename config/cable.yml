@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV['REDIS_URL'] %>
+  url: redis://redistogo:58685969c0b3dbc548b0ff062586f17a@scat.redistogo.com:11754/
   channel_prefix: DiscordClone_production
