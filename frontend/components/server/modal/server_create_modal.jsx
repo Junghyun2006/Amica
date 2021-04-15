@@ -17,6 +17,11 @@ const ServerCreateModal = ({
   const inputFile = useRef(null);
   
   const handleChange = (e) => setNewServerName(e.target.value);
+  
+  const handleRefresh = () => {
+    setServerImg(defaultImg);
+    inputFile.current.value = "";
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,21 +32,17 @@ const ServerCreateModal = ({
       createServer({ serverFormData, push, handleActiveServer });
     }
     closeModal();
+    handleRefresh();
   };
 
 
 
-  const handleRefresh = () => {
-    setServerImg(defaultImg);
-    inputFile.current.value = "";
-  };
 
   const handleServerImg = () => {
     inputFile.current.click();
   };
 
   const handleFileChange = (e) => {
-    // setServerImg(e.currentTarget.files[0])
     const fileReader = new FileReader();
     const [file] = e.currentTarget.files;
     fileReader.onloadend = () => setServerImg({ url: fileReader.result, file });

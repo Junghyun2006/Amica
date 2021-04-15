@@ -100,6 +100,9 @@ class ChannelIndex extends React.Component {
           push={push}
         />
       ) : null;
+
+    const channelsArray = channels.map((channel => {return channel.id}))
+    
     const channelSettingOverlay =
       this.state.channelSettingOverlay === true ? (
         <ChannelSettingOverlay
@@ -112,7 +115,6 @@ class ChannelIndex extends React.Component {
         />
       ) : null;
 
-      const channelsArray = channels.map((channel => {return channel.id}))
 
     return (
       <div>

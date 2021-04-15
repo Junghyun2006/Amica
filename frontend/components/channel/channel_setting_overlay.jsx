@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { deleteChannel, updateChannel } from "../../actions/channel_actions";
 import {useDispatch} from "react-redux";
 import { useHistory } from "react-router";
+import { useParams } from "react-router-dom";
 
 const ChannelSettingOverlay = ({
   handleChannelSetting,
@@ -9,11 +10,14 @@ const ChannelSettingOverlay = ({
   channelId,
   channels
   }) => {
-    debugger
   const [tempChannelName, setTempChannelName] = useState(channelName);
   const [channelNameChanged, setChannelNameChanged] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const { serverId } = useParams();
+
+  debugger
+  const otherChannel = (channels.length > 1) ? channels.filter(channel => channel.toString() != channelId)[0] : `/servers/${serverId}/null`
   
   const handleChannelName = (e) => {
     setTempChannelName(e.target.value)
@@ -52,7 +56,8 @@ const ChannelSettingOverlay = ({
               className="ssp-delete"
               onClick={() => {
                 dispatch(deleteChannel(channelId));
-                handleChannelSetting();
+                handleChannelSetting()
+                history.push(`${otherChannel}`);
               }}
             >
               Delete Channel
