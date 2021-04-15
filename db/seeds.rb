@@ -154,6 +154,7 @@ subscription_6 = Subscription.create!(
     user_id: 3
 )
 
+
 subscription_7 = Subscription.create!(
     subscribeable_type: 'Server',
     subscribeable_id: '5',
@@ -393,4 +394,14 @@ subscription_17 = Subscription.create!(
     user_id: 4
 )
 
+subscription_18 = Subscription.create!(
+    subscribeable_type: 'Server',
+    subscribeable_id: '3',
+    user_id: 3
+)
 
+subscription_19 = Subscription.create!(
+    subscribeable_type: 'Server',
+    subscribeable_id: '2',
+    user_id: 2
+)
