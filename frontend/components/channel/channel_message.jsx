@@ -136,8 +136,17 @@ class ChannelMessage extends React.Component {
               onChange={this.handleSearch()}
             />
             <img className="mh-magnify" src={window.mh_magnify} />
-            <img className="mh-member" src={window.mh_member} />{" "}
-            {/* linkedin placeholder */}
+            <div className="profile">
+              <div className="profile-icon-container">
+                <a href="https://www.linkedin.com/in/jung-park-817580141/"><img className="linkedin" src={window.linkedin} /></a>
+              </div>
+              <div className="profile-icon-container">
+                <a href="https://github.com/Junghyun2006"><img className="github" src={window.github} /></a>
+              </div>
+              <div className="profile-icon-container">
+                <a href="https://angel.co/u/jung-park-14"><img className="angel" src={window.angel} /></a>
+              </div>
+            </div>
           </div>
         </div>
         <ChannelMessagesIndex channelMessageIndex={channelMessageIndex} />

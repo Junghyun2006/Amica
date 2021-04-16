@@ -238,3 +238,18 @@
     border-color: #7289DA;
     outline: none !important;; 
 }
+
+.angel:hover {
+    cursor: pointer;
+    filter: brightness(.2) invert(1)
+}
+
+.linkedin:hover {
+    cursor: pointer;
+    filter: brightness(.2) invert(1)
+}
+
+.github:hover {
+    cursor: pointer;
+    filter: brightness(.2) invert(1)
+}

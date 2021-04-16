@@ -64,16 +64,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 114px;
 }
 
 .mh-pin:hover, .mh-mute:hover, .mh-member:hover {
     // fill: #dcddde;
     cursor: pointer;
     filter: brightness(.2) invert(1)
-}
-
-.mh-right > img {
-    margin: 0px 8px;
 }
 
 .mh-search {
@@ -95,7 +92,7 @@
 
 .mh-magnify {
     position: absolute;
-    right: 45px;
+    right: 130px;
 }
 
 
@@ -124,4 +121,20 @@
     bottom: 34px;
     left: 344px;
     z-index: 2;
+}
+
+.mh-mute, .mh-pin, .mh-member {
+    margin: 0px 8px;
+}
+
+.mh-right > .linkedin {
+    margin-left: 8px;
+}
+
+.mh-right > .github {
+    margin-left: 8px;
+}
+
+.mh-right > .angel {
+    margin-left: 8px;
 }

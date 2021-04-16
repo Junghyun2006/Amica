@@ -15,6 +15,17 @@ const Friend = ({friends}) => {
             <button className="friend-header-btn">Pending</button>
             <button className="friend-header-btn">Blocked</button>
             <button className="add-friend-header-btn">Add Friend</button>
+            <div className="profile">
+              <div className="profile-icon-container">
+                <a href="https://www.linkedin.com/in/jung-park-817580141/"><img className="linkedin" src={window.linkedin} /></a>
+              </div>
+              <div className="profile-icon-container">
+                <a href="https://github.com/Junghyun2006"><img className="github" src={window.github} /></a>
+              </div>
+              <div className="profile-icon-container">
+                <a href="https://angel.co/u/jung-park-14"><img className="angel" src={window.angel} /></a>
+              </div>
+            </div>
           </div>
           <div className="friend-container">
             <FriendsIndex friends={friends}/>
