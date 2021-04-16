@@ -48,6 +48,17 @@
     margin-top: -7px;
 }
 
+.username-label {
+    font-size: 12px;
+    font-weight: bolder;
+    color: #8E9297;
+    margin-top: 2px;
+    margin-bottom: 8px;
+    position: relative;
+    bottom: 6px;
+    
+}
+
 .email-input {
     width: 392px;
     height: 19px;
@@ -64,6 +75,18 @@
     width: 392px;
     height: 19px;
     padding: 10px;
+    margin-top: 9px;
+    border: 1px solid #202225;
+    border-radius: 3px;
+    background-color: #303438;
+    color: white;
+}
+
+.username-input {
+    width: 392px;
+    height: 19px;
+    padding: 10px;
+    margin-bottom: 15px;
     margin-top: 9px;
     border: 1px solid #202225;
     border-radius: 3px;
@@ -228,6 +251,16 @@
 }
 
 .errors-password {
+    color:#F14846;
+    font-family: 'Catamaran', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    font-weight: lighter; 
+    position: relative;
+    left: 1px;
+}
+
+.errors-username {
     color:#F14846;
     font-family: 'Catamaran', sans-serif;
     font-style: italic;

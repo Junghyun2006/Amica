@@ -48,23 +48,6 @@ class SessionForm extends React.Component {
     };
   }
 
-  toggleEmpty2(e) {
-    this.emptyfield.email = this.state.email === "" ? true : false;
-    this.emptyfield.password = this.state.password === "" ? true : false;
-    this.emptyfield.username = this.state.username === "" ? true : false;
-    this.errors =
-      this.emptyfield.email === false &&
-      this.emptyfield.password === false &&
-      this.emptyfield.username === false
-        ? true
-        : false;
-  }
-
-  normalizeToggle(e) {
-    this.toggleEmpty2();
-    this.normalizeDate();
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state).then(() => this.props.history.push("/@me")); // modify the string inside push - MOST LIKELY THE ERROR
@@ -96,6 +79,19 @@ class SessionForm extends React.Component {
         </div>
       );
 
+    const usernameInput =
+      this.props.formType === "signup" ? (
+        <label className="username-label">
+          USERNAME
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={this.handleInput("username")}
+            className="username-input"
+          />
+        </label>
+      ) : null;
+
     const regisButton =
       this.props.formType === "signup" ? (
         <Link className="login-link" to={"/login"}>
@@ -112,12 +108,7 @@ class SessionForm extends React.Component {
 
     const submitButton =
       this.props.formType === "signup" ? (
-        <button
-          onClick={() => {
-            this.normalizeToggle();
-          }}
-          className="submit-btn-signup"
-        >
+        <button onClick={this.normalizeDate()} className="submit-btn-signup">
           Continue
         </button>
       ) : (
@@ -203,55 +194,27 @@ class SessionForm extends React.Component {
       ) : null;
 
     const renderEmailErr =
-      this.props.formType === "login" ? (
-        this.emptyfield.email === true && this.emptyfield.password === false ? (
-          <span className="errors"> - This field is required</span>
-        ) : null
-      ) : this.emptyfield.email === true ? (
+      this.emptyfield.email === true &&
+      this.props.formType === "login" &&
+      this.emptyfield.password === false ? (
         <span className="errors"> - This field is required</span>
       ) : null;
-
     const toggleRedEmail =
-      this.props.formType === "login"
-        ? (this.emptyfield.email === true &&
-            this.emptyfield.password === false) ||
-          this.errors === true
-          ? "empty"
-          : null
-        : this.emptyfield.email === true || this.errors === true
+      (this.emptyfield.email === true &&
+        this.props.formType === "login" &&
+        this.emptyfield.password === false) ||
+      this.errors === true
         ? "empty"
         : null;
-
     const renderPasswordErr =
-      this.emptyfield.password === true ? (
+      this.emptyfield.password === true && this.props.formType === "login" ? (
         <span className="errors"> - This field is required</span>
       ) : null;
     const toggleRedPass =
-      this.emptyfield.password === true || this.errors === true
+      (this.emptyfield.password === true && this.props.formType === "login") ||
+      this.errors === true
         ? "empty"
         : null;
-
-    const renderUsernameErr =
-      this.emptyfield.username === true ? (
-        <span className="errors"> - This field is required</span>
-      ) : null;
-    const toggleRedUser =
-      this.emptyfield.username === true || this.errors === true
-        ? "empty"
-        : null;
-
-    const usernameInput =
-      this.props.formType === "signup" ? (
-        <label className={`username-label ${toggleRedUser}`}>
-          USERNAME {renderUsernameErr}
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.handleInput("username")}
-            className={`username-input ${toggleRedUser}-input ${toggleRedUser}-disabled`}
-          />
-        </label>
-      ) : null;
 
     return (
       <div className="session-form-container">
@@ -259,10 +222,7 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit} className={sessionFormType}>
             {greeting}
             <label className={`email-label ${toggleRedEmail}`}>
-              EMAIL {renderEmailErr}{" "}
-              {this.props.formType === "login"
-                ? this.renderErrors("email")
-                : null}
+              EMAIL {renderEmailErr} {this.renderErrors("email")}
               <input
                 type="text"
                 value={this.state.email}

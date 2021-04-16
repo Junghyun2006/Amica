@@ -12,22 +12,18 @@ class Splash extends React.Component {
         >
           <div className="content-container-col">
             <div className="navbar-container">
-              <img src={window.logo2} className="logo" />
               <ul className="nav-links">
                 <li>
-                  <a href="#">Download</a>
+                  <a href="https://www.linkedin.com/in/jung-park-817580141/">LinkedIn</a>
                 </li>
                 <li>
-                  <a href="#">Why Amica?</a>
+                  <a href="https://github.com/Junghyun2006">Github</a>
                 </li>
                 <li>
-                  <a href="#">Nitro</a>
+                  <a href="https://angel.co/u/jung-park-14">Angel</a>
                 </li>
                 <li>
-                  <a href="#">Safety</a>
-                </li>
-                <li>
-                  <a href="#">Support</a>
+                  <a href="#">Portfolio</a>
                 </li>
               </ul>
               <NavBarContainer />
