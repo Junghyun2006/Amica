@@ -19,7 +19,7 @@ const ServerSubsIndex = ({currentServer, currentConversation, status, currentUse
                 <h1 className="text-members">MEMBERS&nbsp;—&nbsp;{serverCount} </h1>
                 {serverSubsList}
             </div>
-             <UserContextMenu currentUser={currentUser}/>
+             {/* <UserContextMenu currentUser={currentUser}/> */}
         </div>
     )
 }

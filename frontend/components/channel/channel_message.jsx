@@ -2,6 +2,7 @@ import React from "react";
 import ChannelMessageItem from "./channel_message_item";
 import ChannelMessagesIndex from "./channel_messages_main";
 import ServerSubsIndex from "../server/server_subs_index";
+import UserContextMenu from "../friend/user_context_menu";
 
 class ChannelMessage extends React.Component {
   constructor(props) {
@@ -146,51 +147,54 @@ class ChannelMessage extends React.Component {
     const messageHeader = status === "server" ? channelName : conversationName;
 
     return (
-      <div className="channel-container">
-        <div className="channel-message-header">
-          <div className="mh-left">
-            <img className="hashtag-img-header" src={window.hashtag} />
-            <h1 className="cm-header-name">{messageHeader}</h1>
-          </div>
-          <div className="mh-right">
-            <img className="mh-mute" src={window.mh_mute} />
-            <img className="mh-pin" src={window.mh_pin} />
-            <img className="mh-member" src={window.mh_member} />
-            <input
-              className="mh-search"
-              type="text"
-              value={this.state.search}
-              placeholder="Search"
-              onChange={this.handleSearch()}
-            />
-            <img className="mh-magnify" src={window.mh_magnify} />
-            <div className="profile">
-              <div className="profile-icon-container">
-                <a href="https://www.linkedin.com/in/jung-park-817580141/">
-                  <img className="linkedin" src={window.linkedin} />
-                </a>
-              </div>
-              <div className="profile-icon-container">
-                <a href="https://github.com/Junghyun2006">
-                  <img className="github" src={window.github} />
-                </a>
-              </div>
-              <div className="profile-icon-container">
-                <a href="https://angel.co/u/jung-park-14">
-                  <img className="angel" src={window.angel} />
-                </a>
+      <>
+        <UserContextMenu currentUser={currentUser} conversations={conversations}/>
+        <div className="channel-container">
+          <div className="channel-message-header">
+            <div className="mh-left">
+              <img className="hashtag-img-header" src={window.hashtag} />
+              <h1 className="cm-header-name">{messageHeader}</h1>
+            </div>
+            <div className="mh-right">
+              <img className="mh-mute" src={window.mh_mute} />
+              <img className="mh-pin" src={window.mh_pin} />
+              <img className="mh-member" src={window.mh_member} />
+              <input
+                className="mh-search"
+                type="text"
+                value={this.state.search}
+                placeholder="Search"
+                onChange={this.handleSearch()}
+              />
+              <img className="mh-magnify" src={window.mh_magnify} />
+              <div className="profile">
+                <div className="profile-icon-container">
+                  <a href="https://www.linkedin.com/in/jung-park-817580141/">
+                    <img className="linkedin" src={window.linkedin} />
+                  </a>
+                </div>
+                <div className="profile-icon-container">
+                  <a href="https://github.com/Junghyun2006">
+                    <img className="github" src={window.github} />
+                  </a>
+                </div>
+                <div className="profile-icon-container">
+                  <a href="https://angel.co/u/jung-park-14">
+                    <img className="angel" src={window.angel} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+          <ChannelMessagesIndex channelMessageIndex={channelMessageIndex} />
+          <ServerSubsIndex
+            currentServer={currentServer}
+            currentConversation={currentConversation}
+            status={status}
+            currentUser={currentUser}
+          />
         </div>
-        <ChannelMessagesIndex channelMessageIndex={channelMessageIndex} />
-        <ServerSubsIndex
-          currentServer={currentServer}
-          currentConversation={currentConversation}
-          status={status}
-          currentUser={currentUser}
-        />
-      </div>
+      </>
     );
   }
 }

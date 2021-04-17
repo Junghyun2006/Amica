@@ -14,6 +14,7 @@ const useRightClickMenu = (props) => {
         setXPos(`${e.pageX}px`);
         setShowMenu(true);
         setDataSet(e.target.dataset)
+        // console.log(e.target.dataset)
     }, [setXPos, setYPos])
     
     const handleClick = useCallback(() => {
