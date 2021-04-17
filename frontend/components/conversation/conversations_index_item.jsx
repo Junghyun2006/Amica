@@ -56,7 +56,7 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
                     <div className="conversation-item-name">{conversationName}</div>
                     {memberCountLabel}
                 </div>
-            <div classname="conv-icon-close-cont" onClick={() => handleDeleteSubscription()}><img className="conversation-icon-close" src={window.close}/></div>
+            <div className="conv-icon-close-cont" onClick={() => handleDeleteSubscription()}><img className="conversation-icon-close" src={window.close}/></div>
         </div>
       </Link>
   );

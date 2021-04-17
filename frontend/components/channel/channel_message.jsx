@@ -1,7 +1,7 @@
 import React from "react";
 import ChannelMessageItem from "./channel_message_item";
 import ChannelMessagesIndex from "./channel_messages_main";
-import ServerSubsIndex from "../server/server_subs_index"
+import ServerSubsIndex from "../server/server_subs_index";
 
 class ChannelMessage extends React.Component {
   constructor(props) {
@@ -18,31 +18,47 @@ class ChannelMessage extends React.Component {
 
   componentDidMount() {
     if (this.props.match.params.channelId) {
-       this.props.requestChannelMessages(this.props.match.params.channelId);
+      this.props.requestChannelMessages(this.props.match.params.channelId);
     } else {
-      this.props.requestConversationMessages(this.props.match.params.conversationId)
+      this.props.requestConversationMessages(
+        this.props.match.params.conversationId
+      );
     }
-     
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if ((prevProps.location !== this.props.location)) { 
+    if (prevProps.location !== this.props.location) {
       if (this.props.match.params.channelId) {
         this.props.requestChannelMessages(this.props.match.params.channelId);
       } else {
-        this.props.requestConversationMessages(this.props.match.params.conversationId);
+        this.props.requestConversationMessages(
+          this.props.match.params.conversationId
+        );
         this.props.requestCurrentUser(this.props.currentUser.id);
       }
     }
   }
 
   render() {
-    const { channels, channelMessages, servers, conversations, currentUser } = this.props;
+    const {
+      channels,
+      channelMessages,
+      servers,
+      conversations,
+      currentUser,
+    } = this.props;
     const channelId = this.props.match.params.channelId;
     const conversationId = this.props.match.params.conversationId;
-    const status = (!this.props.match.params.conversationId) ? 'server' : 'conversation';
-    const ACid = (status === 'server') ? channelId : conversationId;
-    if (status === 'conversation' && (Object.values(conversations).length === 0 || conversations[this.props.match.params.conversationId] === undefined)) return null;
+    const status = !this.props.match.params.conversationId
+      ? "server"
+      : "conversation";
+    const ACid = status === "server" ? channelId : conversationId;
+    if (
+      status === "conversation" &&
+      (Object.values(conversations).length === 0 ||
+        conversations[this.props.match.params.conversationId] === undefined)
+    )
+      return null;
 
     const today = new Date();
     today.setHours(0);
@@ -56,7 +72,7 @@ class ChannelMessage extends React.Component {
     function convert(input) {
       return moment(input, "HH:mm:ss").subtract(4, "hours").format("h:mm A");
     }
-    
+
     const filteredChannelMessages = channelMessages.filter((message) => {
       return Object.values(message.message)[0].messageable_id == ACid;
     });
@@ -72,7 +88,6 @@ class ChannelMessage extends React.Component {
       });
       return datemod.join("");
     };
-    
 
     let lastUser = null;
 
@@ -110,12 +125,25 @@ class ChannelMessage extends React.Component {
         ? ""
         : channels[this.props.match.params.channelId].name;
 
-        
-    const currentServer = servers[this.props.match.params.serverId]
-    const currentConversation = conversations[this.props.match.params.conversationId]
-    const removedSpacesName = (status === "conversation") ? conversations[this.props.match.params.conversationId].name.split(' ').join('') : null;
-    const conversationName = (status === "conversation") ? removedSpacesName.split(',').filter(name => { return name !== currentUser.username}).join(', '): null;
-    const messageHeader = (status === "server") ? channelName : conversationName
+    const currentServer = servers[this.props.match.params.serverId];
+    const currentConversation =
+      conversations[this.props.match.params.conversationId];
+    const removedSpacesName =
+      status === "conversation"
+        ? conversations[this.props.match.params.conversationId].name
+            .split(" ")
+            .join("")
+        : null;
+    const conversationName =
+      status === "conversation"
+        ? removedSpacesName
+            .split(",")
+            .filter((name) => {
+              return name !== currentUser.username;
+            })
+            .join(", ")
+        : null;
+    const messageHeader = status === "server" ? channelName : conversationName;
 
     return (
       <div className="channel-container">
@@ -138,19 +166,30 @@ class ChannelMessage extends React.Component {
             <img className="mh-magnify" src={window.mh_magnify} />
             <div className="profile">
               <div className="profile-icon-container">
-                <a href="https://www.linkedin.com/in/jung-park-817580141/"><img className="linkedin" src={window.linkedin} /></a>
+                <a href="https://www.linkedin.com/in/jung-park-817580141/">
+                  <img className="linkedin" src={window.linkedin} />
+                </a>
               </div>
               <div className="profile-icon-container">
-                <a href="https://github.com/Junghyun2006"><img className="github" src={window.github} /></a>
+                <a href="https://github.com/Junghyun2006">
+                  <img className="github" src={window.github} />
+                </a>
               </div>
               <div className="profile-icon-container">
-                <a href="https://angel.co/u/jung-park-14"><img className="angel" src={window.angel} /></a>
+                <a href="https://angel.co/u/jung-park-14">
+                  <img className="angel" src={window.angel} />
+                </a>
               </div>
             </div>
           </div>
         </div>
         <ChannelMessagesIndex channelMessageIndex={channelMessageIndex} />
-        <ServerSubsIndex currentServer={currentServer} currentConversation={currentConversation} status={status}/>
+        <ServerSubsIndex
+          currentServer={currentServer}
+          currentConversation={currentConversation}
+          status={status}
+          currentUser={currentUser}
+        />
       </div>
     );
   }
