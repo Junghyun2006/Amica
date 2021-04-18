@@ -9,17 +9,23 @@ const FriendCtx = ({ dataSet, currentUser, conversations, setActive }) => {
   const dispatch = useDispatch();
 
 
-  const ConversationExist = () => {
-    for (let i = 0; i < Object.values(conversations).length; i++) {
-      if (Object.values(conversations)[i].name === dataSet.username) {
-        history.push(
-          `/@me/conversations/${Object.values(conversations)[i].id}`
-        );
-        return false;
-      }
+    const membersToString = (members) => {
+        const memberIds = members.map(member => member.id);
+        return memberIds.sort().join(',')
     }
-    return true;
-  };
+
+    const ConversationExist = () => {
+        const memberIdString = [dataSet.subid, currentUser.id].sort().join(',');
+
+        for (let i = 0; i < Object.values(conversations).length; i++) {
+            if (membersToString(Object.values(Object.values(conversations)[i].subscriptions)) === memberIdString) {
+                history.push(`/@me/conversations/${Object.values(conversations)[i].id}`);
+                return false;
+            } 
+        } 
+
+        return true;
+    }
 
   const sendMessage = () => {
     if (ConversationExist()) {

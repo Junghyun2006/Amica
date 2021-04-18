@@ -8,18 +8,24 @@ const FriendIndexItem = ({friend, conversations, currentUser}) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    
+    const membersToString = (members) => {
+        const memberIds = members.map(member => member.id);
+        return memberIds.sort().join(',')
+    }
 
     const ConversationExist = () => {
+        const memberIdString = [friend.id, currentUser.id].sort().join(',');
+
         for (let i = 0; i < Object.values(conversations).length; i++) {
-        if (Object.values(conversations)[i].name === friend.username) {
-            history.push(
-            `/@me/conversations/${Object.values(conversations)[i].id}`
-            );
-            return false;
-        }
-        }
+            if (membersToString(Object.values(Object.values(conversations)[i].subscriptions)) === memberIdString) {
+                history.push(`/@me/conversations/${Object.values(conversations)[i].id}`);
+                return false;
+            } 
+        } 
+
         return true;
-    };
+    }
 
     const sendMessage = () => {
         if (ConversationExist()) {
