@@ -23,8 +23,10 @@ const FriendCtx = ({ dataSet, currentUser, conversations, setActive }) => {
 
   const sendMessage = () => {
     if (ConversationExist()) {
+      let name = currentUser.username
+      name += ", " + dataSet.username
       const conversation = {
-        name: dataSet.username,
+        name,
         users: [currentUser.id, dataSet.subid],
       };
       dispatch(createConversation(conversation, history));

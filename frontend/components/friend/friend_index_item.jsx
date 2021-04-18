@@ -23,8 +23,10 @@ const FriendIndexItem = ({friend, conversations, currentUser}) => {
 
     const sendMessage = () => {
         if (ConversationExist()) {
+             let name = currentUser.username
+             name += ", " + friend.username
         const conversation = {
-            name: friend.username,
+            name,
             users: [currentUser.id, friend.id],
         };
         dispatch(createConversation(conversation, history));

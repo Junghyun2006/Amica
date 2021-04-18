@@ -8,6 +8,7 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
     const {id, name} = conversation;
     const dmIcon = Object.values(conversation.subscriptions).filter(sub => {return sub.id !== currentUser.id})[0].avatarUrl
     const removedSpacesName = name.split(' ').join('');
+    debugger
     const conversationName = removedSpacesName.split(',').filter(name => {return name !== currentUser.username}).join(', ')
     const memberCount = Object.values(conversation.subscriptions).length;
     const dispatch = useDispatch();
