@@ -1,7 +1,7 @@
 import React from "react";
 import FriendsIndex from "./friend_index";
 
-const Friend = ({ friends }) => {
+const Friend = ({ friends, conversations, currentUser }) => {
   return (
     <div className="friend-main-container">
       <div className="friend-header">
@@ -37,7 +37,7 @@ const Friend = ({ friends }) => {
         </div>
       </div>
       <div className="friend-container">
-        <FriendsIndex friends={friends} />
+        <FriendsIndex friends={friends} conversations={conversations} currentUser={currentUser} />
       </div>
     </div>
   );

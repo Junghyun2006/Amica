@@ -77,6 +77,16 @@
     color: rgb(214, 214, 214);
 }
 
+.home {
+    background-color: #4F545c52;
+    pointer-events: none;
+    color: white;
+}
+
+.homeIcon {
+    filter: brightness(.2) invert(1)
+}
+
 .friend-text-channel {
     height: 8px;
     width: 200px;

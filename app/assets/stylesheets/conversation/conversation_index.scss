@@ -31,12 +31,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 220px;
+    width: 215x;
     border-radius: 4px;
     padding-left: 7px;
+    margin-bottom: 2px;
 }
 
-.conversation-item-container:hover {
+.conversation-item-container:not(.current-conversation):hover {
     cursor: pointer;
     background-color: rgba(79,84,92,0.16);
 }
@@ -82,11 +83,11 @@
     // align-items: center;
 }
 
-.conversation-item-container:hover .conversation-item-name {
+.conversation-item-container:not(.current-conversation2):hover .conversation-item-name:not(.current-conversation2) {
     color: #dcddde;
 }
 
-.conversation-item-container:hover .conversation-member-count {
+.conversation-item-container:not(.current-conversation2):hover .conversation-member-count:not(.current-conversation2) {
     color: #dcddde
 }
 
@@ -126,3 +127,13 @@
     filter: brightness(.2) invert(1)
 }
 
+.current-conversation {
+    background-color: #4F545c52;
+    color: white;
+    // pointer-events: none;
+}
+
+.current-conversation2 {
+    color: white;
+    // pointer-events: none;
+}

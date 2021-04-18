@@ -27,12 +27,6 @@ class HomePage extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //    if ((prevProps.location !== this.props.location)) { 
-  //     this.props.receiveCurrentUser(currentUser.id);
-  //   }
-  // }
-
   render() {
     const {currentUser, logout, openModal, friends, conversations} = this.props;
     const push = this.props.history.push;
@@ -46,7 +40,7 @@ class HomePage extends React.Component {
         <Route
           exact path="/@me"
           render={() => (
-            <Friend friends={friends}/>
+            <Friend friends={friends} conversations={conversations} currentUser={currentUser}/>
           )}
         />
         <Route path="/@me/conversations/:conversationId" component={ChannelMessageContainer} />

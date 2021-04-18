@@ -1,11 +1,11 @@
 import React from 'react';
 import FriendIndexItem from '../friend/friend_index_item';
 
-const FriendsIndex = ({friends}) => {
+const FriendsIndex = ({friends, conversations, currentUser}) => {
 
     const friendsList = Object.values(friends).map((friend, i) => {
         return (
-            <FriendIndexItem friend={friend} key={i}/>
+            <FriendIndexItem friend={friend} key={i} conversations={conversations} currentUser={currentUser}/>
         )
     })
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import {receiveConversationMessage, deleteConversation} from "../../actions/conversation_actions";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 const ConversationIndexItem = ({ conversation, currentUser }) => {
     const {id, name} = conversation;
@@ -12,6 +12,9 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
     const memberCount = Object.values(conversation.subscriptions).length;
     const dispatch = useDispatch();
     const history = useHistory();
+    const location = useLocation();
+    
+
 
     useEffect(() => {
         App.cable.subscriptions.create(
@@ -37,9 +40,12 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
         <img className="friend-avatar-icon" src={dmIcon} />
         </div>;
 
+    const currentConversation = (location.pathname === `/@me/conversations/${id}`) ? 'current-conversation' : null;
+    const currentConversation2 = (location.pathname === `/@me/conversations/${id}`) ? 'current-conversation2' : null;
+
     const memberCountLabel =
     memberCount > 2 ? (
-        <h1 className="conversation-member-count">{memberCount}&nbsp;&nbsp;Members</h1>
+        <h1 className={`conversation-member-count ${currentConversation2}`}>{memberCount}&nbsp;&nbsp;Members</h1>
     ) : null;
 
     const handleDeleteSubscription = () => {
@@ -50,10 +56,10 @@ const ConversationIndexItem = ({ conversation, currentUser }) => {
 
   return (
       <Link to={`/@me/conversations/${id}`} style={{ textDecoration: "none" }}>
-        <div className="conversation-item-container">
+        <div className={`conversation-item-container ${currentConversation}`}>
                 {conversationIcon}
                 <div className="conversation-item-name-cont">
-                    <div className="conversation-item-name">{conversationName}</div>
+                    <div className={`conversation-item-name ${currentConversation2}`}>{conversationName}</div>
                     {memberCountLabel}
                 </div>
             <div className="conv-icon-close-cont" onClick={() => handleDeleteSubscription()}><img className="conversation-icon-close" src={window.close}/></div>

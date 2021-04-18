@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useLocation, useHistory } from "react-router"
 import UserSetting from "../user/user_setting";
 import ConversationIndex from "../conversation/conversations_index";
 import ConversationCreate from "../friend/conversationCreate";
-import ReactDOM from 'react-dom'
 
 const FriendConversationIndex = ({
   currentUser,
@@ -12,9 +12,10 @@ const FriendConversationIndex = ({
   friends,
   conversations,
 }) => {
+  const location = useLocation();
+  const history = useHistory();
   const [conversationCreate, setConversationCreate] = useState(false);
   const conversationCreateToggle = () => setConversationCreate(!conversationCreate);
- 
   const convCreate = conversationCreate ? (
     <ConversationCreate
       currentUser={currentUser}
@@ -24,6 +25,9 @@ const FriendConversationIndex = ({
     />
   ) : null;
 
+  const home = (!location.pathname.includes('conversations')) ? "home" : null;
+  const homeIcon = (!location.pathname.includes('conversations')) ? "homeIcon" : null;
+
   return (
     <>
       <div className="friend-index-container">
@@ -32,10 +36,10 @@ const FriendConversationIndex = ({
             Find or start a conversation
           </button>
         </div>
-        <div className="friend-index-holder">
-          <div className="friends-btn-container">
-            <button className="friends-btn">
-              <img className="friend-icon" src={window.friend_icon} />
+        <div className="friend-index-holder" >
+          <div className="friends-btn-container" onClick={() => history.push('/@me')}>
+            <button className={`friends-btn ${home}`}>
+              <img className={`friend-icon ${homeIcon}`} src={window.friend_icon} />
               <h1 className="friends-btn-text">Friends</h1>
             </button>
           </div>

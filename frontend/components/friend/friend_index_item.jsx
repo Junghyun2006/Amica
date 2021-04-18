@@ -1,6 +1,36 @@
 import React from 'react';
+import { createConversation } from "../../actions/conversation_actions";
+import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
 
-const FriendIndexItem = ({friend}) => {
+const FriendIndexItem = ({friend, conversations, currentUser}) => {
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+
+    const ConversationExist = () => {
+        for (let i = 0; i < Object.values(conversations).length; i++) {
+        if (Object.values(conversations)[i].name === friend.username) {
+            history.push(
+            `/@me/conversations/${Object.values(conversations)[i].id}`
+            );
+            return false;
+        }
+        }
+        return true;
+    };
+
+    const sendMessage = () => {
+        if (ConversationExist()) {
+        const conversation = {
+            name: friend.username,
+            users: [currentUser.id, friend.id],
+        };
+        dispatch(createConversation(conversation, history));
+        }
+    };
+
     return (
         <> 
             <div className='friend-item-border'></div>
@@ -13,7 +43,7 @@ const FriendIndexItem = ({friend}) => {
                     </div>
                 </div>
                 <div className='friend-item-right'>
-                    <div className='friend-item-setting-cont1'>
+                    <div className='friend-item-setting-cont1' onClick={() => sendMessage()}>
                         <img className='friend-item-setting-icon' src={window.message_icon} />
                         <div className='friend-item-circle'></div>
                     </div>
