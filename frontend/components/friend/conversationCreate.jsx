@@ -12,6 +12,7 @@ const ConversationCreate = ({
 }) => {
   const [convMembers, setConvMembers] = useState([]);
   const [memberCount, setMemberCount] = useState(9);
+  const [friendSearch, setFriendSearch] = useState('')
   const dispatch = useDispatch();
   const history = useHistory();
   const convPopup = useRef();
@@ -30,18 +31,19 @@ const ConversationCreate = ({
     setConvMembers(removed);
   };
 
-  const ccFriendIndex = Object.values(friends).map((friend, i) => {
-    return (
-      <ConversationCreateII
-        friend={friend}
-        key={i}
-        addConvMember={addConvMember}
-        removeConvMember={removeConvMember}
-        incMemberCount={incMemberCount}
-        decMemberCount={decMemberCount}
-        memberCount={memberCount}
-      />
-    );
+  const filteredFriend = (friendSearch === "") ? (Object.values(friends)) : (Object.values(friends).filter((friend) => friend.username.toLowerCase().includes(friendSearch.toLowerCase())));
+  const ccFriendIndex = filteredFriend.map((friend, i) => {
+      return (
+        <ConversationCreateII
+          friend={friend}
+          key={i}
+          addConvMember={addConvMember}
+          removeConvMember={removeConvMember}
+          incMemberCount={incMemberCount}
+          decMemberCount={decMemberCount}
+          memberCount={memberCount}
+        />
+      );
   });
 
   const memberTrack = convMembers.map((member, i) => {
@@ -71,6 +73,8 @@ const ConversationCreate = ({
 
     return true;
   }
+
+  const handleSearchChange = e => setFriendSearch(e.target.value);
 
   const submitConversation = () => {
     if (ConversationExist(membersWithUser)) {
@@ -124,12 +128,14 @@ const ConversationCreate = ({
         <div className="conversation-create-sec-one">
           <h1 className="conv-create-header">SELECT FRIENDS</h1>
           {memberLabel}
-          <div className="conv-c-button-holder" onClick={(e) => e.stopPropagation()}>
+          <div className="conv-c-button-holder">
             {memberTrack}
             <div className="conv-c-search">
               <input
+                onChange={handleSearchChange}
                 className="conv-create-input"
                 type="text"
+                value={friendSearch}
                 placeholder="Type the username of a friend"
               />
             </div>
