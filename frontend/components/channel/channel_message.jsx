@@ -47,6 +47,9 @@ class ChannelMessage extends React.Component {
       servers,
       conversations,
       currentUser,
+      logout,
+      openModal,
+      receiveCurrentUser
     } = this.props;
     const channelId = this.props.match.params.channelId;
     const conversationId = this.props.match.params.conversationId;
@@ -148,7 +151,7 @@ class ChannelMessage extends React.Component {
 
     return (
       <>
-        <UserContextMenu currentUser={currentUser} conversations={conversations}/>
+        <UserContextMenu currentUser={currentUser} conversations={conversations} logout={logout} openModal={openModal} receiveCurrentUser={receiveCurrentUser}/>
         <div className="channel-container">
           <div className="channel-message-header">
             <div className="mh-left">
@@ -169,17 +172,17 @@ class ChannelMessage extends React.Component {
               <img className="mh-magnify" src={window.mh_magnify} />
               <div className="profile">
                 <div className="profile-icon-container">
-                  <a href="https://www.linkedin.com/in/jung-park-817580141/">
+                  <a href="https://www.linkedin.com/in/jung-park-817580141/" target="_blank">
                     <img className="linkedin" src={window.linkedin} />
                   </a>
                 </div>
                 <div className="profile-icon-container">
-                  <a href="https://github.com/Junghyun2006">
+                  <a href="https://github.com/Junghyun2006" target="_blank">
                     <img className="github" src={window.github} />
                   </a>
                 </div>
                 <div className="profile-icon-container">
-                  <a href="https://angel.co/u/jung-park-14">
+                  <a href="https://angel.co/u/jung-park-14" target="_blank">
                     <img className="angel" src={window.angel} />
                   </a>
                 </div>

@@ -101,15 +101,30 @@ const ConversationCreate = ({
       </h1>
     );
 
-  useEffect(() => convPopup.current.focus(), []);
+  function clickedOutside(ref) {
+    useEffect(() => {
+      function handleClickOutside(e) {
+        if (ref.current && !ref.current.contains(e.target)) {
+          conversationCreateToggle();
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+    }, [ref])
+  }
+
+  clickedOutside(convPopup);
 
   return (
-    <div tabIndex="0" onBlur={conversationCreateToggle} ref={convPopup}>
+    <div tabIndex="0" ref={convPopup} >
       <div className="conversation-create-container">
         <div className="conversation-create-sec-one">
           <h1 className="conv-create-header">SELECT FRIENDS</h1>
           {memberLabel}
-          <div className="conv-c-button-holder">
+          <div className="conv-c-button-holder" onClick={(e) => e.stopPropagation()}>
             {memberTrack}
             <div className="conv-c-search">
               <input

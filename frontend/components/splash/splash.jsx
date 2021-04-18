@@ -14,16 +14,27 @@ class Splash extends React.Component {
             <div className="navbar-container">
               <ul className="nav-links">
                 <li>
-                  <a href="https://www.linkedin.com/in/jung-park-817580141/">LinkedIn</a>
+                  <a
+                    href="https://www.linkedin.com/in/jung-park-817580141/"
+                    target="_blank"
+                  >
+                    LinkedIn
+                  </a>
                 </li>
                 <li>
-                  <a href="https://github.com/Junghyun2006">Github</a>
+                  <a href="https://github.com/Junghyun2006" target="_blank">
+                    Github
+                  </a>
                 </li>
                 <li>
-                  <a href="https://angel.co/u/jung-park-14">Angel</a>
+                  <a href="https://angel.co/u/jung-park-14" target="_blank">
+                    Angel
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Portfolio</a>
+                  <a href="#" target="_blank">
+                    Portfolio
+                  </a>
                 </li>
               </ul>
               <NavBarContainer />

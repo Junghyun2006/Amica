@@ -5,7 +5,7 @@ import { logout } from '../../actions/session_actions';
 import {withRouter} from "react-router";
 import {requestServers} from "../../actions/server_actions"
 import {openModal} from '../../actions/modal_actions';
-import {receiveCUser} from '../../actions/user_action'
+import {receiveCUser} from '../../actions/user_action';
 
 const msp = (state, ownProps) => {
     return {
