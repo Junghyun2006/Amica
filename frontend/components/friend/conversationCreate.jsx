@@ -33,6 +33,7 @@ const ConversationCreate = ({
 
   const filteredFriend = (friendSearch === "") ? (Object.values(friends)) : (Object.values(friends).filter((friend) => friend.username.toLowerCase().includes(friendSearch.toLowerCase())));
   const ccFriendIndex = filteredFriend.map((friend, i) => {
+      let checkedCheck = convMembers.includes(friend)
       return (
         <ConversationCreateII
           friend={friend}
@@ -42,6 +43,8 @@ const ConversationCreate = ({
           incMemberCount={incMemberCount}
           decMemberCount={decMemberCount}
           memberCount={memberCount}
+          checkedCheck={checkedCheck}
+          convMembers={convMembers}
         />
       );
   });
