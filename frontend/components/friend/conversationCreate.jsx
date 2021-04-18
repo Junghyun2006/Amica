@@ -94,6 +94,7 @@ const ConversationCreate = ({
         dispatch(createConversation(conversation, history));
       }
     }
+    conversationCreateToggle()
   };
 
   const memberLabel =
