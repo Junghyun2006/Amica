@@ -32,7 +32,7 @@ class Splash extends React.Component {
                   </a>
                 </li>
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://junghyun2006.github.io/Portfolio/" target="_blank">
                     Portfolio
                   </a>
                 </li>
